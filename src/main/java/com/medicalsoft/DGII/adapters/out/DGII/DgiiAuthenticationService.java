@@ -1,7 +1,10 @@
 package com.medicalsoft.DGII.adapters.out.DGII;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.medicalsoft.DGII.application.ports.out.DgiiAuthPort;
 import com.medicalsoft.DGII.config.DgiiApiProperties;
+import com.medicalsoft.DGII.shared.dtos.DgiiTokenResponse;
 import com.medicalsoft.DGII.shared.utils.DgiiHttpClientService;
 import com.medicalsoft.DGII.shared.utils.KeystoreLoader;
 import com.medicalsoft.DGII.shared.utils.XmlSigner;
@@ -15,6 +18,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.time.ZonedDateTime;
 
 @Service
 @RequiredArgsConstructor
@@ -27,7 +31,7 @@ public class DgiiAuthenticationService implements DgiiAuthPort {
     private final DgiiHttpClientService dgiiHttpClientService;
 
     @Override
-    public String obtenerToken() {
+    public DgiiTokenResponse obtenerToken() {
         try {
             // 1. Obtener semilla
             URI urlSemilla = URI.create(dgiiApiProperties.getBaseUrl())
@@ -51,7 +55,14 @@ public class DgiiAuthenticationService implements DgiiAuthPort {
             String respuestaTokenXml = validarSemilla(semillaFirmada);
             log.info("Respuesta de validación (token):\n{}", respuestaTokenXml);
 
-            return respuestaTokenXml;
+            // 4. Convertir JSON a DTO limpio
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode jsonNode = objectMapper.readTree(respuestaTokenXml);
+
+            return new DgiiTokenResponse(
+                    jsonNode.get("token").asText(),
+                    ZonedDateTime.parse(jsonNode.get("expedido").asText()),
+                    ZonedDateTime.parse(jsonNode.get("expira").asText()));
 
         } catch (Exception e) {
             log.error("Error en el flujo de autenticación con DGII", e);
@@ -71,7 +82,7 @@ public class DgiiAuthenticationService implements DgiiAuthPort {
     private String validarSemilla(String semillaFirmadaXml) {
         try {
             String url = dgiiApiProperties.getBaseUrl() +
-                    dgiiApiProperties.getEndpoints().getAuth().getValidate();     
+                    dgiiApiProperties.getEndpoints().getAuth().getValidate();
             String respuesta = dgiiHttpClientService.sendSignedXml(semillaFirmadaXml, url);
             log.info("Respuesta validación semilla:\n{}", respuesta);
             return respuesta;

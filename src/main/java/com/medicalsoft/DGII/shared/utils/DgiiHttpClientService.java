@@ -1,7 +1,6 @@
 package com.medicalsoft.DGII.shared.utils;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.client.MultipartBodyBuilder;
 import org.springframework.stereotype.Service;
@@ -15,7 +14,6 @@ public class DgiiHttpClientService {
 
     private final WebClient webClient;
 
-    @Autowired
     public DgiiHttpClientService(WebClient.Builder builder) {
         this.webClient = builder.build();
     }

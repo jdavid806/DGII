@@ -12,7 +12,7 @@ public class MoneyUtils {
     }
 
     public static String formatCurrency(BigDecimal amount) {
-        return NumberFormat.getCurrencyInstance(new Locale("es", "CO")).format(amount);
+        return NumberFormat.getCurrencyInstance(new Locale("es", "DO")).format(amount);
     }
 
     public static boolean isZero(BigDecimal amount) {
