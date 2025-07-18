@@ -15,11 +15,10 @@ import javax.xml.crypto.dsig.keyinfo.KeyInfoFactory;
 import javax.xml.crypto.dsig.keyinfo.X509Data;
 import javax.xml.crypto.dsig.spec.C14NMethodParameterSpec;
 import javax.xml.crypto.dsig.spec.TransformParameterSpec;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.springframework.stereotype.Component;
 import org.w3c.dom.Element;
 //Ref: https://repo1.maven.org/maven2/com/oracle/database/xml/xmlparserv2/21.8.0.0/xmlparserv2-21.8.0.0.jar
 import oracle.xml.parser.v2.DOMParser;
@@ -55,7 +54,7 @@ import javax.xml.transform.*;
  * https://code.visualstudio.com/docs/java/java-tutorial
  * Solo instalar el extensionPack for Java y el Coding Pack for Java para el JDK recomendamos Oracle Java SE
  */
-
+@Component
 public class XmlSigner {
     private static final String algoritmoSignatureMethod = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256";
 
