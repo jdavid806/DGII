@@ -1,0 +1,94 @@
+{
+  "properties": [
+    {
+      "name": "dgii.p12.path",
+      "type": "java.lang.String",
+      "description": "Ruta al archivo .p12 del certificado digital"
+    },
+    {
+      "name": "dgii.p12.password",
+      "type": "java.lang.String",
+      "description": "Contraseña del certificado .p12"
+    },
+    {
+      "name": "dgii.api.base-url",
+      "type": "java.lang.String",
+      "description": "URL base del API de la DGII (ambiente de pruebas o producción)"
+    },
+    {
+      "name": "dgii.api.endpoints.auth.seed",
+      "type": "java.lang.String",
+      "description": "Ruta para obtener la semilla de autenticación"
+    },
+    {
+      "name": "dgii.api.endpoints.auth.validate",
+      "type": "java.lang.String",
+      "description": "Ruta para validar la semilla y obtener el token"
+    },
+    {
+      "name": "dgii.api.endpoints.invoice.send",
+      "type": "java.lang.String",
+      "description": "Ruta para enviar facturas electrónicas"
+    },
+    {
+      "name": "dgii.api.endpoints.summary.send",
+      "type": "java.lang.String",
+      "description": "Ruta para enviar resumen de comprobantes"
+    },
+    {
+      "name": "dgii.api.endpoints.inquiry.invoice-summary",
+      "type": "java.lang.String",
+      "description": "Ruta para consultar el resumen de facturas"
+    },
+    {
+      "name": "dgii.api.endpoints.commercial.approval",
+      "type": "java.lang.String",
+      "description": "Ruta para aprobación comercial"
+    },
+    {
+      "name": "dgii.api.endpoints.status.track",
+      "type": "java.lang.String",
+      "description": "Ruta para consultar tracking de comprobantes"
+    },
+    {
+      "name": "dgii.api.endpoints.status.inquiry",
+      "type": "java.lang.String",
+      "description": "Ruta para consultar estado de comprobantes"
+    },
+    {
+      "name": "dgii.api.endpoints.tracking.all",
+      "type": "java.lang.String",
+      "description": "Ruta para consultar todos los trackings"
+    },
+    {
+      "name": "dgii.api.endpoints.directory.test",
+      "type": "java.lang.String",
+      "description": "Ruta para consultar directorio en ambiente de prueba"
+    },
+    {
+      "name": "dgii.api.endpoints.directory.prod",
+      "type": "java.lang.String",
+      "description": "Ruta para consultar directorio en ambiente de producción"
+    },
+    {
+      "name": "dgii.api.endpoints.void-operation",
+      "type": "java.lang.String",
+      "description": "Ruta para anulación de comprobantes"
+    },
+    {
+      "name": "dgii.api.endpoints.service.status",
+      "type": "java.lang.String",
+      "description": "Ruta para consultar el estado de los servicios"
+    },
+    {
+      "name": "dgii.api.endpoints.service.maintenance",
+      "type": "java.lang.String",
+      "description": "Ruta para consultar ventanas de mantenimiento"
+    },
+    {
+      "name": "dgii.api.endpoints.service.verification",
+      "type": "java.lang.String",
+      "description": "Ruta para verificar el estado del API"
+    }
+  ]
+}
