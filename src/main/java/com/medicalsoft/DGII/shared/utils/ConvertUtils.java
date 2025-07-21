@@ -41,20 +41,6 @@ public class ConvertUtils {
         }
     }
 
-    // public static BigInteger toBigInteger(Object value) {
-    //     try {
-    //         if (value instanceof BigInteger)
-    //             return (BigInteger) value;
-    //         if (value instanceof Number)
-    //             return BigInteger.valueOf(((Number) value).longValue());
-    //         if (value instanceof String)
-    //             return new BigInteger(((String) value).trim());
-    //         return null;
-    //     } catch (Exception e) {
-    //         return null;
-    //     }
-    // }
-
     public static Integer toInteger(String value) {
         try {
             return Integer.valueOf(value.trim());
