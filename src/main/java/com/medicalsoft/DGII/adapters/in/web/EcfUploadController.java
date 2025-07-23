@@ -1,31 +1,39 @@
 package com.medicalsoft.DGII.adapters.in.web;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.http.HttpHeaders;
+import java.io.InputStream;
+
+import org.apache.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import com.medicalsoft.DGII.application.ports.out.DgiiReceptionPort;
 
-import com.medicalsoft.DGII.application.service.EcfXmlService;
+import com.medicalsoft.DGII.shared.dtos.DgiiResponseReception;
+import com.medicalsoft.DGII.shared.responses.ApiResponse;
 
-import java.io.File;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/v1/")
+@RequiredArgsConstructor
 public class EcfUploadController {
 
-    @Autowired
-    private EcfXmlService ecfXmlService;
+    private final DgiiReceptionPort dgiiReceptionPort;
 
-    @PostMapping("upload-excel")
-    public ResponseEntity<FileSystemResource> uploadExcel(@RequestParam("file") MultipartFile file) throws Exception {
-        File xmlFile = ecfXmlService.procesarExcelYGenerarXml(file.getInputStream());
+    @PostMapping(value = "/upload-excel", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<ApiResponse<DgiiResponseReception>> uploadExcel(
+            @RequestPart("excelInputStream") MultipartFile excelFile,
+            @RequestHeader("Authorization") String authorization) {
 
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + xmlFile.getName())
-                .contentType(MediaType.APPLICATION_XML)
-                .body(new FileSystemResource(xmlFile));
+        try (InputStream is = excelFile.getInputStream()) {
+            String token = authorization.replace("Bearer ", "");
+            DgiiResponseReception response = dgiiReceptionPort.sendReception(is, token);
+            return ResponseEntity.ok(new ApiResponse<>(200, "XML enviado correctamente", response));
+        } catch (Exception e) {
+                   return ResponseEntity.status(HttpStatus.SC_INTERNAL_SERVER_ERROR)
+                    .body(new ApiResponse<>(500, "Error procesando el archivo Excel", null));
+        }
     }
+
 }

@@ -58,67 +58,67 @@ public class EcfXmlService {
 
         Map<String, Object> baseMap = new HashMap<>();
         baseMap.putAll(Map.ofEntries(
-            Map.entry("FechaVencimientoSecuencia", idDoc),
-            // Emisor
-            Map.entry("RNCEmisor", emisor),
-            Map.entry("RazonSocialEmisor", emisor),
-            Map.entry("NombreComercial", emisor),
-            Map.entry("Sucursal", emisor),
-            Map.entry("DireccionEmisor", emisor),
-            Map.entry("Municipio", emisor),
-            Map.entry("Provincia", emisor),
-            Map.entry("TelefonoEmisor", emisor),
-            Map.entry("CorreoEmisor", emisor),
-            Map.entry("WebSite", emisor),
-            Map.entry("CodigoVendedor", emisor),
-            Map.entry("InformacionAdicionalEmisor", emisor),
-            Map.entry("NumeroFacturaInterna", emisor),
-            Map.entry("NumeroPedidoInterno", emisor),
-            Map.entry("FechaEmision", emisor),
-            // Comprador
-            Map.entry("RNCComprador", comprador),
-            Map.entry("RazonSocialComprador", comprador),
-            Map.entry("ContactoComprador", comprador),
-            Map.entry("CorreoComprador", comprador),
-            Map.entry("DireccionComprador", comprador),
-            Map.entry("MunicipioComprador", comprador),
-            Map.entry("ProvinciaComprador", comprador),
-            Map.entry("TelefonoAdicional", comprador),
-            Map.entry("IdentificadorExtranjero", comprador),
-            // Documento
-            Map.entry("TipoeCF", idDoc),
-            Map.entry("ENCF", idDoc),
-            Map.entry("FechaEntrega", idDoc),
-            Map.entry("TipoPago", idDoc),
-            Map.entry("TerminoPago", idDoc),
-            Map.entry("Moneda", idDoc),
-            Map.entry("TipoCambio", idDoc),
-            Map.entry("Observaciones", idDoc),
-            Map.entry("TipoTransaccion", idDoc),
-            Map.entry("BienesTransp", idDoc),
-            Map.entry("CondicionOperacion", idDoc),
-            Map.entry("FormaEntrega", idDoc),
-            // Totales
-            Map.entry("MontoGravadoTotal", totales),
-            Map.entry("MontoItemExento", totales),
-            Map.entry("MontoSubTotal", totales),
-            Map.entry("TotalDescuento", totales),
-            Map.entry("TotalCargo", totales),
-            Map.entry("TotalITBIS", totales),
-            Map.entry("TotalISC", totales),
-            Map.entry("TotalOtrosImpuestos", totales),
-            Map.entry("TotalITBISRetenido", totales),
-            Map.entry("TotalISRRetencion", totales),
-            Map.entry("MontoTotal", totales),
-            Map.entry("MontoExento", totales),
-            Map.entry("MontoPeriodo", totales),
-            Map.entry("ValorPagar", totales),
-            // Transporte
-            Map.entry("NumeroContenedor", transporte),
-            Map.entry("NumeroReferencia", transporte),
-            Map.entry("PaisDestino", transporte),
-            Map.entry("Placa", transporte),
-            Map.entry("RutaTransporte", transporte)));
+                Map.entry("FechaVencimientoSecuencia", idDoc),
+                // Emisor
+                Map.entry("RNCEmisor", emisor),
+                Map.entry("RazonSocialEmisor", emisor),
+                Map.entry("NombreComercial", emisor),
+                Map.entry("Sucursal", emisor),
+                Map.entry("DireccionEmisor", emisor),
+                Map.entry("Municipio", emisor),
+                Map.entry("Provincia", emisor),
+                Map.entry("TelefonoEmisor", emisor),
+                Map.entry("CorreoEmisor", emisor),
+                Map.entry("WebSite", emisor),
+                Map.entry("CodigoVendedor", emisor),
+                Map.entry("InformacionAdicionalEmisor", emisor),
+                Map.entry("NumeroFacturaInterna", emisor),
+                Map.entry("NumeroPedidoInterno", emisor),
+                Map.entry("FechaEmision", emisor),
+                // Comprador
+                Map.entry("RNCComprador", comprador),
+                Map.entry("RazonSocialComprador", comprador),
+                Map.entry("ContactoComprador", comprador),
+                Map.entry("CorreoComprador", comprador),
+                Map.entry("DireccionComprador", comprador),
+                Map.entry("MunicipioComprador", comprador),
+                Map.entry("ProvinciaComprador", comprador),
+                Map.entry("TelefonoAdicional", comprador),
+                Map.entry("IdentificadorExtranjero", comprador),
+                // Documento
+                Map.entry("TipoeCF", idDoc),
+                Map.entry("ENCF", idDoc),
+                Map.entry("FechaEntrega", idDoc),
+                Map.entry("TipoPago", idDoc),
+                Map.entry("TerminoPago", idDoc),
+                Map.entry("Moneda", idDoc),
+                Map.entry("TipoCambio", idDoc),
+                Map.entry("Observaciones", idDoc),
+                Map.entry("TipoTransaccion", idDoc),
+                Map.entry("BienesTransp", idDoc),
+                Map.entry("CondicionOperacion", idDoc),
+                Map.entry("FormaEntrega", idDoc),
+                // Totales
+                Map.entry("MontoGravadoTotal", totales),
+                Map.entry("MontoItemExento", totales),
+                Map.entry("MontoSubTotal", totales),
+                Map.entry("TotalDescuento", totales),
+                Map.entry("TotalCargo", totales),
+                Map.entry("TotalITBIS", totales),
+                Map.entry("TotalISC", totales),
+                Map.entry("TotalOtrosImpuestos", totales),
+                Map.entry("TotalITBISRetenido", totales),
+                Map.entry("TotalISRRetencion", totales),
+                Map.entry("MontoTotal", totales),
+                Map.entry("MontoExento", totales),
+                Map.entry("MontoPeriodo", totales),
+                Map.entry("ValorPagar", totales),
+                // Transporte
+                Map.entry("NumeroContenedor", transporte),
+                Map.entry("NumeroReferencia", transporte),
+                Map.entry("PaisDestino", transporte),
+                Map.entry("Placa", transporte),
+                Map.entry("RutaTransporte", transporte)));
 
         for (int i = 0; i < headerRow.getPhysicalNumberOfCells(); i++) {
             String columnName = headerRow.getCell(i).getStringCellValue().trim();
@@ -155,8 +155,7 @@ public class EcfXmlService {
             if (columnName.matches("FormaPago\\[\\d+]") || columnName.matches("MontoPago\\[\\d+]")) {
                 int idx = extractIndex(columnName);
                 ensureSize(tablaFormasPago.getFormaDePago(), idx);
-                ECF.Encabezado.IdDoc.TablaFormasPago.FormaDePago forma =
-                        tablaFormasPago.getFormaDePago().get(idx - 1);
+                ECF.Encabezado.IdDoc.TablaFormasPago.FormaDePago forma = tablaFormasPago.getFormaDePago().get(idx - 1);
                 if (forma == null) {
                     forma = new ECF.Encabezado.IdDoc.TablaFormasPago.FormaDePago();
                     tablaFormasPago.getFormaDePago().set(idx - 1, forma);
@@ -239,7 +238,11 @@ public class EcfXmlService {
         validateSignedXmlAgainstXSD(xmlFirmado);
 
         // Guardar archivo XML firmado
-        File xmlFile = File.createTempFile("ecf-firmado-", ".xml");
+        File xmlDir = new File("xml_enviados");
+        xmlDir.mkdirs(); // Asegura que exista el directorio
+
+        File xmlFile = new File(xmlDir, "ecf-firmado-" + System.currentTimeMillis() + ".xml");
+
         try (FileOutputStream fos = new FileOutputStream(xmlFile)) {
             fos.write(xmlFirmado.getBytes(StandardCharsets.UTF_8));
         }
@@ -260,16 +263,31 @@ public class EcfXmlService {
     }
 
     private void validateSignedXmlAgainstXSD(String xmlContent) throws Exception {
+        // Forzamos el uso del parser estándar (Xerces) para evitar problemas con Oracle
+        // XML parser
+        System.setProperty(
+                "javax.xml.validation.SchemaFactory:" + XMLConstants.W3C_XML_SCHEMA_NS_URI,
+                "org.apache.xerces.jaxp.validation.XMLSchemaFactory");
+
         SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+
+        try {
+            factory.setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false);
+        } catch (org.xml.sax.SAXNotRecognizedException e) {
+
+            System.out.println("Parser no reconoce la feature 'load-dtd-grammar', se omite.");
+        }
+
         Schema schema = factory.newSchema(new File("src/main/resources/xsd/e-CF-47.xsd"));
         Validator validator = schema.newValidator();
 
         try (StringReader reader = new StringReader(xmlContent)) {
             validator.validate(new StreamSource(reader));
             System.out.println("El XML firmado es válido contra el XSD.");
-        } catch (SAXException e) {
+        } catch (org.xml.sax.SAXException e) {
             System.err.println("Error de validación del XML firmado: " + e.getMessage());
             throw e;
         }
     }
+
 }
