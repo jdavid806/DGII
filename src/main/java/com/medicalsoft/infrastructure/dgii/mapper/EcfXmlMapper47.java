@@ -4,9 +4,6 @@ import com.medicalsoft.DGII.domain.interfaces.ExcelToEcfMapper;
 import com.medicalsoft.infrastructure.dgii.generated.ecf47.*;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -130,8 +127,8 @@ public class EcfXmlMapper47 implements ExcelToEcfMapper<ECF> {
             }
 
             if (columnName.matches("FormaPago\\[\\d+]") || columnName.matches("MontoPago\\[\\d+]")) {
-                int idx = extractIndex(columnName);
-                ensureSize(tablaFormasPago.getFormaDePago(), idx);
+                int idx = ExcelUtils.extractIndex(columnName);
+                ExcelUtils.ensureSize(tablaFormasPago.getFormaDePago(), idx);
                 ECF.Encabezado.IdDoc.TablaFormasPago.FormaDePago forma = tablaFormasPago.getFormaDePago().get(idx - 1);
                 if (forma == null) {
                     forma = new ECF.Encabezado.IdDoc.TablaFormasPago.FormaDePago();
@@ -148,7 +145,7 @@ public class EcfXmlMapper47 implements ExcelToEcfMapper<ECF> {
             }
 
             if (columnName.matches(".*\\[\\d+].*")) {
-                int itemIndex = extractIndex(columnName);
+                int itemIndex = ExcelUtils.extractIndex(columnName);
                 ECF.DetallesItems.Item item = itemMap.computeIfAbsent(itemIndex, k -> new ECF.DetallesItems.Item());
                 String cleanField = columnName.replaceAll("\\[\\d+]", "");
 
@@ -200,14 +197,4 @@ public class EcfXmlMapper47 implements ExcelToEcfMapper<ECF> {
 
     }
 
-    private int extractIndex(String input) {
-        Matcher m = Pattern.compile("\\[(\\d+)]").matcher(input);
-        return m.find() ? Integer.parseInt(m.group(1)) : 1;
-    }
-
-    private <T> void ensureSize(List<T> list, int size) {
-        while (list.size() < size) {
-            list.add(null);
-        }
-    }
 }

@@ -113,7 +113,11 @@ public class EcfXmlService {
         }
 
         File xsdFile = switch (tipoEcf) {
-            case "47" -> new File("src/main/resources/xsd/e-CF-47.xsd");
+            case "32" -> new File("src/main/resources/xsd/xsd32/e-CF-32.xsd");
+            case "33" -> new File("src/main/resources/xsd/xsd32/e-CF-33.xsd");
+            case "34" -> new File("src/main/resources/xsd/xsd32/e-CF-34.xsd");
+            case "41" -> new File("src/main/resources/xsd/xsd32/e-CF-41.xsd");
+            case "47" -> new File("src/main/resources/xsd/xsd47/e-CF-47.xsd");
             // case "43" -> new File("src/main/resources/xsd/e-CF-43.xsd");
             default -> throw new IllegalArgumentException("XSD no soportado para TipoeCF: " + tipoEcf);
         };

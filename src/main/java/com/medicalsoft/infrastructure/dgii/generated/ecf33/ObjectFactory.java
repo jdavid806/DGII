@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2025.07.23 a las 06:59:05 PM COT 
+// Generado el: 2025.07.24 a las 03:17:38 PM COT 
 //
 
 
@@ -53,6 +53,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ECF.Paginacion.Pagina }
+     * 
+     */
+    public ECF.Paginacion.Pagina createECFPaginacionPagina() {
+        return new ECF.Paginacion.Pagina();
+    }
+
+    /**
+     * Create an instance of {@link ECF.DescuentosORecargos }
+     * 
+     */
+    public ECF.DescuentosORecargos createECFDescuentosORecargos() {
+        return new ECF.DescuentosORecargos();
+    }
+
+    /**
      * Create an instance of {@link ECF.Subtotales }
      * 
      */
@@ -77,6 +93,38 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ECF.DetallesItems.Item.TablaImpuestoAdicional }
+     * 
+     */
+    public ECF.DetallesItems.Item.TablaImpuestoAdicional createECFDetallesItemsItemTablaImpuestoAdicional() {
+        return new ECF.DetallesItems.Item.TablaImpuestoAdicional();
+    }
+
+    /**
+     * Create an instance of {@link ECF.DetallesItems.Item.TablaSubRecargo }
+     * 
+     */
+    public ECF.DetallesItems.Item.TablaSubRecargo createECFDetallesItemsItemTablaSubRecargo() {
+        return new ECF.DetallesItems.Item.TablaSubRecargo();
+    }
+
+    /**
+     * Create an instance of {@link ECF.DetallesItems.Item.TablaSubDescuento }
+     * 
+     */
+    public ECF.DetallesItems.Item.TablaSubDescuento createECFDetallesItemsItemTablaSubDescuento() {
+        return new ECF.DetallesItems.Item.TablaSubDescuento();
+    }
+
+    /**
+     * Create an instance of {@link ECF.DetallesItems.Item.TablaSubcantidad }
+     * 
+     */
+    public ECF.DetallesItems.Item.TablaSubcantidad createECFDetallesItemsItemTablaSubcantidad() {
+        return new ECF.DetallesItems.Item.TablaSubcantidad();
+    }
+
+    /**
      * Create an instance of {@link ECF.DetallesItems.Item.TablaCodigosItem }
      * 
      */
@@ -90,6 +138,38 @@ public class ObjectFactory {
      */
     public ECF.Encabezado createECFEncabezado() {
         return new ECF.Encabezado();
+    }
+
+    /**
+     * Create an instance of {@link ECF.Encabezado.OtraMoneda }
+     * 
+     */
+    public ECF.Encabezado.OtraMoneda createECFEncabezadoOtraMoneda() {
+        return new ECF.Encabezado.OtraMoneda();
+    }
+
+    /**
+     * Create an instance of {@link ECF.Encabezado.OtraMoneda.ImpuestosAdicionalesOtraMoneda }
+     * 
+     */
+    public ECF.Encabezado.OtraMoneda.ImpuestosAdicionalesOtraMoneda createECFEncabezadoOtraMonedaImpuestosAdicionalesOtraMoneda() {
+        return new ECF.Encabezado.OtraMoneda.ImpuestosAdicionalesOtraMoneda();
+    }
+
+    /**
+     * Create an instance of {@link ECF.Encabezado.Totales }
+     * 
+     */
+    public ECF.Encabezado.Totales createECFEncabezadoTotales() {
+        return new ECF.Encabezado.Totales();
+    }
+
+    /**
+     * Create an instance of {@link ECF.Encabezado.Totales.ImpuestosAdicionales }
+     * 
+     */
+    public ECF.Encabezado.Totales.ImpuestosAdicionales createECFEncabezadoTotalesImpuestosAdicionales() {
+        return new ECF.Encabezado.Totales.ImpuestosAdicionales();
     }
 
     /**
@@ -125,11 +205,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ECF.Paginacion.Pagina }
+     * Create an instance of {@link ECF.Paginacion.Pagina.SubtotalImpuestoAdicional }
      * 
      */
-    public ECF.Paginacion.Pagina createECFPaginacionPagina() {
-        return new ECF.Paginacion.Pagina();
+    public ECF.Paginacion.Pagina.SubtotalImpuestoAdicional createECFPaginacionPaginaSubtotalImpuestoAdicional() {
+        return new ECF.Paginacion.Pagina.SubtotalImpuestoAdicional();
+    }
+
+    /**
+     * Create an instance of {@link ECF.DescuentosORecargos.DescuentoORecargo }
+     * 
+     */
+    public ECF.DescuentosORecargos.DescuentoORecargo createECFDescuentosORecargosDescuentoORecargo() {
+        return new ECF.DescuentosORecargos.DescuentoORecargo();
     }
 
     /**
@@ -149,11 +237,51 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ECF.DetallesItems.Item.Mineria }
+     * 
+     */
+    public ECF.DetallesItems.Item.Mineria createECFDetallesItemsItemMineria() {
+        return new ECF.DetallesItems.Item.Mineria();
+    }
+
+    /**
      * Create an instance of {@link ECF.DetallesItems.Item.OtraMonedaDetalle }
      * 
      */
     public ECF.DetallesItems.Item.OtraMonedaDetalle createECFDetallesItemsItemOtraMonedaDetalle() {
         return new ECF.DetallesItems.Item.OtraMonedaDetalle();
+    }
+
+    /**
+     * Create an instance of {@link ECF.DetallesItems.Item.TablaImpuestoAdicional.ImpuestoAdicional }
+     * 
+     */
+    public ECF.DetallesItems.Item.TablaImpuestoAdicional.ImpuestoAdicional createECFDetallesItemsItemTablaImpuestoAdicionalImpuestoAdicional() {
+        return new ECF.DetallesItems.Item.TablaImpuestoAdicional.ImpuestoAdicional();
+    }
+
+    /**
+     * Create an instance of {@link ECF.DetallesItems.Item.TablaSubRecargo.SubRecargo }
+     * 
+     */
+    public ECF.DetallesItems.Item.TablaSubRecargo.SubRecargo createECFDetallesItemsItemTablaSubRecargoSubRecargo() {
+        return new ECF.DetallesItems.Item.TablaSubRecargo.SubRecargo();
+    }
+
+    /**
+     * Create an instance of {@link ECF.DetallesItems.Item.TablaSubDescuento.SubDescuento }
+     * 
+     */
+    public ECF.DetallesItems.Item.TablaSubDescuento.SubDescuento createECFDetallesItemsItemTablaSubDescuentoSubDescuento() {
+        return new ECF.DetallesItems.Item.TablaSubDescuento.SubDescuento();
+    }
+
+    /**
+     * Create an instance of {@link ECF.DetallesItems.Item.TablaSubcantidad.SubcantidadItem }
+     * 
+     */
+    public ECF.DetallesItems.Item.TablaSubcantidad.SubcantidadItem createECFDetallesItemsItemTablaSubcantidadSubcantidadItem() {
+        return new ECF.DetallesItems.Item.TablaSubcantidad.SubcantidadItem();
     }
 
     /**
@@ -173,6 +301,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ECF.Encabezado.InformacionesAdicionales }
+     * 
+     */
+    public ECF.Encabezado.InformacionesAdicionales createECFEncabezadoInformacionesAdicionales() {
+        return new ECF.Encabezado.InformacionesAdicionales();
+    }
+
+    /**
      * Create an instance of {@link ECF.Encabezado.Transporte }
      * 
      */
@@ -181,19 +317,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ECF.Encabezado.Totales }
+     * Create an instance of {@link ECF.Encabezado.OtraMoneda.ImpuestosAdicionalesOtraMoneda.ImpuestoAdicionalOtraMoneda }
      * 
      */
-    public ECF.Encabezado.Totales createECFEncabezadoTotales() {
-        return new ECF.Encabezado.Totales();
+    public ECF.Encabezado.OtraMoneda.ImpuestosAdicionalesOtraMoneda.ImpuestoAdicionalOtraMoneda createECFEncabezadoOtraMonedaImpuestosAdicionalesOtraMonedaImpuestoAdicionalOtraMoneda() {
+        return new ECF.Encabezado.OtraMoneda.ImpuestosAdicionalesOtraMoneda.ImpuestoAdicionalOtraMoneda();
     }
 
     /**
-     * Create an instance of {@link ECF.Encabezado.OtraMoneda }
+     * Create an instance of {@link ECF.Encabezado.Totales.ImpuestosAdicionales.ImpuestoAdicional }
      * 
      */
-    public ECF.Encabezado.OtraMoneda createECFEncabezadoOtraMoneda() {
-        return new ECF.Encabezado.OtraMoneda();
+    public ECF.Encabezado.Totales.ImpuestosAdicionales.ImpuestoAdicional createECFEncabezadoTotalesImpuestosAdicionalesImpuestoAdicional() {
+        return new ECF.Encabezado.Totales.ImpuestosAdicionales.ImpuestoAdicional();
     }
 
     /**

@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2025.07.23 a las 06:59:05 PM COT 
+// Generado el: 2025.07.24 a las 03:17:38 PM COT 
 //
 
 
@@ -46,7 +46,11 @@ import org.w3c.dom.Element;
  *                             &lt;element name="TipoeCF" type="{}TipoeCFType"/&gt;
  *                             &lt;element name="eNCF" type="{}eNCFValidationType"/&gt;
  *                             &lt;element name="FechaVencimientoSecuencia" type="{}FechaValidationType"/&gt;
- *                             &lt;element name="TipoPago" type="{}TipoPagoType" minOccurs="0"/&gt;
+ *                             &lt;element name="IndicadorEnvioDiferido" type="{}IndicadorEnvioDiferidoType" minOccurs="0"/&gt;
+ *                             &lt;element name="IndicadorMontoGravado" type="{}IndicadorMontoGravadoType" minOccurs="0"/&gt;
+ *                             &lt;element name="IndicadorServicioTodoIncluido" type="{}IndicadorServicioTodoIncluidoType" minOccurs="0"/&gt;
+ *                             &lt;element name="TipoIngresos" type="{}TipoIngresosValidationType"/&gt;
+ *                             &lt;element name="TipoPago" type="{}TipoPagoType"/&gt;
  *                             &lt;element name="FechaLimitePago" type="{}FechaValidationType" minOccurs="0"/&gt;
  *                             &lt;element name="TerminoPago" type="{}TerminoPagoValidationType" minOccurs="0"/&gt;
  *                             &lt;element name="TablaFormasPago" minOccurs="0"&gt;
@@ -76,7 +80,7 @@ import org.w3c.dom.Element;
  *                             &lt;element name="BancoPago" type="{}BancoPagoType" minOccurs="0"/&gt;
  *                             &lt;element name="FechaDesde" type="{}FechaValidationType" minOccurs="0"/&gt;
  *                             &lt;element name="FechaHasta" type="{}FechaValidationType" minOccurs="0"/&gt;
- *                             &lt;element name="TotalPaginas" type="{}Integer4ValidationTypeMayorUno" minOccurs="0"/&gt;
+ *                             &lt;element name="TotalPaginas" type="{}Integer5ValidationTypeMayorUno" minOccurs="0"/&gt;
  *                           &lt;/sequence&gt;
  *                         &lt;/restriction&gt;
  *                       &lt;/complexContent&gt;
@@ -108,8 +112,11 @@ import org.w3c.dom.Element;
  *                             &lt;element name="CorreoEmisor" type="{}CorreoValidationType" minOccurs="0"/&gt;
  *                             &lt;element name="WebSite" type="{}AlfNum50Type" minOccurs="0"/&gt;
  *                             &lt;element name="ActividadEconomica" type="{}AlfNum100Type" minOccurs="0"/&gt;
+ *                             &lt;element name="CodigoVendedor" type="{}AlfNum60Type" minOccurs="0"/&gt;
  *                             &lt;element name="NumeroFacturaInterna" type="{}AlfNum20Type" minOccurs="0"/&gt;
  *                             &lt;element name="NumeroPedidoInterno" type="{}Integer20ValidationType" minOccurs="0"/&gt;
+ *                             &lt;element name="ZonaVenta" type="{}AlfNum20Type" minOccurs="0"/&gt;
+ *                             &lt;element name="RutaVenta" type="{}AlfNum20Type" minOccurs="0"/&gt;
  *                             &lt;element name="InformacionAdicionalEmisor" type="{}AlfNum250Type" minOccurs="0"/&gt;
  *                             &lt;element name="FechaEmision" type="{}FechaValidationType"/&gt;
  *                           &lt;/sequence&gt;
@@ -122,8 +129,45 @@ import org.w3c.dom.Element;
  *                       &lt;complexContent&gt;
  *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                           &lt;sequence&gt;
+ *                             &lt;element name="RNCComprador" type="{}RNCValidationType" minOccurs="0"/&gt;
  *                             &lt;element name="IdentificadorExtranjero" type="{}AlfNum20Type" minOccurs="0"/&gt;
  *                             &lt;element name="RazonSocialComprador" type="{}AlfNum150Type" minOccurs="0"/&gt;
+ *                             &lt;element name="ContactoComprador" type="{}AlfNum80Type" minOccurs="0"/&gt;
+ *                             &lt;element name="CorreoComprador" type="{}CorreoValidationType" minOccurs="0"/&gt;
+ *                             &lt;element name="DireccionComprador" type="{}AlfNum100Type" minOccurs="0"/&gt;
+ *                             &lt;element name="MunicipioComprador" type="{}ProvinciaMunicipioType" minOccurs="0"/&gt;
+ *                             &lt;element name="ProvinciaComprador" type="{}ProvinciaMunicipioType" minOccurs="0"/&gt;
+ *                             &lt;element name="FechaEntrega" type="{}FechaValidationType" minOccurs="0"/&gt;
+ *                             &lt;element name="ContactoEntrega" type="{}AlfNum100Type" minOccurs="0"/&gt;
+ *                             &lt;element name="DireccionEntrega" type="{}AlfNum100Type" minOccurs="0"/&gt;
+ *                             &lt;element name="TelefonoAdicional" type="{}TelefonoValidationType" minOccurs="0"/&gt;
+ *                             &lt;element name="FechaOrdenCompra" type="{}FechaValidationType" minOccurs="0"/&gt;
+ *                             &lt;element name="NumeroOrdenCompra" type="{}AlfNum20Type" minOccurs="0"/&gt;
+ *                             &lt;element name="CodigoInternoComprador" type="{}AlfNum20Type" minOccurs="0"/&gt;
+ *                             &lt;element name="ResponsablePago" type="{}Alfa20Type" minOccurs="0"/&gt;
+ *                             &lt;element name="InformacionAdicionalComprador" type="{}AlfNum150Type" minOccurs="0"/&gt;
+ *                           &lt;/sequence&gt;
+ *                         &lt;/restriction&gt;
+ *                       &lt;/complexContent&gt;
+ *                     &lt;/complexType&gt;
+ *                   &lt;/element&gt;
+ *                   &lt;element name="InformacionesAdicionales" minOccurs="0"&gt;
+ *                     &lt;complexType&gt;
+ *                       &lt;complexContent&gt;
+ *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                           &lt;sequence&gt;
+ *                             &lt;element name="FechaEmbarque" type="{}FechaValidationType" minOccurs="0"/&gt;
+ *                             &lt;element name="NumeroEmbarque" type="{}AlfNum25Type" minOccurs="0"/&gt;
+ *                             &lt;element name="NumeroContenedor" type="{}AlfNum100Type" minOccurs="0"/&gt;
+ *                             &lt;element name="NumeroReferencia" type="{}Integer20ValidationType" minOccurs="0"/&gt;
+ *                             &lt;element name="PesoBruto" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="PesoNeto" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="UnidadPesoBruto" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+ *                             &lt;element name="UnidadPesoNeto" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+ *                             &lt;element name="CantidadBulto" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="UnidadBulto" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+ *                             &lt;element name="VolumenBulto" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+ *                             &lt;element name="UnidadVolumen" type="{}UnidadMedidaType" minOccurs="0"/&gt;
  *                           &lt;/sequence&gt;
  *                         &lt;/restriction&gt;
  *                       &lt;/complexContent&gt;
@@ -134,7 +178,13 @@ import org.w3c.dom.Element;
  *                       &lt;complexContent&gt;
  *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                           &lt;sequence&gt;
- *                             &lt;element name="PaisDestino" type="{}Alfa60Type" minOccurs="0"/&gt;
+ *                             &lt;element name="Conductor" type="{}AlfNum20Type" minOccurs="0"/&gt;
+ *                             &lt;element name="DocumentoTransporte" type="{}Integer20ValidationType" minOccurs="0"/&gt;
+ *                             &lt;element name="Ficha" type="{}AlfNum10Type" minOccurs="0"/&gt;
+ *                             &lt;element name="Placa" type="{}AlfNum7Type" minOccurs="0"/&gt;
+ *                             &lt;element name="RutaTransporte" type="{}AlfNum20Type" minOccurs="0"/&gt;
+ *                             &lt;element name="ZonaTransporte" type="{}AlfNum20Type" minOccurs="0"/&gt;
+ *                             &lt;element name="NumeroAlbaran" type="{}AlfNum20Type" minOccurs="0"/&gt;
  *                           &lt;/sequence&gt;
  *                         &lt;/restriction&gt;
  *                       &lt;/complexContent&gt;
@@ -145,13 +195,54 @@ import org.w3c.dom.Element;
  *                       &lt;complexContent&gt;
  *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                           &lt;sequence&gt;
+ *                             &lt;element name="MontoGravadoTotal" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="MontoGravadoI1" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="MontoGravadoI2" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="MontoGravadoI3" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
  *                             &lt;element name="MontoExento" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="ITBIS1" type="{}Integer2ValidationType" minOccurs="0"/&gt;
+ *                             &lt;element name="ITBIS2" type="{}Integer2ValidationType" minOccurs="0"/&gt;
+ *                             &lt;element name="ITBIS3" type="{}Integer2ValidationType" minOccurs="0"/&gt;
+ *                             &lt;element name="TotalITBIS" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="TotalITBIS1" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="TotalITBIS2" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="TotalITBIS3" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="MontoImpuestoAdicional" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+ *                             &lt;element name="ImpuestosAdicionales" minOccurs="0"&gt;
+ *                               &lt;complexType&gt;
+ *                                 &lt;complexContent&gt;
+ *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                                     &lt;sequence&gt;
+ *                                       &lt;element name="ImpuestoAdicional" maxOccurs="20"&gt;
+ *                                         &lt;complexType&gt;
+ *                                           &lt;complexContent&gt;
+ *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                                               &lt;sequence&gt;
+ *                                                 &lt;element name="TipoImpuesto" type="{}CodificacionTipoImpuestosType"/&gt;
+ *                                                 &lt;element name="TasaImpuestoAdicional" type="{}Decimal5D1or2ValidationTypeMayorCero"/&gt;
+ *                                                 &lt;element name="MontoImpuestoSelectivoConsumoEspecifico" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+ *                                                 &lt;element name="MontoImpuestoSelectivoConsumoAdvalorem" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+ *                                                 &lt;element name="OtrosImpuestosAdicionales" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+ *                                               &lt;/sequence&gt;
+ *                                             &lt;/restriction&gt;
+ *                                           &lt;/complexContent&gt;
+ *                                         &lt;/complexType&gt;
+ *                                       &lt;/element&gt;
+ *                                     &lt;/sequence&gt;
+ *                                   &lt;/restriction&gt;
+ *                                 &lt;/complexContent&gt;
+ *                               &lt;/complexType&gt;
+ *                             &lt;/element&gt;
  *                             &lt;element name="MontoTotal" type="{}Decimal18D1or2ValidationTypeMayorIgualCero"/&gt;
+ *                             &lt;element name="MontoNoFacturable" type="{}Decimal18D1or2ValidationTypeNegativoPositivo" minOccurs="0"/&gt;
  *                             &lt;element name="MontoPeriodo" type="{}Decimal18D1or2ValidationTypeNegativoPositivo" minOccurs="0"/&gt;
  *                             &lt;element name="SaldoAnterior" type="{}Decimal18D1or2ValidationTypeNegativoPositivo" minOccurs="0"/&gt;
  *                             &lt;element name="MontoAvancePago" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
  *                             &lt;element name="ValorPagar" type="{}Decimal18D1or2ValidationTypeNegativoPositivo" minOccurs="0"/&gt;
+ *                             &lt;element name="TotalITBISRetenido" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
  *                             &lt;element name="TotalISRRetencion" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="TotalITBISPercepcion" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="TotalISRPercepcion" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
  *                           &lt;/sequence&gt;
  *                         &lt;/restriction&gt;
  *                       &lt;/complexContent&gt;
@@ -164,7 +255,41 @@ import org.w3c.dom.Element;
  *                           &lt;sequence&gt;
  *                             &lt;element name="TipoMoneda" type="{}TipoMonedaType" minOccurs="0"/&gt;
  *                             &lt;element name="TipoCambio" type="{}Decimal7D1or4ValidationTypeMayorCero" minOccurs="0"/&gt;
+ *                             &lt;element name="MontoGravadoTotalOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="MontoGravado1OtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="MontoGravado2OtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="MontoGravado3OtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
  *                             &lt;element name="MontoExentoOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="TotalITBISOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="TotalITBIS1OtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="TotalITBIS2OtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="TotalITBIS3OtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="MontoImpuestoAdicionalOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+ *                             &lt;element name="ImpuestosAdicionalesOtraMoneda" minOccurs="0"&gt;
+ *                               &lt;complexType&gt;
+ *                                 &lt;complexContent&gt;
+ *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                                     &lt;sequence&gt;
+ *                                       &lt;element name="ImpuestoAdicionalOtraMoneda" maxOccurs="20"&gt;
+ *                                         &lt;complexType&gt;
+ *                                           &lt;complexContent&gt;
+ *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                                               &lt;sequence&gt;
+ *                                                 &lt;element name="TipoImpuestoOtraMoneda" type="{}CodificacionTipoImpuestosType"/&gt;
+ *                                                 &lt;element name="TasaImpuestoAdicionalOtraMoneda" type="{}Decimal5D1or2ValidationTypeMayorCero"/&gt;
+ *                                                 &lt;element name="MontoImpuestoSelectivoConsumoEspecificoOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+ *                                                 &lt;element name="MontoImpuestoSelectivoConsumoAdvaloremOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+ *                                                 &lt;element name="OtrosImpuestosAdicionalesOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+ *                                               &lt;/sequence&gt;
+ *                                             &lt;/restriction&gt;
+ *                                           &lt;/complexContent&gt;
+ *                                         &lt;/complexType&gt;
+ *                                       &lt;/element&gt;
+ *                                     &lt;/sequence&gt;
+ *                                   &lt;/restriction&gt;
+ *                                 &lt;/complexContent&gt;
+ *                               &lt;/complexType&gt;
+ *                             &lt;/element&gt;
  *                             &lt;element name="MontoTotalOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
  *                           &lt;/sequence&gt;
  *                         &lt;/restriction&gt;
@@ -181,7 +306,7 @@ import org.w3c.dom.Element;
  *             &lt;complexContent&gt;
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                 &lt;sequence&gt;
- *                   &lt;element name="Item" maxOccurs="1000"&gt;
+ *                   &lt;element name="Item" maxOccurs="10000"&gt;
  *                     &lt;complexType&gt;
  *                       &lt;complexContent&gt;
  *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
@@ -210,13 +335,14 @@ import org.w3c.dom.Element;
  *                               &lt;/complexType&gt;
  *                             &lt;/element&gt;
  *                             &lt;element name="IndicadorFacturacion" type="{}IndicadorFacturacionType"/&gt;
- *                             &lt;element name="Retencion"&gt;
+ *                             &lt;element name="Retencion" minOccurs="0"&gt;
  *                               &lt;complexType&gt;
  *                                 &lt;complexContent&gt;
  *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                                     &lt;sequence&gt;
- *                                       &lt;element name="IndicadorAgenteRetencionoPercepcion" type="{}IndicadorAgenteRetencionoPercepcionType"/&gt;
- *                                       &lt;element name="MontoISRRetenido" type="{}Decimal18D1or2ValidationTypeMayorIgualCero"/&gt;
+ *                                       &lt;element name="IndicadorAgenteRetencionoPercepcion" type="{}IndicadorAgenteRetencionoPercepcionType" minOccurs="0"/&gt;
+ *                                       &lt;element name="MontoITBISRetenido" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                                       &lt;element name="MontoISRRetenido" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
  *                                     &lt;/sequence&gt;
  *                                   &lt;/restriction&gt;
  *                                 &lt;/complexContent&gt;
@@ -227,7 +353,118 @@ import org.w3c.dom.Element;
  *                             &lt;element name="DescripcionItem" type="{}AlfNum1000Type" minOccurs="0"/&gt;
  *                             &lt;element name="CantidadItem" type="{}Decimal18D1or2ValidationTypeMayorCero"/&gt;
  *                             &lt;element name="UnidadMedida" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+ *                             &lt;element name="CantidadReferencia" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="UnidadReferencia" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+ *                             &lt;element name="TablaSubcantidad" minOccurs="0"&gt;
+ *                               &lt;complexType&gt;
+ *                                 &lt;complexContent&gt;
+ *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                                     &lt;sequence&gt;
+ *                                       &lt;element name="SubcantidadItem" maxOccurs="5"&gt;
+ *                                         &lt;complexType&gt;
+ *                                           &lt;complexContent&gt;
+ *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                                               &lt;sequence&gt;
+ *                                                 &lt;element name="Subcantidad" type="{}Decimal19D1or3ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                                                 &lt;element name="CodigoSubcantidad" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+ *                                               &lt;/sequence&gt;
+ *                                             &lt;/restriction&gt;
+ *                                           &lt;/complexContent&gt;
+ *                                         &lt;/complexType&gt;
+ *                                       &lt;/element&gt;
+ *                                     &lt;/sequence&gt;
+ *                                   &lt;/restriction&gt;
+ *                                 &lt;/complexContent&gt;
+ *                               &lt;/complexType&gt;
+ *                             &lt;/element&gt;
+ *                             &lt;element name="GradosAlcohol" type="{}Decimal5D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+ *                             &lt;element name="PrecioUnitarioReferencia" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+ *                             &lt;element name="FechaElaboracion" type="{}FechaValidationType" minOccurs="0"/&gt;
+ *                             &lt;element name="FechaVencimientoItem" type="{}FechaValidationType" minOccurs="0"/&gt;
+ *                             &lt;element name="Mineria" minOccurs="0"&gt;
+ *                               &lt;complexType&gt;
+ *                                 &lt;complexContent&gt;
+ *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                                     &lt;sequence&gt;
+ *                                       &lt;element name="PesoNetoKilogramo" type="{}Decimal19D1or3ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                                       &lt;element name="PesoNetoMineria" type="{}Decimal19D1or3ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                                       &lt;element name="TipoAfiliacion" type="{}TipoAfiliacionType" minOccurs="0"/&gt;
+ *                                       &lt;element name="Liquidacion" type="{}LiquidacionType" minOccurs="0"/&gt;
+ *                                     &lt;/sequence&gt;
+ *                                   &lt;/restriction&gt;
+ *                                 &lt;/complexContent&gt;
+ *                               &lt;/complexType&gt;
+ *                             &lt;/element&gt;
  *                             &lt;element name="PrecioUnitarioItem" type="{}Decimal20D1or4ValidationTypeMayorIgualCero"/&gt;
+ *                             &lt;element name="DescuentoMonto" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="TablaSubDescuento" minOccurs="0"&gt;
+ *                               &lt;complexType&gt;
+ *                                 &lt;complexContent&gt;
+ *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                                     &lt;sequence&gt;
+ *                                       &lt;element name="SubDescuento" maxOccurs="12"&gt;
+ *                                         &lt;complexType&gt;
+ *                                           &lt;complexContent&gt;
+ *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                                               &lt;sequence&gt;
+ *                                                 &lt;element name="TipoSubDescuento" type="{}TipoDescuentoRecargoType"/&gt;
+ *                                                 &lt;element name="SubDescuentoPorcentaje" type="{}Decimal5D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+ *                                                 &lt;element name="MontoSubDescuento" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                                               &lt;/sequence&gt;
+ *                                             &lt;/restriction&gt;
+ *                                           &lt;/complexContent&gt;
+ *                                         &lt;/complexType&gt;
+ *                                       &lt;/element&gt;
+ *                                     &lt;/sequence&gt;
+ *                                   &lt;/restriction&gt;
+ *                                 &lt;/complexContent&gt;
+ *                               &lt;/complexType&gt;
+ *                             &lt;/element&gt;
+ *                             &lt;element name="RecargoMonto" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="TablaSubRecargo" minOccurs="0"&gt;
+ *                               &lt;complexType&gt;
+ *                                 &lt;complexContent&gt;
+ *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                                     &lt;sequence&gt;
+ *                                       &lt;element name="SubRecargo" maxOccurs="12"&gt;
+ *                                         &lt;complexType&gt;
+ *                                           &lt;complexContent&gt;
+ *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                                               &lt;sequence&gt;
+ *                                                 &lt;element name="TipoSubRecargo" type="{}TipoDescuentoRecargoType"/&gt;
+ *                                                 &lt;element name="SubRecargoPorcentaje" type="{}Decimal5D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+ *                                                 &lt;element name="MontoSubRecargo" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                                               &lt;/sequence&gt;
+ *                                             &lt;/restriction&gt;
+ *                                           &lt;/complexContent&gt;
+ *                                         &lt;/complexType&gt;
+ *                                       &lt;/element&gt;
+ *                                     &lt;/sequence&gt;
+ *                                   &lt;/restriction&gt;
+ *                                 &lt;/complexContent&gt;
+ *                               &lt;/complexType&gt;
+ *                             &lt;/element&gt;
+ *                             &lt;element name="TablaImpuestoAdicional" minOccurs="0"&gt;
+ *                               &lt;complexType&gt;
+ *                                 &lt;complexContent&gt;
+ *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                                     &lt;sequence&gt;
+ *                                       &lt;element name="ImpuestoAdicional" maxOccurs="2"&gt;
+ *                                         &lt;complexType&gt;
+ *                                           &lt;complexContent&gt;
+ *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                                               &lt;sequence&gt;
+ *                                                 &lt;element name="TipoImpuesto" type="{}CodificacionTipoImpuestosType"/&gt;
+ *                                               &lt;/sequence&gt;
+ *                                             &lt;/restriction&gt;
+ *                                           &lt;/complexContent&gt;
+ *                                         &lt;/complexType&gt;
+ *                                       &lt;/element&gt;
+ *                                     &lt;/sequence&gt;
+ *                                   &lt;/restriction&gt;
+ *                                 &lt;/complexContent&gt;
+ *                               &lt;/complexType&gt;
+ *                             &lt;/element&gt;
  *                             &lt;element name="OtraMonedaDetalle" minOccurs="0"&gt;
  *                               &lt;complexType&gt;
  *                                 &lt;complexContent&gt;
@@ -266,9 +503,47 @@ import org.w3c.dom.Element;
  *                             &lt;element name="NumeroSubTotal" type="{}Integer2ValidationType" minOccurs="0"/&gt;
  *                             &lt;element name="DescripcionSubtotal" type="{}AlfNum40Type" minOccurs="0"/&gt;
  *                             &lt;element name="Orden" type="{}Integer2ValidationType" minOccurs="0"/&gt;
+ *                             &lt;element name="SubTotalMontoGravadoTotal" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="SubTotalMontoGravadoI1" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="SubTotalMontoGravadoI2" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="SubTotalMontoGravadoI3" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="SubTotaITBIS" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="SubTotaITBIS1" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="SubTotaITBIS2" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="SubTotaITBIS3" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="SubTotalImpuestoAdicional" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
  *                             &lt;element name="SubTotalExento" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
  *                             &lt;element name="MontoSubTotal" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
  *                             &lt;element name="Lineas" type="{}Integer2ValidationType" minOccurs="0"/&gt;
+ *                           &lt;/sequence&gt;
+ *                         &lt;/restriction&gt;
+ *                       &lt;/complexContent&gt;
+ *                     &lt;/complexType&gt;
+ *                   &lt;/element&gt;
+ *                 &lt;/sequence&gt;
+ *               &lt;/restriction&gt;
+ *             &lt;/complexContent&gt;
+ *           &lt;/complexType&gt;
+ *         &lt;/element&gt;
+ *         &lt;element name="DescuentosORecargos" minOccurs="0"&gt;
+ *           &lt;complexType&gt;
+ *             &lt;complexContent&gt;
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                 &lt;sequence&gt;
+ *                   &lt;element name="DescuentoORecargo" maxOccurs="20"&gt;
+ *                     &lt;complexType&gt;
+ *                       &lt;complexContent&gt;
+ *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                           &lt;sequence&gt;
+ *                             &lt;element name="NumeroLinea" type="{}Integer2ValidationType"/&gt;
+ *                             &lt;element name="TipoAjuste" type="{}TipoAjusteType"/&gt;
+ *                             &lt;element name="IndicadorNorma1007" type="{}IndicadorNorma1007Type" minOccurs="0"/&gt;
+ *                             &lt;element name="DescripcionDescuentooRecargo" type="{}AlfNum45Type" minOccurs="0"/&gt;
+ *                             &lt;element name="TipoValor" type="{}TipoDescuentoRecargoType" minOccurs="0"/&gt;
+ *                             &lt;element name="ValorDescuentooRecargo" type="{}Decimal5D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+ *                             &lt;element name="MontoDescuentooRecargo" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="MontoDescuentooRecargoOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="IndicadorFacturacionDescuentooRecargo" type="{}IndicadorFacturacionDRType" minOccurs="0"/&gt;
  *                           &lt;/sequence&gt;
  *                         &lt;/restriction&gt;
  *                       &lt;/complexContent&gt;
@@ -284,16 +559,38 @@ import org.w3c.dom.Element;
  *             &lt;complexContent&gt;
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                 &lt;sequence&gt;
- *                   &lt;element name="Pagina" maxOccurs="1000"&gt;
+ *                   &lt;element name="Pagina" maxOccurs="10000"&gt;
  *                     &lt;complexType&gt;
  *                       &lt;complexContent&gt;
  *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                           &lt;sequence&gt;
- *                             &lt;element name="PaginaNo" type="{}Integer4V1To1000ValidationType" minOccurs="0"/&gt;
- *                             &lt;element name="NoLineaDesde" type="{}Integer4V1To1000ValidationType" minOccurs="0"/&gt;
- *                             &lt;element name="NoLineaHasta" type="{}Integer4V1To1000ValidationType" minOccurs="0"/&gt;
+ *                             &lt;element name="PaginaNo" type="{}Integer5V1To10000ValidationType" minOccurs="0"/&gt;
+ *                             &lt;element name="NoLineaDesde" type="{}Integer5V1To10000ValidationType" minOccurs="0"/&gt;
+ *                             &lt;element name="NoLineaHasta" type="{}Integer5V1To10000ValidationType" minOccurs="0"/&gt;
+ *                             &lt;element name="SubtotalMontoGravadoPagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="SubtotalMontoGravado1Pagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="SubtotalMontoGravado2Pagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="SubtotalMontoGravado3Pagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
  *                             &lt;element name="SubtotalExentoPagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="SubtotalItbisPagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="SubtotalItbis1Pagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="SubtotalItbis2Pagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="SubtotalItbis3Pagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="SubtotalImpuestoAdicionalPagina" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+ *                             &lt;element name="SubtotalImpuestoAdicional" minOccurs="0"&gt;
+ *                               &lt;complexType&gt;
+ *                                 &lt;complexContent&gt;
+ *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                                     &lt;sequence&gt;
+ *                                       &lt;element name="SubtotalImpuestoSelectivoConsumoEspecificoPagina" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+ *                                       &lt;element name="SubtotalOtrosImpuesto" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+ *                                     &lt;/sequence&gt;
+ *                                   &lt;/restriction&gt;
+ *                                 &lt;/complexContent&gt;
+ *                               &lt;/complexType&gt;
+ *                             &lt;/element&gt;
  *                             &lt;element name="MontoSubtotalPagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+ *                             &lt;element name="SubtotalMontoNoFacturablePagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
  *                           &lt;/sequence&gt;
  *                         &lt;/restriction&gt;
  *                       &lt;/complexContent&gt;
@@ -304,15 +601,16 @@ import org.w3c.dom.Element;
  *             &lt;/complexContent&gt;
  *           &lt;/complexType&gt;
  *         &lt;/element&gt;
- *         &lt;element name="InformacionReferencia" minOccurs="0"&gt;
+ *         &lt;element name="InformacionReferencia"&gt;
  *           &lt;complexType&gt;
  *             &lt;complexContent&gt;
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                 &lt;sequence&gt;
- *                   &lt;element name="NCFModificado" type="{}AlfNum11a19ValidationType" minOccurs="0"/&gt;
+ *                   &lt;element name="NCFModificado" type="{}AlfNum11a19ValidationType"/&gt;
  *                   &lt;element name="RNCOtroContribuyente" type="{}RNCValidationType" minOccurs="0"/&gt;
- *                   &lt;element name="FechaNCFModificado" type="{}FechaValidationType" minOccurs="0"/&gt;
- *                   &lt;element name="CodigoModificacion" type="{}CodigoModificacionType" minOccurs="0"/&gt;
+ *                   &lt;element name="FechaNCFModificado" type="{}FechaValidationType"/&gt;
+ *                   &lt;element name="CodigoModificacion" type="{}CodigoModificacionType"/&gt;
+ *                   &lt;element name="RazonModificacion" type="{}AlfNum90ValidationType" minOccurs="0"/&gt;
  *                 &lt;/sequence&gt;
  *               &lt;/restriction&gt;
  *             &lt;/complexContent&gt;
@@ -333,6 +631,7 @@ import org.w3c.dom.Element;
     "encabezado",
     "detallesItems",
     "subtotales",
+    "descuentosORecargos",
     "paginacion",
     "informacionReferencia",
     "fechaHoraFirma",
@@ -347,9 +646,11 @@ public class ECF {
     protected ECF.DetallesItems detallesItems;
     @XmlElement(name = "Subtotales")
     protected ECF.Subtotales subtotales;
+    @XmlElement(name = "DescuentosORecargos")
+    protected ECF.DescuentosORecargos descuentosORecargos;
     @XmlElement(name = "Paginacion")
     protected ECF.Paginacion paginacion;
-    @XmlElement(name = "InformacionReferencia")
+    @XmlElement(name = "InformacionReferencia", required = true)
     protected ECF.InformacionReferencia informacionReferencia;
     @XmlElement(name = "FechaHoraFirma", required = true)
     protected String fechaHoraFirma;
@@ -426,6 +727,30 @@ public class ECF {
      */
     public void setSubtotales(ECF.Subtotales value) {
         this.subtotales = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad descuentosORecargos.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ECF.DescuentosORecargos }
+     *     
+     */
+    public ECF.DescuentosORecargos getDescuentosORecargos() {
+        return descuentosORecargos;
+    }
+
+    /**
+     * Define el valor de la propiedad descuentosORecargos.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ECF.DescuentosORecargos }
+     *     
+     */
+    public void setDescuentosORecargos(ECF.DescuentosORecargos value) {
+        this.descuentosORecargos = value;
     }
 
     /**
@@ -535,7 +860,365 @@ public class ECF {
      *   &lt;complexContent&gt;
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *       &lt;sequence&gt;
-     *         &lt;element name="Item" maxOccurs="1000"&gt;
+     *         &lt;element name="DescuentoORecargo" maxOccurs="20"&gt;
+     *           &lt;complexType&gt;
+     *             &lt;complexContent&gt;
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *                 &lt;sequence&gt;
+     *                   &lt;element name="NumeroLinea" type="{}Integer2ValidationType"/&gt;
+     *                   &lt;element name="TipoAjuste" type="{}TipoAjusteType"/&gt;
+     *                   &lt;element name="IndicadorNorma1007" type="{}IndicadorNorma1007Type" minOccurs="0"/&gt;
+     *                   &lt;element name="DescripcionDescuentooRecargo" type="{}AlfNum45Type" minOccurs="0"/&gt;
+     *                   &lt;element name="TipoValor" type="{}TipoDescuentoRecargoType" minOccurs="0"/&gt;
+     *                   &lt;element name="ValorDescuentooRecargo" type="{}Decimal5D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+     *                   &lt;element name="MontoDescuentooRecargo" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="MontoDescuentooRecargoOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="IndicadorFacturacionDescuentooRecargo" type="{}IndicadorFacturacionDRType" minOccurs="0"/&gt;
+     *                 &lt;/sequence&gt;
+     *               &lt;/restriction&gt;
+     *             &lt;/complexContent&gt;
+     *           &lt;/complexType&gt;
+     *         &lt;/element&gt;
+     *       &lt;/sequence&gt;
+     *     &lt;/restriction&gt;
+     *   &lt;/complexContent&gt;
+     * &lt;/complexType&gt;
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "descuentoORecargo"
+    })
+    public static class DescuentosORecargos {
+
+        @XmlElement(name = "DescuentoORecargo", required = true)
+        protected List<ECF.DescuentosORecargos.DescuentoORecargo> descuentoORecargo;
+
+        /**
+         * Gets the value of the descuentoORecargo property.
+         * 
+         * <p>
+         * This accessor method returns a reference to the live list,
+         * not a snapshot. Therefore any modification you make to the
+         * returned list will be present inside the JAXB object.
+         * This is why there is not a <CODE>set</CODE> method for the descuentoORecargo property.
+         * 
+         * <p>
+         * For example, to add a new item, do as follows:
+         * <pre>
+         *    getDescuentoORecargo().add(newItem);
+         * </pre>
+         * 
+         * 
+         * <p>
+         * Objects of the following type(s) are allowed in the list
+         * {@link ECF.DescuentosORecargos.DescuentoORecargo }
+         * 
+         * 
+         */
+        public List<ECF.DescuentosORecargos.DescuentoORecargo> getDescuentoORecargo() {
+            if (descuentoORecargo == null) {
+                descuentoORecargo = new ArrayList<ECF.DescuentosORecargos.DescuentoORecargo>();
+            }
+            return this.descuentoORecargo;
+        }
+
+
+        /**
+         * <p>Clase Java para anonymous complex type.
+         * 
+         * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+         * 
+         * <pre>
+         * &lt;complexType&gt;
+         *   &lt;complexContent&gt;
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+         *       &lt;sequence&gt;
+         *         &lt;element name="NumeroLinea" type="{}Integer2ValidationType"/&gt;
+         *         &lt;element name="TipoAjuste" type="{}TipoAjusteType"/&gt;
+         *         &lt;element name="IndicadorNorma1007" type="{}IndicadorNorma1007Type" minOccurs="0"/&gt;
+         *         &lt;element name="DescripcionDescuentooRecargo" type="{}AlfNum45Type" minOccurs="0"/&gt;
+         *         &lt;element name="TipoValor" type="{}TipoDescuentoRecargoType" minOccurs="0"/&gt;
+         *         &lt;element name="ValorDescuentooRecargo" type="{}Decimal5D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+         *         &lt;element name="MontoDescuentooRecargo" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="MontoDescuentooRecargoOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="IndicadorFacturacionDescuentooRecargo" type="{}IndicadorFacturacionDRType" minOccurs="0"/&gt;
+         *       &lt;/sequence&gt;
+         *     &lt;/restriction&gt;
+         *   &lt;/complexContent&gt;
+         * &lt;/complexType&gt;
+         * </pre>
+         * 
+         * 
+         */
+        @XmlAccessorType(XmlAccessType.FIELD)
+        @XmlType(name = "", propOrder = {
+            "numeroLinea",
+            "tipoAjuste",
+            "indicadorNorma1007",
+            "descripcionDescuentooRecargo",
+            "tipoValor",
+            "valorDescuentooRecargo",
+            "montoDescuentooRecargo",
+            "montoDescuentooRecargoOtraMoneda",
+            "indicadorFacturacionDescuentooRecargo"
+        })
+        public static class DescuentoORecargo {
+
+            @XmlElement(name = "NumeroLinea", required = true)
+            protected BigInteger numeroLinea;
+            @XmlElement(name = "TipoAjuste", required = true)
+            @XmlSchemaType(name = "string")
+            protected TipoAjusteType tipoAjuste;
+            @XmlElement(name = "IndicadorNorma1007")
+            protected BigInteger indicadorNorma1007;
+            @XmlElement(name = "DescripcionDescuentooRecargo")
+            protected String descripcionDescuentooRecargo;
+            @XmlElement(name = "TipoValor")
+            protected String tipoValor;
+            @XmlElement(name = "ValorDescuentooRecargo")
+            protected BigDecimal valorDescuentooRecargo;
+            @XmlElement(name = "MontoDescuentooRecargo")
+            protected BigDecimal montoDescuentooRecargo;
+            @XmlElement(name = "MontoDescuentooRecargoOtraMoneda")
+            protected BigDecimal montoDescuentooRecargoOtraMoneda;
+            @XmlElement(name = "IndicadorFacturacionDescuentooRecargo")
+            protected BigInteger indicadorFacturacionDescuentooRecargo;
+
+            /**
+             * Obtiene el valor de la propiedad numeroLinea.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigInteger }
+             *     
+             */
+            public BigInteger getNumeroLinea() {
+                return numeroLinea;
+            }
+
+            /**
+             * Define el valor de la propiedad numeroLinea.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigInteger }
+             *     
+             */
+            public void setNumeroLinea(BigInteger value) {
+                this.numeroLinea = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad tipoAjuste.
+             * 
+             * @return
+             *     possible object is
+             *     {@link TipoAjusteType }
+             *     
+             */
+            public TipoAjusteType getTipoAjuste() {
+                return tipoAjuste;
+            }
+
+            /**
+             * Define el valor de la propiedad tipoAjuste.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link TipoAjusteType }
+             *     
+             */
+            public void setTipoAjuste(TipoAjusteType value) {
+                this.tipoAjuste = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad indicadorNorma1007.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigInteger }
+             *     
+             */
+            public BigInteger getIndicadorNorma1007() {
+                return indicadorNorma1007;
+            }
+
+            /**
+             * Define el valor de la propiedad indicadorNorma1007.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigInteger }
+             *     
+             */
+            public void setIndicadorNorma1007(BigInteger value) {
+                this.indicadorNorma1007 = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad descripcionDescuentooRecargo.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getDescripcionDescuentooRecargo() {
+                return descripcionDescuentooRecargo;
+            }
+
+            /**
+             * Define el valor de la propiedad descripcionDescuentooRecargo.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setDescripcionDescuentooRecargo(String value) {
+                this.descripcionDescuentooRecargo = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad tipoValor.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getTipoValor() {
+                return tipoValor;
+            }
+
+            /**
+             * Define el valor de la propiedad tipoValor.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setTipoValor(String value) {
+                this.tipoValor = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad valorDescuentooRecargo.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getValorDescuentooRecargo() {
+                return valorDescuentooRecargo;
+            }
+
+            /**
+             * Define el valor de la propiedad valorDescuentooRecargo.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setValorDescuentooRecargo(BigDecimal value) {
+                this.valorDescuentooRecargo = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad montoDescuentooRecargo.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getMontoDescuentooRecargo() {
+                return montoDescuentooRecargo;
+            }
+
+            /**
+             * Define el valor de la propiedad montoDescuentooRecargo.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setMontoDescuentooRecargo(BigDecimal value) {
+                this.montoDescuentooRecargo = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad montoDescuentooRecargoOtraMoneda.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getMontoDescuentooRecargoOtraMoneda() {
+                return montoDescuentooRecargoOtraMoneda;
+            }
+
+            /**
+             * Define el valor de la propiedad montoDescuentooRecargoOtraMoneda.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setMontoDescuentooRecargoOtraMoneda(BigDecimal value) {
+                this.montoDescuentooRecargoOtraMoneda = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad indicadorFacturacionDescuentooRecargo.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigInteger }
+             *     
+             */
+            public BigInteger getIndicadorFacturacionDescuentooRecargo() {
+                return indicadorFacturacionDescuentooRecargo;
+            }
+
+            /**
+             * Define el valor de la propiedad indicadorFacturacionDescuentooRecargo.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigInteger }
+             *     
+             */
+            public void setIndicadorFacturacionDescuentooRecargo(BigInteger value) {
+                this.indicadorFacturacionDescuentooRecargo = value;
+            }
+
+        }
+
+    }
+
+
+    /**
+     * <p>Clase Java para anonymous complex type.
+     * 
+     * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+     * 
+     * <pre>
+     * &lt;complexType&gt;
+     *   &lt;complexContent&gt;
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *       &lt;sequence&gt;
+     *         &lt;element name="Item" maxOccurs="10000"&gt;
      *           &lt;complexType&gt;
      *             &lt;complexContent&gt;
      *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
@@ -564,13 +1247,14 @@ public class ECF {
      *                     &lt;/complexType&gt;
      *                   &lt;/element&gt;
      *                   &lt;element name="IndicadorFacturacion" type="{}IndicadorFacturacionType"/&gt;
-     *                   &lt;element name="Retencion"&gt;
+     *                   &lt;element name="Retencion" minOccurs="0"&gt;
      *                     &lt;complexType&gt;
      *                       &lt;complexContent&gt;
      *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *                           &lt;sequence&gt;
-     *                             &lt;element name="IndicadorAgenteRetencionoPercepcion" type="{}IndicadorAgenteRetencionoPercepcionType"/&gt;
-     *                             &lt;element name="MontoISRRetenido" type="{}Decimal18D1or2ValidationTypeMayorIgualCero"/&gt;
+     *                             &lt;element name="IndicadorAgenteRetencionoPercepcion" type="{}IndicadorAgenteRetencionoPercepcionType" minOccurs="0"/&gt;
+     *                             &lt;element name="MontoITBISRetenido" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                             &lt;element name="MontoISRRetenido" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
      *                           &lt;/sequence&gt;
      *                         &lt;/restriction&gt;
      *                       &lt;/complexContent&gt;
@@ -581,7 +1265,118 @@ public class ECF {
      *                   &lt;element name="DescripcionItem" type="{}AlfNum1000Type" minOccurs="0"/&gt;
      *                   &lt;element name="CantidadItem" type="{}Decimal18D1or2ValidationTypeMayorCero"/&gt;
      *                   &lt;element name="UnidadMedida" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+     *                   &lt;element name="CantidadReferencia" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="UnidadReferencia" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+     *                   &lt;element name="TablaSubcantidad" minOccurs="0"&gt;
+     *                     &lt;complexType&gt;
+     *                       &lt;complexContent&gt;
+     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *                           &lt;sequence&gt;
+     *                             &lt;element name="SubcantidadItem" maxOccurs="5"&gt;
+     *                               &lt;complexType&gt;
+     *                                 &lt;complexContent&gt;
+     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *                                     &lt;sequence&gt;
+     *                                       &lt;element name="Subcantidad" type="{}Decimal19D1or3ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                                       &lt;element name="CodigoSubcantidad" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+     *                                     &lt;/sequence&gt;
+     *                                   &lt;/restriction&gt;
+     *                                 &lt;/complexContent&gt;
+     *                               &lt;/complexType&gt;
+     *                             &lt;/element&gt;
+     *                           &lt;/sequence&gt;
+     *                         &lt;/restriction&gt;
+     *                       &lt;/complexContent&gt;
+     *                     &lt;/complexType&gt;
+     *                   &lt;/element&gt;
+     *                   &lt;element name="GradosAlcohol" type="{}Decimal5D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+     *                   &lt;element name="PrecioUnitarioReferencia" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+     *                   &lt;element name="FechaElaboracion" type="{}FechaValidationType" minOccurs="0"/&gt;
+     *                   &lt;element name="FechaVencimientoItem" type="{}FechaValidationType" minOccurs="0"/&gt;
+     *                   &lt;element name="Mineria" minOccurs="0"&gt;
+     *                     &lt;complexType&gt;
+     *                       &lt;complexContent&gt;
+     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *                           &lt;sequence&gt;
+     *                             &lt;element name="PesoNetoKilogramo" type="{}Decimal19D1or3ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                             &lt;element name="PesoNetoMineria" type="{}Decimal19D1or3ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                             &lt;element name="TipoAfiliacion" type="{}TipoAfiliacionType" minOccurs="0"/&gt;
+     *                             &lt;element name="Liquidacion" type="{}LiquidacionType" minOccurs="0"/&gt;
+     *                           &lt;/sequence&gt;
+     *                         &lt;/restriction&gt;
+     *                       &lt;/complexContent&gt;
+     *                     &lt;/complexType&gt;
+     *                   &lt;/element&gt;
      *                   &lt;element name="PrecioUnitarioItem" type="{}Decimal20D1or4ValidationTypeMayorIgualCero"/&gt;
+     *                   &lt;element name="DescuentoMonto" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="TablaSubDescuento" minOccurs="0"&gt;
+     *                     &lt;complexType&gt;
+     *                       &lt;complexContent&gt;
+     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *                           &lt;sequence&gt;
+     *                             &lt;element name="SubDescuento" maxOccurs="12"&gt;
+     *                               &lt;complexType&gt;
+     *                                 &lt;complexContent&gt;
+     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *                                     &lt;sequence&gt;
+     *                                       &lt;element name="TipoSubDescuento" type="{}TipoDescuentoRecargoType"/&gt;
+     *                                       &lt;element name="SubDescuentoPorcentaje" type="{}Decimal5D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+     *                                       &lt;element name="MontoSubDescuento" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                                     &lt;/sequence&gt;
+     *                                   &lt;/restriction&gt;
+     *                                 &lt;/complexContent&gt;
+     *                               &lt;/complexType&gt;
+     *                             &lt;/element&gt;
+     *                           &lt;/sequence&gt;
+     *                         &lt;/restriction&gt;
+     *                       &lt;/complexContent&gt;
+     *                     &lt;/complexType&gt;
+     *                   &lt;/element&gt;
+     *                   &lt;element name="RecargoMonto" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="TablaSubRecargo" minOccurs="0"&gt;
+     *                     &lt;complexType&gt;
+     *                       &lt;complexContent&gt;
+     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *                           &lt;sequence&gt;
+     *                             &lt;element name="SubRecargo" maxOccurs="12"&gt;
+     *                               &lt;complexType&gt;
+     *                                 &lt;complexContent&gt;
+     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *                                     &lt;sequence&gt;
+     *                                       &lt;element name="TipoSubRecargo" type="{}TipoDescuentoRecargoType"/&gt;
+     *                                       &lt;element name="SubRecargoPorcentaje" type="{}Decimal5D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+     *                                       &lt;element name="MontoSubRecargo" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                                     &lt;/sequence&gt;
+     *                                   &lt;/restriction&gt;
+     *                                 &lt;/complexContent&gt;
+     *                               &lt;/complexType&gt;
+     *                             &lt;/element&gt;
+     *                           &lt;/sequence&gt;
+     *                         &lt;/restriction&gt;
+     *                       &lt;/complexContent&gt;
+     *                     &lt;/complexType&gt;
+     *                   &lt;/element&gt;
+     *                   &lt;element name="TablaImpuestoAdicional" minOccurs="0"&gt;
+     *                     &lt;complexType&gt;
+     *                       &lt;complexContent&gt;
+     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *                           &lt;sequence&gt;
+     *                             &lt;element name="ImpuestoAdicional" maxOccurs="2"&gt;
+     *                               &lt;complexType&gt;
+     *                                 &lt;complexContent&gt;
+     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *                                     &lt;sequence&gt;
+     *                                       &lt;element name="TipoImpuesto" type="{}CodificacionTipoImpuestosType"/&gt;
+     *                                     &lt;/sequence&gt;
+     *                                   &lt;/restriction&gt;
+     *                                 &lt;/complexContent&gt;
+     *                               &lt;/complexType&gt;
+     *                             &lt;/element&gt;
+     *                           &lt;/sequence&gt;
+     *                         &lt;/restriction&gt;
+     *                       &lt;/complexContent&gt;
+     *                     &lt;/complexType&gt;
+     *                   &lt;/element&gt;
      *                   &lt;element name="OtraMonedaDetalle" minOccurs="0"&gt;
      *                     &lt;complexType&gt;
      *                       &lt;complexContent&gt;
@@ -683,13 +1478,14 @@ public class ECF {
          *           &lt;/complexType&gt;
          *         &lt;/element&gt;
          *         &lt;element name="IndicadorFacturacion" type="{}IndicadorFacturacionType"/&gt;
-         *         &lt;element name="Retencion"&gt;
+         *         &lt;element name="Retencion" minOccurs="0"&gt;
          *           &lt;complexType&gt;
          *             &lt;complexContent&gt;
          *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
          *                 &lt;sequence&gt;
-         *                   &lt;element name="IndicadorAgenteRetencionoPercepcion" type="{}IndicadorAgenteRetencionoPercepcionType"/&gt;
-         *                   &lt;element name="MontoISRRetenido" type="{}Decimal18D1or2ValidationTypeMayorIgualCero"/&gt;
+         *                   &lt;element name="IndicadorAgenteRetencionoPercepcion" type="{}IndicadorAgenteRetencionoPercepcionType" minOccurs="0"/&gt;
+         *                   &lt;element name="MontoITBISRetenido" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *                   &lt;element name="MontoISRRetenido" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
          *                 &lt;/sequence&gt;
          *               &lt;/restriction&gt;
          *             &lt;/complexContent&gt;
@@ -700,7 +1496,118 @@ public class ECF {
          *         &lt;element name="DescripcionItem" type="{}AlfNum1000Type" minOccurs="0"/&gt;
          *         &lt;element name="CantidadItem" type="{}Decimal18D1or2ValidationTypeMayorCero"/&gt;
          *         &lt;element name="UnidadMedida" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+         *         &lt;element name="CantidadReferencia" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="UnidadReferencia" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+         *         &lt;element name="TablaSubcantidad" minOccurs="0"&gt;
+         *           &lt;complexType&gt;
+         *             &lt;complexContent&gt;
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+         *                 &lt;sequence&gt;
+         *                   &lt;element name="SubcantidadItem" maxOccurs="5"&gt;
+         *                     &lt;complexType&gt;
+         *                       &lt;complexContent&gt;
+         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+         *                           &lt;sequence&gt;
+         *                             &lt;element name="Subcantidad" type="{}Decimal19D1or3ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *                             &lt;element name="CodigoSubcantidad" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+         *                           &lt;/sequence&gt;
+         *                         &lt;/restriction&gt;
+         *                       &lt;/complexContent&gt;
+         *                     &lt;/complexType&gt;
+         *                   &lt;/element&gt;
+         *                 &lt;/sequence&gt;
+         *               &lt;/restriction&gt;
+         *             &lt;/complexContent&gt;
+         *           &lt;/complexType&gt;
+         *         &lt;/element&gt;
+         *         &lt;element name="GradosAlcohol" type="{}Decimal5D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+         *         &lt;element name="PrecioUnitarioReferencia" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+         *         &lt;element name="FechaElaboracion" type="{}FechaValidationType" minOccurs="0"/&gt;
+         *         &lt;element name="FechaVencimientoItem" type="{}FechaValidationType" minOccurs="0"/&gt;
+         *         &lt;element name="Mineria" minOccurs="0"&gt;
+         *           &lt;complexType&gt;
+         *             &lt;complexContent&gt;
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+         *                 &lt;sequence&gt;
+         *                   &lt;element name="PesoNetoKilogramo" type="{}Decimal19D1or3ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *                   &lt;element name="PesoNetoMineria" type="{}Decimal19D1or3ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *                   &lt;element name="TipoAfiliacion" type="{}TipoAfiliacionType" minOccurs="0"/&gt;
+         *                   &lt;element name="Liquidacion" type="{}LiquidacionType" minOccurs="0"/&gt;
+         *                 &lt;/sequence&gt;
+         *               &lt;/restriction&gt;
+         *             &lt;/complexContent&gt;
+         *           &lt;/complexType&gt;
+         *         &lt;/element&gt;
          *         &lt;element name="PrecioUnitarioItem" type="{}Decimal20D1or4ValidationTypeMayorIgualCero"/&gt;
+         *         &lt;element name="DescuentoMonto" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="TablaSubDescuento" minOccurs="0"&gt;
+         *           &lt;complexType&gt;
+         *             &lt;complexContent&gt;
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+         *                 &lt;sequence&gt;
+         *                   &lt;element name="SubDescuento" maxOccurs="12"&gt;
+         *                     &lt;complexType&gt;
+         *                       &lt;complexContent&gt;
+         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+         *                           &lt;sequence&gt;
+         *                             &lt;element name="TipoSubDescuento" type="{}TipoDescuentoRecargoType"/&gt;
+         *                             &lt;element name="SubDescuentoPorcentaje" type="{}Decimal5D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+         *                             &lt;element name="MontoSubDescuento" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *                           &lt;/sequence&gt;
+         *                         &lt;/restriction&gt;
+         *                       &lt;/complexContent&gt;
+         *                     &lt;/complexType&gt;
+         *                   &lt;/element&gt;
+         *                 &lt;/sequence&gt;
+         *               &lt;/restriction&gt;
+         *             &lt;/complexContent&gt;
+         *           &lt;/complexType&gt;
+         *         &lt;/element&gt;
+         *         &lt;element name="RecargoMonto" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="TablaSubRecargo" minOccurs="0"&gt;
+         *           &lt;complexType&gt;
+         *             &lt;complexContent&gt;
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+         *                 &lt;sequence&gt;
+         *                   &lt;element name="SubRecargo" maxOccurs="12"&gt;
+         *                     &lt;complexType&gt;
+         *                       &lt;complexContent&gt;
+         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+         *                           &lt;sequence&gt;
+         *                             &lt;element name="TipoSubRecargo" type="{}TipoDescuentoRecargoType"/&gt;
+         *                             &lt;element name="SubRecargoPorcentaje" type="{}Decimal5D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+         *                             &lt;element name="MontoSubRecargo" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *                           &lt;/sequence&gt;
+         *                         &lt;/restriction&gt;
+         *                       &lt;/complexContent&gt;
+         *                     &lt;/complexType&gt;
+         *                   &lt;/element&gt;
+         *                 &lt;/sequence&gt;
+         *               &lt;/restriction&gt;
+         *             &lt;/complexContent&gt;
+         *           &lt;/complexType&gt;
+         *         &lt;/element&gt;
+         *         &lt;element name="TablaImpuestoAdicional" minOccurs="0"&gt;
+         *           &lt;complexType&gt;
+         *             &lt;complexContent&gt;
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+         *                 &lt;sequence&gt;
+         *                   &lt;element name="ImpuestoAdicional" maxOccurs="2"&gt;
+         *                     &lt;complexType&gt;
+         *                       &lt;complexContent&gt;
+         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+         *                           &lt;sequence&gt;
+         *                             &lt;element name="TipoImpuesto" type="{}CodificacionTipoImpuestosType"/&gt;
+         *                           &lt;/sequence&gt;
+         *                         &lt;/restriction&gt;
+         *                       &lt;/complexContent&gt;
+         *                     &lt;/complexType&gt;
+         *                   &lt;/element&gt;
+         *                 &lt;/sequence&gt;
+         *               &lt;/restriction&gt;
+         *             &lt;/complexContent&gt;
+         *           &lt;/complexType&gt;
+         *         &lt;/element&gt;
          *         &lt;element name="OtraMonedaDetalle" minOccurs="0"&gt;
          *           &lt;complexType&gt;
          *             &lt;complexContent&gt;
@@ -735,7 +1642,20 @@ public class ECF {
             "descripcionItem",
             "cantidadItem",
             "unidadMedida",
+            "cantidadReferencia",
+            "unidadReferencia",
+            "tablaSubcantidad",
+            "gradosAlcohol",
+            "precioUnitarioReferencia",
+            "fechaElaboracion",
+            "fechaVencimientoItem",
+            "mineria",
             "precioUnitarioItem",
+            "descuentoMonto",
+            "tablaSubDescuento",
+            "recargoMonto",
+            "tablaSubRecargo",
+            "tablaImpuestoAdicional",
             "otraMonedaDetalle",
             "montoItem"
         })
@@ -748,7 +1668,7 @@ public class ECF {
             protected ECF.DetallesItems.Item.TablaCodigosItem tablaCodigosItem;
             @XmlElement(name = "IndicadorFacturacion", required = true)
             protected BigInteger indicadorFacturacion;
-            @XmlElement(name = "Retencion", required = true)
+            @XmlElement(name = "Retencion")
             protected ECF.DetallesItems.Item.Retencion retencion;
             @XmlElement(name = "NombreItem", required = true)
             protected String nombreItem;
@@ -759,9 +1679,35 @@ public class ECF {
             @XmlElement(name = "CantidadItem", required = true)
             protected BigDecimal cantidadItem;
             @XmlElement(name = "UnidadMedida")
-            protected BigInteger unidadMedida;
+            protected String unidadMedida;
+            @XmlElement(name = "CantidadReferencia")
+            protected BigDecimal cantidadReferencia;
+            @XmlElement(name = "UnidadReferencia")
+            protected String unidadReferencia;
+            @XmlElement(name = "TablaSubcantidad")
+            protected ECF.DetallesItems.Item.TablaSubcantidad tablaSubcantidad;
+            @XmlElement(name = "GradosAlcohol")
+            protected BigDecimal gradosAlcohol;
+            @XmlElement(name = "PrecioUnitarioReferencia")
+            protected BigDecimal precioUnitarioReferencia;
+            @XmlElement(name = "FechaElaboracion")
+            protected String fechaElaboracion;
+            @XmlElement(name = "FechaVencimientoItem")
+            protected String fechaVencimientoItem;
+            @XmlElement(name = "Mineria")
+            protected ECF.DetallesItems.Item.Mineria mineria;
             @XmlElement(name = "PrecioUnitarioItem", required = true)
             protected BigDecimal precioUnitarioItem;
+            @XmlElement(name = "DescuentoMonto")
+            protected BigDecimal descuentoMonto;
+            @XmlElement(name = "TablaSubDescuento")
+            protected ECF.DetallesItems.Item.TablaSubDescuento tablaSubDescuento;
+            @XmlElement(name = "RecargoMonto")
+            protected BigDecimal recargoMonto;
+            @XmlElement(name = "TablaSubRecargo")
+            protected ECF.DetallesItems.Item.TablaSubRecargo tablaSubRecargo;
+            @XmlElement(name = "TablaImpuestoAdicional")
+            protected ECF.DetallesItems.Item.TablaImpuestoAdicional tablaImpuestoAdicional;
             @XmlElement(name = "OtraMonedaDetalle")
             protected ECF.DetallesItems.Item.OtraMonedaDetalle otraMonedaDetalle;
             @XmlElement(name = "MontoItem", required = true)
@@ -956,10 +1902,10 @@ public class ECF {
              * 
              * @return
              *     possible object is
-             *     {@link BigInteger }
+             *     {@link String }
              *     
              */
-            public BigInteger getUnidadMedida() {
+            public String getUnidadMedida() {
                 return unidadMedida;
             }
 
@@ -968,11 +1914,203 @@ public class ECF {
              * 
              * @param value
              *     allowed object is
-             *     {@link BigInteger }
+             *     {@link String }
              *     
              */
-            public void setUnidadMedida(BigInteger value) {
+            public void setUnidadMedida(String value) {
                 this.unidadMedida = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad cantidadReferencia.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getCantidadReferencia() {
+                return cantidadReferencia;
+            }
+
+            /**
+             * Define el valor de la propiedad cantidadReferencia.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setCantidadReferencia(BigDecimal value) {
+                this.cantidadReferencia = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad unidadReferencia.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getUnidadReferencia() {
+                return unidadReferencia;
+            }
+
+            /**
+             * Define el valor de la propiedad unidadReferencia.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setUnidadReferencia(String value) {
+                this.unidadReferencia = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad tablaSubcantidad.
+             * 
+             * @return
+             *     possible object is
+             *     {@link ECF.DetallesItems.Item.TablaSubcantidad }
+             *     
+             */
+            public ECF.DetallesItems.Item.TablaSubcantidad getTablaSubcantidad() {
+                return tablaSubcantidad;
+            }
+
+            /**
+             * Define el valor de la propiedad tablaSubcantidad.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link ECF.DetallesItems.Item.TablaSubcantidad }
+             *     
+             */
+            public void setTablaSubcantidad(ECF.DetallesItems.Item.TablaSubcantidad value) {
+                this.tablaSubcantidad = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad gradosAlcohol.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getGradosAlcohol() {
+                return gradosAlcohol;
+            }
+
+            /**
+             * Define el valor de la propiedad gradosAlcohol.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setGradosAlcohol(BigDecimal value) {
+                this.gradosAlcohol = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad precioUnitarioReferencia.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getPrecioUnitarioReferencia() {
+                return precioUnitarioReferencia;
+            }
+
+            /**
+             * Define el valor de la propiedad precioUnitarioReferencia.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setPrecioUnitarioReferencia(BigDecimal value) {
+                this.precioUnitarioReferencia = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad fechaElaboracion.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getFechaElaboracion() {
+                return fechaElaboracion;
+            }
+
+            /**
+             * Define el valor de la propiedad fechaElaboracion.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setFechaElaboracion(String value) {
+                this.fechaElaboracion = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad fechaVencimientoItem.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getFechaVencimientoItem() {
+                return fechaVencimientoItem;
+            }
+
+            /**
+             * Define el valor de la propiedad fechaVencimientoItem.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setFechaVencimientoItem(String value) {
+                this.fechaVencimientoItem = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad mineria.
+             * 
+             * @return
+             *     possible object is
+             *     {@link ECF.DetallesItems.Item.Mineria }
+             *     
+             */
+            public ECF.DetallesItems.Item.Mineria getMineria() {
+                return mineria;
+            }
+
+            /**
+             * Define el valor de la propiedad mineria.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link ECF.DetallesItems.Item.Mineria }
+             *     
+             */
+            public void setMineria(ECF.DetallesItems.Item.Mineria value) {
+                this.mineria = value;
             }
 
             /**
@@ -997,6 +2135,126 @@ public class ECF {
              */
             public void setPrecioUnitarioItem(BigDecimal value) {
                 this.precioUnitarioItem = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad descuentoMonto.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getDescuentoMonto() {
+                return descuentoMonto;
+            }
+
+            /**
+             * Define el valor de la propiedad descuentoMonto.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setDescuentoMonto(BigDecimal value) {
+                this.descuentoMonto = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad tablaSubDescuento.
+             * 
+             * @return
+             *     possible object is
+             *     {@link ECF.DetallesItems.Item.TablaSubDescuento }
+             *     
+             */
+            public ECF.DetallesItems.Item.TablaSubDescuento getTablaSubDescuento() {
+                return tablaSubDescuento;
+            }
+
+            /**
+             * Define el valor de la propiedad tablaSubDescuento.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link ECF.DetallesItems.Item.TablaSubDescuento }
+             *     
+             */
+            public void setTablaSubDescuento(ECF.DetallesItems.Item.TablaSubDescuento value) {
+                this.tablaSubDescuento = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad recargoMonto.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getRecargoMonto() {
+                return recargoMonto;
+            }
+
+            /**
+             * Define el valor de la propiedad recargoMonto.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setRecargoMonto(BigDecimal value) {
+                this.recargoMonto = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad tablaSubRecargo.
+             * 
+             * @return
+             *     possible object is
+             *     {@link ECF.DetallesItems.Item.TablaSubRecargo }
+             *     
+             */
+            public ECF.DetallesItems.Item.TablaSubRecargo getTablaSubRecargo() {
+                return tablaSubRecargo;
+            }
+
+            /**
+             * Define el valor de la propiedad tablaSubRecargo.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link ECF.DetallesItems.Item.TablaSubRecargo }
+             *     
+             */
+            public void setTablaSubRecargo(ECF.DetallesItems.Item.TablaSubRecargo value) {
+                this.tablaSubRecargo = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad tablaImpuestoAdicional.
+             * 
+             * @return
+             *     possible object is
+             *     {@link ECF.DetallesItems.Item.TablaImpuestoAdicional }
+             *     
+             */
+            public ECF.DetallesItems.Item.TablaImpuestoAdicional getTablaImpuestoAdicional() {
+                return tablaImpuestoAdicional;
+            }
+
+            /**
+             * Define el valor de la propiedad tablaImpuestoAdicional.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link ECF.DetallesItems.Item.TablaImpuestoAdicional }
+             *     
+             */
+            public void setTablaImpuestoAdicional(ECF.DetallesItems.Item.TablaImpuestoAdicional value) {
+                this.tablaImpuestoAdicional = value;
             }
 
             /**
@@ -1045,6 +2303,145 @@ public class ECF {
              */
             public void setMontoItem(BigDecimal value) {
                 this.montoItem = value;
+            }
+
+
+            /**
+             * <p>Clase Java para anonymous complex type.
+             * 
+             * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+             * 
+             * <pre>
+             * &lt;complexType&gt;
+             *   &lt;complexContent&gt;
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+             *       &lt;sequence&gt;
+             *         &lt;element name="PesoNetoKilogramo" type="{}Decimal19D1or3ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+             *         &lt;element name="PesoNetoMineria" type="{}Decimal19D1or3ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+             *         &lt;element name="TipoAfiliacion" type="{}TipoAfiliacionType" minOccurs="0"/&gt;
+             *         &lt;element name="Liquidacion" type="{}LiquidacionType" minOccurs="0"/&gt;
+             *       &lt;/sequence&gt;
+             *     &lt;/restriction&gt;
+             *   &lt;/complexContent&gt;
+             * &lt;/complexType&gt;
+             * </pre>
+             * 
+             * 
+             */
+            @XmlAccessorType(XmlAccessType.FIELD)
+            @XmlType(name = "", propOrder = {
+                "pesoNetoKilogramo",
+                "pesoNetoMineria",
+                "tipoAfiliacion",
+                "liquidacion"
+            })
+            public static class Mineria {
+
+                @XmlElement(name = "PesoNetoKilogramo")
+                protected BigDecimal pesoNetoKilogramo;
+                @XmlElement(name = "PesoNetoMineria")
+                protected BigDecimal pesoNetoMineria;
+                @XmlElement(name = "TipoAfiliacion")
+                protected BigInteger tipoAfiliacion;
+                @XmlElement(name = "Liquidacion")
+                protected BigInteger liquidacion;
+
+                /**
+                 * Obtiene el valor de la propiedad pesoNetoKilogramo.
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link BigDecimal }
+                 *     
+                 */
+                public BigDecimal getPesoNetoKilogramo() {
+                    return pesoNetoKilogramo;
+                }
+
+                /**
+                 * Define el valor de la propiedad pesoNetoKilogramo.
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link BigDecimal }
+                 *     
+                 */
+                public void setPesoNetoKilogramo(BigDecimal value) {
+                    this.pesoNetoKilogramo = value;
+                }
+
+                /**
+                 * Obtiene el valor de la propiedad pesoNetoMineria.
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link BigDecimal }
+                 *     
+                 */
+                public BigDecimal getPesoNetoMineria() {
+                    return pesoNetoMineria;
+                }
+
+                /**
+                 * Define el valor de la propiedad pesoNetoMineria.
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link BigDecimal }
+                 *     
+                 */
+                public void setPesoNetoMineria(BigDecimal value) {
+                    this.pesoNetoMineria = value;
+                }
+
+                /**
+                 * Obtiene el valor de la propiedad tipoAfiliacion.
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link BigInteger }
+                 *     
+                 */
+                public BigInteger getTipoAfiliacion() {
+                    return tipoAfiliacion;
+                }
+
+                /**
+                 * Define el valor de la propiedad tipoAfiliacion.
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link BigInteger }
+                 *     
+                 */
+                public void setTipoAfiliacion(BigInteger value) {
+                    this.tipoAfiliacion = value;
+                }
+
+                /**
+                 * Obtiene el valor de la propiedad liquidacion.
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link BigInteger }
+                 *     
+                 */
+                public BigInteger getLiquidacion() {
+                    return liquidacion;
+                }
+
+                /**
+                 * Define el valor de la propiedad liquidacion.
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link BigInteger }
+                 *     
+                 */
+                public void setLiquidacion(BigInteger value) {
+                    this.liquidacion = value;
+                }
+
             }
 
 
@@ -1197,8 +2594,9 @@ public class ECF {
              *   &lt;complexContent&gt;
              *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
              *       &lt;sequence&gt;
-             *         &lt;element name="IndicadorAgenteRetencionoPercepcion" type="{}IndicadorAgenteRetencionoPercepcionType"/&gt;
-             *         &lt;element name="MontoISRRetenido" type="{}Decimal18D1or2ValidationTypeMayorIgualCero"/&gt;
+             *         &lt;element name="IndicadorAgenteRetencionoPercepcion" type="{}IndicadorAgenteRetencionoPercepcionType" minOccurs="0"/&gt;
+             *         &lt;element name="MontoITBISRetenido" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+             *         &lt;element name="MontoISRRetenido" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
              *       &lt;/sequence&gt;
              *     &lt;/restriction&gt;
              *   &lt;/complexContent&gt;
@@ -1210,13 +2608,16 @@ public class ECF {
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
                 "indicadorAgenteRetencionoPercepcion",
+                "montoITBISRetenido",
                 "montoISRRetenido"
             })
             public static class Retencion {
 
-                @XmlElement(name = "IndicadorAgenteRetencionoPercepcion", required = true)
+                @XmlElement(name = "IndicadorAgenteRetencionoPercepcion")
                 protected BigInteger indicadorAgenteRetencionoPercepcion;
-                @XmlElement(name = "MontoISRRetenido", required = true)
+                @XmlElement(name = "MontoITBISRetenido")
+                protected BigDecimal montoITBISRetenido;
+                @XmlElement(name = "MontoISRRetenido")
                 protected BigDecimal montoISRRetenido;
 
                 /**
@@ -1241,6 +2642,30 @@ public class ECF {
                  */
                 public void setIndicadorAgenteRetencionoPercepcion(BigInteger value) {
                     this.indicadorAgenteRetencionoPercepcion = value;
+                }
+
+                /**
+                 * Obtiene el valor de la propiedad montoITBISRetenido.
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link BigDecimal }
+                 *     
+                 */
+                public BigDecimal getMontoITBISRetenido() {
+                    return montoITBISRetenido;
+                }
+
+                /**
+                 * Define el valor de la propiedad montoITBISRetenido.
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link BigDecimal }
+                 *     
+                 */
+                public void setMontoITBISRetenido(BigDecimal value) {
+                    this.montoITBISRetenido = value;
                 }
 
                 /**
@@ -1423,6 +2848,651 @@ public class ECF {
 
             }
 
+
+            /**
+             * <p>Clase Java para anonymous complex type.
+             * 
+             * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+             * 
+             * <pre>
+             * &lt;complexType&gt;
+             *   &lt;complexContent&gt;
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+             *       &lt;sequence&gt;
+             *         &lt;element name="ImpuestoAdicional" maxOccurs="2"&gt;
+             *           &lt;complexType&gt;
+             *             &lt;complexContent&gt;
+             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+             *                 &lt;sequence&gt;
+             *                   &lt;element name="TipoImpuesto" type="{}CodificacionTipoImpuestosType"/&gt;
+             *                 &lt;/sequence&gt;
+             *               &lt;/restriction&gt;
+             *             &lt;/complexContent&gt;
+             *           &lt;/complexType&gt;
+             *         &lt;/element&gt;
+             *       &lt;/sequence&gt;
+             *     &lt;/restriction&gt;
+             *   &lt;/complexContent&gt;
+             * &lt;/complexType&gt;
+             * </pre>
+             * 
+             * 
+             */
+            @XmlAccessorType(XmlAccessType.FIELD)
+            @XmlType(name = "", propOrder = {
+                "impuestoAdicional"
+            })
+            public static class TablaImpuestoAdicional {
+
+                @XmlElement(name = "ImpuestoAdicional", required = true)
+                protected List<ECF.DetallesItems.Item.TablaImpuestoAdicional.ImpuestoAdicional> impuestoAdicional;
+
+                /**
+                 * Gets the value of the impuestoAdicional property.
+                 * 
+                 * <p>
+                 * This accessor method returns a reference to the live list,
+                 * not a snapshot. Therefore any modification you make to the
+                 * returned list will be present inside the JAXB object.
+                 * This is why there is not a <CODE>set</CODE> method for the impuestoAdicional property.
+                 * 
+                 * <p>
+                 * For example, to add a new item, do as follows:
+                 * <pre>
+                 *    getImpuestoAdicional().add(newItem);
+                 * </pre>
+                 * 
+                 * 
+                 * <p>
+                 * Objects of the following type(s) are allowed in the list
+                 * {@link ECF.DetallesItems.Item.TablaImpuestoAdicional.ImpuestoAdicional }
+                 * 
+                 * 
+                 */
+                public List<ECF.DetallesItems.Item.TablaImpuestoAdicional.ImpuestoAdicional> getImpuestoAdicional() {
+                    if (impuestoAdicional == null) {
+                        impuestoAdicional = new ArrayList<ECF.DetallesItems.Item.TablaImpuestoAdicional.ImpuestoAdicional>();
+                    }
+                    return this.impuestoAdicional;
+                }
+
+
+                /**
+                 * <p>Clase Java para anonymous complex type.
+                 * 
+                 * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+                 * 
+                 * <pre>
+                 * &lt;complexType&gt;
+                 *   &lt;complexContent&gt;
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+                 *       &lt;sequence&gt;
+                 *         &lt;element name="TipoImpuesto" type="{}CodificacionTipoImpuestosType"/&gt;
+                 *       &lt;/sequence&gt;
+                 *     &lt;/restriction&gt;
+                 *   &lt;/complexContent&gt;
+                 * &lt;/complexType&gt;
+                 * </pre>
+                 * 
+                 * 
+                 */
+                @XmlAccessorType(XmlAccessType.FIELD)
+                @XmlType(name = "", propOrder = {
+                    "tipoImpuesto"
+                })
+                public static class ImpuestoAdicional {
+
+                    @XmlElement(name = "TipoImpuesto", required = true)
+                    protected String tipoImpuesto;
+
+                    /**
+                     * Obtiene el valor de la propiedad tipoImpuesto.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link String }
+                     *     
+                     */
+                    public String getTipoImpuesto() {
+                        return tipoImpuesto;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad tipoImpuesto.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link String }
+                     *     
+                     */
+                    public void setTipoImpuesto(String value) {
+                        this.tipoImpuesto = value;
+                    }
+
+                }
+
+            }
+
+
+            /**
+             * <p>Clase Java para anonymous complex type.
+             * 
+             * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+             * 
+             * <pre>
+             * &lt;complexType&gt;
+             *   &lt;complexContent&gt;
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+             *       &lt;sequence&gt;
+             *         &lt;element name="SubcantidadItem" maxOccurs="5"&gt;
+             *           &lt;complexType&gt;
+             *             &lt;complexContent&gt;
+             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+             *                 &lt;sequence&gt;
+             *                   &lt;element name="Subcantidad" type="{}Decimal19D1or3ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+             *                   &lt;element name="CodigoSubcantidad" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+             *                 &lt;/sequence&gt;
+             *               &lt;/restriction&gt;
+             *             &lt;/complexContent&gt;
+             *           &lt;/complexType&gt;
+             *         &lt;/element&gt;
+             *       &lt;/sequence&gt;
+             *     &lt;/restriction&gt;
+             *   &lt;/complexContent&gt;
+             * &lt;/complexType&gt;
+             * </pre>
+             * 
+             * 
+             */
+            @XmlAccessorType(XmlAccessType.FIELD)
+            @XmlType(name = "", propOrder = {
+                "subcantidadItem"
+            })
+            public static class TablaSubcantidad {
+
+                @XmlElement(name = "SubcantidadItem", required = true)
+                protected List<ECF.DetallesItems.Item.TablaSubcantidad.SubcantidadItem> subcantidadItem;
+
+                /**
+                 * Gets the value of the subcantidadItem property.
+                 * 
+                 * <p>
+                 * This accessor method returns a reference to the live list,
+                 * not a snapshot. Therefore any modification you make to the
+                 * returned list will be present inside the JAXB object.
+                 * This is why there is not a <CODE>set</CODE> method for the subcantidadItem property.
+                 * 
+                 * <p>
+                 * For example, to add a new item, do as follows:
+                 * <pre>
+                 *    getSubcantidadItem().add(newItem);
+                 * </pre>
+                 * 
+                 * 
+                 * <p>
+                 * Objects of the following type(s) are allowed in the list
+                 * {@link ECF.DetallesItems.Item.TablaSubcantidad.SubcantidadItem }
+                 * 
+                 * 
+                 */
+                public List<ECF.DetallesItems.Item.TablaSubcantidad.SubcantidadItem> getSubcantidadItem() {
+                    if (subcantidadItem == null) {
+                        subcantidadItem = new ArrayList<ECF.DetallesItems.Item.TablaSubcantidad.SubcantidadItem>();
+                    }
+                    return this.subcantidadItem;
+                }
+
+
+                /**
+                 * <p>Clase Java para anonymous complex type.
+                 * 
+                 * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+                 * 
+                 * <pre>
+                 * &lt;complexType&gt;
+                 *   &lt;complexContent&gt;
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+                 *       &lt;sequence&gt;
+                 *         &lt;element name="Subcantidad" type="{}Decimal19D1or3ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+                 *         &lt;element name="CodigoSubcantidad" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+                 *       &lt;/sequence&gt;
+                 *     &lt;/restriction&gt;
+                 *   &lt;/complexContent&gt;
+                 * &lt;/complexType&gt;
+                 * </pre>
+                 * 
+                 * 
+                 */
+                @XmlAccessorType(XmlAccessType.FIELD)
+                @XmlType(name = "", propOrder = {
+                    "subcantidad",
+                    "codigoSubcantidad"
+                })
+                public static class SubcantidadItem {
+
+                    @XmlElement(name = "Subcantidad")
+                    protected BigDecimal subcantidad;
+                    @XmlElement(name = "CodigoSubcantidad")
+                    protected String codigoSubcantidad;
+
+                    /**
+                     * Obtiene el valor de la propiedad subcantidad.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public BigDecimal getSubcantidad() {
+                        return subcantidad;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad subcantidad.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public void setSubcantidad(BigDecimal value) {
+                        this.subcantidad = value;
+                    }
+
+                    /**
+                     * Obtiene el valor de la propiedad codigoSubcantidad.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link String }
+                     *     
+                     */
+                    public String getCodigoSubcantidad() {
+                        return codigoSubcantidad;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad codigoSubcantidad.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link String }
+                     *     
+                     */
+                    public void setCodigoSubcantidad(String value) {
+                        this.codigoSubcantidad = value;
+                    }
+
+                }
+
+            }
+
+
+            /**
+             * <p>Clase Java para anonymous complex type.
+             * 
+             * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+             * 
+             * <pre>
+             * &lt;complexType&gt;
+             *   &lt;complexContent&gt;
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+             *       &lt;sequence&gt;
+             *         &lt;element name="SubDescuento" maxOccurs="12"&gt;
+             *           &lt;complexType&gt;
+             *             &lt;complexContent&gt;
+             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+             *                 &lt;sequence&gt;
+             *                   &lt;element name="TipoSubDescuento" type="{}TipoDescuentoRecargoType"/&gt;
+             *                   &lt;element name="SubDescuentoPorcentaje" type="{}Decimal5D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+             *                   &lt;element name="MontoSubDescuento" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+             *                 &lt;/sequence&gt;
+             *               &lt;/restriction&gt;
+             *             &lt;/complexContent&gt;
+             *           &lt;/complexType&gt;
+             *         &lt;/element&gt;
+             *       &lt;/sequence&gt;
+             *     &lt;/restriction&gt;
+             *   &lt;/complexContent&gt;
+             * &lt;/complexType&gt;
+             * </pre>
+             * 
+             * 
+             */
+            @XmlAccessorType(XmlAccessType.FIELD)
+            @XmlType(name = "", propOrder = {
+                "subDescuento"
+            })
+            public static class TablaSubDescuento {
+
+                @XmlElement(name = "SubDescuento", required = true)
+                protected List<ECF.DetallesItems.Item.TablaSubDescuento.SubDescuento> subDescuento;
+
+                /**
+                 * Gets the value of the subDescuento property.
+                 * 
+                 * <p>
+                 * This accessor method returns a reference to the live list,
+                 * not a snapshot. Therefore any modification you make to the
+                 * returned list will be present inside the JAXB object.
+                 * This is why there is not a <CODE>set</CODE> method for the subDescuento property.
+                 * 
+                 * <p>
+                 * For example, to add a new item, do as follows:
+                 * <pre>
+                 *    getSubDescuento().add(newItem);
+                 * </pre>
+                 * 
+                 * 
+                 * <p>
+                 * Objects of the following type(s) are allowed in the list
+                 * {@link ECF.DetallesItems.Item.TablaSubDescuento.SubDescuento }
+                 * 
+                 * 
+                 */
+                public List<ECF.DetallesItems.Item.TablaSubDescuento.SubDescuento> getSubDescuento() {
+                    if (subDescuento == null) {
+                        subDescuento = new ArrayList<ECF.DetallesItems.Item.TablaSubDescuento.SubDescuento>();
+                    }
+                    return this.subDescuento;
+                }
+
+
+                /**
+                 * <p>Clase Java para anonymous complex type.
+                 * 
+                 * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+                 * 
+                 * <pre>
+                 * &lt;complexType&gt;
+                 *   &lt;complexContent&gt;
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+                 *       &lt;sequence&gt;
+                 *         &lt;element name="TipoSubDescuento" type="{}TipoDescuentoRecargoType"/&gt;
+                 *         &lt;element name="SubDescuentoPorcentaje" type="{}Decimal5D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+                 *         &lt;element name="MontoSubDescuento" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+                 *       &lt;/sequence&gt;
+                 *     &lt;/restriction&gt;
+                 *   &lt;/complexContent&gt;
+                 * &lt;/complexType&gt;
+                 * </pre>
+                 * 
+                 * 
+                 */
+                @XmlAccessorType(XmlAccessType.FIELD)
+                @XmlType(name = "", propOrder = {
+                    "tipoSubDescuento",
+                    "subDescuentoPorcentaje",
+                    "montoSubDescuento"
+                })
+                public static class SubDescuento {
+
+                    @XmlElement(name = "TipoSubDescuento", required = true)
+                    protected String tipoSubDescuento;
+                    @XmlElement(name = "SubDescuentoPorcentaje")
+                    protected BigDecimal subDescuentoPorcentaje;
+                    @XmlElement(name = "MontoSubDescuento")
+                    protected BigDecimal montoSubDescuento;
+
+                    /**
+                     * Obtiene el valor de la propiedad tipoSubDescuento.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link String }
+                     *     
+                     */
+                    public String getTipoSubDescuento() {
+                        return tipoSubDescuento;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad tipoSubDescuento.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link String }
+                     *     
+                     */
+                    public void setTipoSubDescuento(String value) {
+                        this.tipoSubDescuento = value;
+                    }
+
+                    /**
+                     * Obtiene el valor de la propiedad subDescuentoPorcentaje.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public BigDecimal getSubDescuentoPorcentaje() {
+                        return subDescuentoPorcentaje;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad subDescuentoPorcentaje.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public void setSubDescuentoPorcentaje(BigDecimal value) {
+                        this.subDescuentoPorcentaje = value;
+                    }
+
+                    /**
+                     * Obtiene el valor de la propiedad montoSubDescuento.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public BigDecimal getMontoSubDescuento() {
+                        return montoSubDescuento;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad montoSubDescuento.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public void setMontoSubDescuento(BigDecimal value) {
+                        this.montoSubDescuento = value;
+                    }
+
+                }
+
+            }
+
+
+            /**
+             * <p>Clase Java para anonymous complex type.
+             * 
+             * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+             * 
+             * <pre>
+             * &lt;complexType&gt;
+             *   &lt;complexContent&gt;
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+             *       &lt;sequence&gt;
+             *         &lt;element name="SubRecargo" maxOccurs="12"&gt;
+             *           &lt;complexType&gt;
+             *             &lt;complexContent&gt;
+             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+             *                 &lt;sequence&gt;
+             *                   &lt;element name="TipoSubRecargo" type="{}TipoDescuentoRecargoType"/&gt;
+             *                   &lt;element name="SubRecargoPorcentaje" type="{}Decimal5D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+             *                   &lt;element name="MontoSubRecargo" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+             *                 &lt;/sequence&gt;
+             *               &lt;/restriction&gt;
+             *             &lt;/complexContent&gt;
+             *           &lt;/complexType&gt;
+             *         &lt;/element&gt;
+             *       &lt;/sequence&gt;
+             *     &lt;/restriction&gt;
+             *   &lt;/complexContent&gt;
+             * &lt;/complexType&gt;
+             * </pre>
+             * 
+             * 
+             */
+            @XmlAccessorType(XmlAccessType.FIELD)
+            @XmlType(name = "", propOrder = {
+                "subRecargo"
+            })
+            public static class TablaSubRecargo {
+
+                @XmlElement(name = "SubRecargo", required = true)
+                protected List<ECF.DetallesItems.Item.TablaSubRecargo.SubRecargo> subRecargo;
+
+                /**
+                 * Gets the value of the subRecargo property.
+                 * 
+                 * <p>
+                 * This accessor method returns a reference to the live list,
+                 * not a snapshot. Therefore any modification you make to the
+                 * returned list will be present inside the JAXB object.
+                 * This is why there is not a <CODE>set</CODE> method for the subRecargo property.
+                 * 
+                 * <p>
+                 * For example, to add a new item, do as follows:
+                 * <pre>
+                 *    getSubRecargo().add(newItem);
+                 * </pre>
+                 * 
+                 * 
+                 * <p>
+                 * Objects of the following type(s) are allowed in the list
+                 * {@link ECF.DetallesItems.Item.TablaSubRecargo.SubRecargo }
+                 * 
+                 * 
+                 */
+                public List<ECF.DetallesItems.Item.TablaSubRecargo.SubRecargo> getSubRecargo() {
+                    if (subRecargo == null) {
+                        subRecargo = new ArrayList<ECF.DetallesItems.Item.TablaSubRecargo.SubRecargo>();
+                    }
+                    return this.subRecargo;
+                }
+
+
+                /**
+                 * <p>Clase Java para anonymous complex type.
+                 * 
+                 * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+                 * 
+                 * <pre>
+                 * &lt;complexType&gt;
+                 *   &lt;complexContent&gt;
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+                 *       &lt;sequence&gt;
+                 *         &lt;element name="TipoSubRecargo" type="{}TipoDescuentoRecargoType"/&gt;
+                 *         &lt;element name="SubRecargoPorcentaje" type="{}Decimal5D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+                 *         &lt;element name="MontoSubRecargo" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+                 *       &lt;/sequence&gt;
+                 *     &lt;/restriction&gt;
+                 *   &lt;/complexContent&gt;
+                 * &lt;/complexType&gt;
+                 * </pre>
+                 * 
+                 * 
+                 */
+                @XmlAccessorType(XmlAccessType.FIELD)
+                @XmlType(name = "", propOrder = {
+                    "tipoSubRecargo",
+                    "subRecargoPorcentaje",
+                    "montoSubRecargo"
+                })
+                public static class SubRecargo {
+
+                    @XmlElement(name = "TipoSubRecargo", required = true)
+                    protected String tipoSubRecargo;
+                    @XmlElement(name = "SubRecargoPorcentaje")
+                    protected BigDecimal subRecargoPorcentaje;
+                    @XmlElement(name = "MontoSubRecargo")
+                    protected BigDecimal montoSubRecargo;
+
+                    /**
+                     * Obtiene el valor de la propiedad tipoSubRecargo.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link String }
+                     *     
+                     */
+                    public String getTipoSubRecargo() {
+                        return tipoSubRecargo;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad tipoSubRecargo.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link String }
+                     *     
+                     */
+                    public void setTipoSubRecargo(String value) {
+                        this.tipoSubRecargo = value;
+                    }
+
+                    /**
+                     * Obtiene el valor de la propiedad subRecargoPorcentaje.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public BigDecimal getSubRecargoPorcentaje() {
+                        return subRecargoPorcentaje;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad subRecargoPorcentaje.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public void setSubRecargoPorcentaje(BigDecimal value) {
+                        this.subRecargoPorcentaje = value;
+                    }
+
+                    /**
+                     * Obtiene el valor de la propiedad montoSubRecargo.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public BigDecimal getMontoSubRecargo() {
+                        return montoSubRecargo;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad montoSubRecargo.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public void setMontoSubRecargo(BigDecimal value) {
+                        this.montoSubRecargo = value;
+                    }
+
+                }
+
+            }
+
         }
 
     }
@@ -1447,7 +3517,11 @@ public class ECF {
      *                   &lt;element name="TipoeCF" type="{}TipoeCFType"/&gt;
      *                   &lt;element name="eNCF" type="{}eNCFValidationType"/&gt;
      *                   &lt;element name="FechaVencimientoSecuencia" type="{}FechaValidationType"/&gt;
-     *                   &lt;element name="TipoPago" type="{}TipoPagoType" minOccurs="0"/&gt;
+     *                   &lt;element name="IndicadorEnvioDiferido" type="{}IndicadorEnvioDiferidoType" minOccurs="0"/&gt;
+     *                   &lt;element name="IndicadorMontoGravado" type="{}IndicadorMontoGravadoType" minOccurs="0"/&gt;
+     *                   &lt;element name="IndicadorServicioTodoIncluido" type="{}IndicadorServicioTodoIncluidoType" minOccurs="0"/&gt;
+     *                   &lt;element name="TipoIngresos" type="{}TipoIngresosValidationType"/&gt;
+     *                   &lt;element name="TipoPago" type="{}TipoPagoType"/&gt;
      *                   &lt;element name="FechaLimitePago" type="{}FechaValidationType" minOccurs="0"/&gt;
      *                   &lt;element name="TerminoPago" type="{}TerminoPagoValidationType" minOccurs="0"/&gt;
      *                   &lt;element name="TablaFormasPago" minOccurs="0"&gt;
@@ -1477,7 +3551,7 @@ public class ECF {
      *                   &lt;element name="BancoPago" type="{}BancoPagoType" minOccurs="0"/&gt;
      *                   &lt;element name="FechaDesde" type="{}FechaValidationType" minOccurs="0"/&gt;
      *                   &lt;element name="FechaHasta" type="{}FechaValidationType" minOccurs="0"/&gt;
-     *                   &lt;element name="TotalPaginas" type="{}Integer4ValidationTypeMayorUno" minOccurs="0"/&gt;
+     *                   &lt;element name="TotalPaginas" type="{}Integer5ValidationTypeMayorUno" minOccurs="0"/&gt;
      *                 &lt;/sequence&gt;
      *               &lt;/restriction&gt;
      *             &lt;/complexContent&gt;
@@ -1509,8 +3583,11 @@ public class ECF {
      *                   &lt;element name="CorreoEmisor" type="{}CorreoValidationType" minOccurs="0"/&gt;
      *                   &lt;element name="WebSite" type="{}AlfNum50Type" minOccurs="0"/&gt;
      *                   &lt;element name="ActividadEconomica" type="{}AlfNum100Type" minOccurs="0"/&gt;
+     *                   &lt;element name="CodigoVendedor" type="{}AlfNum60Type" minOccurs="0"/&gt;
      *                   &lt;element name="NumeroFacturaInterna" type="{}AlfNum20Type" minOccurs="0"/&gt;
      *                   &lt;element name="NumeroPedidoInterno" type="{}Integer20ValidationType" minOccurs="0"/&gt;
+     *                   &lt;element name="ZonaVenta" type="{}AlfNum20Type" minOccurs="0"/&gt;
+     *                   &lt;element name="RutaVenta" type="{}AlfNum20Type" minOccurs="0"/&gt;
      *                   &lt;element name="InformacionAdicionalEmisor" type="{}AlfNum250Type" minOccurs="0"/&gt;
      *                   &lt;element name="FechaEmision" type="{}FechaValidationType"/&gt;
      *                 &lt;/sequence&gt;
@@ -1523,8 +3600,45 @@ public class ECF {
      *             &lt;complexContent&gt;
      *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *                 &lt;sequence&gt;
+     *                   &lt;element name="RNCComprador" type="{}RNCValidationType" minOccurs="0"/&gt;
      *                   &lt;element name="IdentificadorExtranjero" type="{}AlfNum20Type" minOccurs="0"/&gt;
      *                   &lt;element name="RazonSocialComprador" type="{}AlfNum150Type" minOccurs="0"/&gt;
+     *                   &lt;element name="ContactoComprador" type="{}AlfNum80Type" minOccurs="0"/&gt;
+     *                   &lt;element name="CorreoComprador" type="{}CorreoValidationType" minOccurs="0"/&gt;
+     *                   &lt;element name="DireccionComprador" type="{}AlfNum100Type" minOccurs="0"/&gt;
+     *                   &lt;element name="MunicipioComprador" type="{}ProvinciaMunicipioType" minOccurs="0"/&gt;
+     *                   &lt;element name="ProvinciaComprador" type="{}ProvinciaMunicipioType" minOccurs="0"/&gt;
+     *                   &lt;element name="FechaEntrega" type="{}FechaValidationType" minOccurs="0"/&gt;
+     *                   &lt;element name="ContactoEntrega" type="{}AlfNum100Type" minOccurs="0"/&gt;
+     *                   &lt;element name="DireccionEntrega" type="{}AlfNum100Type" minOccurs="0"/&gt;
+     *                   &lt;element name="TelefonoAdicional" type="{}TelefonoValidationType" minOccurs="0"/&gt;
+     *                   &lt;element name="FechaOrdenCompra" type="{}FechaValidationType" minOccurs="0"/&gt;
+     *                   &lt;element name="NumeroOrdenCompra" type="{}AlfNum20Type" minOccurs="0"/&gt;
+     *                   &lt;element name="CodigoInternoComprador" type="{}AlfNum20Type" minOccurs="0"/&gt;
+     *                   &lt;element name="ResponsablePago" type="{}Alfa20Type" minOccurs="0"/&gt;
+     *                   &lt;element name="InformacionAdicionalComprador" type="{}AlfNum150Type" minOccurs="0"/&gt;
+     *                 &lt;/sequence&gt;
+     *               &lt;/restriction&gt;
+     *             &lt;/complexContent&gt;
+     *           &lt;/complexType&gt;
+     *         &lt;/element&gt;
+     *         &lt;element name="InformacionesAdicionales" minOccurs="0"&gt;
+     *           &lt;complexType&gt;
+     *             &lt;complexContent&gt;
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *                 &lt;sequence&gt;
+     *                   &lt;element name="FechaEmbarque" type="{}FechaValidationType" minOccurs="0"/&gt;
+     *                   &lt;element name="NumeroEmbarque" type="{}AlfNum25Type" minOccurs="0"/&gt;
+     *                   &lt;element name="NumeroContenedor" type="{}AlfNum100Type" minOccurs="0"/&gt;
+     *                   &lt;element name="NumeroReferencia" type="{}Integer20ValidationType" minOccurs="0"/&gt;
+     *                   &lt;element name="PesoBruto" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="PesoNeto" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="UnidadPesoBruto" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+     *                   &lt;element name="UnidadPesoNeto" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+     *                   &lt;element name="CantidadBulto" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="UnidadBulto" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+     *                   &lt;element name="VolumenBulto" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+     *                   &lt;element name="UnidadVolumen" type="{}UnidadMedidaType" minOccurs="0"/&gt;
      *                 &lt;/sequence&gt;
      *               &lt;/restriction&gt;
      *             &lt;/complexContent&gt;
@@ -1535,7 +3649,13 @@ public class ECF {
      *             &lt;complexContent&gt;
      *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *                 &lt;sequence&gt;
-     *                   &lt;element name="PaisDestino" type="{}Alfa60Type" minOccurs="0"/&gt;
+     *                   &lt;element name="Conductor" type="{}AlfNum20Type" minOccurs="0"/&gt;
+     *                   &lt;element name="DocumentoTransporte" type="{}Integer20ValidationType" minOccurs="0"/&gt;
+     *                   &lt;element name="Ficha" type="{}AlfNum10Type" minOccurs="0"/&gt;
+     *                   &lt;element name="Placa" type="{}AlfNum7Type" minOccurs="0"/&gt;
+     *                   &lt;element name="RutaTransporte" type="{}AlfNum20Type" minOccurs="0"/&gt;
+     *                   &lt;element name="ZonaTransporte" type="{}AlfNum20Type" minOccurs="0"/&gt;
+     *                   &lt;element name="NumeroAlbaran" type="{}AlfNum20Type" minOccurs="0"/&gt;
      *                 &lt;/sequence&gt;
      *               &lt;/restriction&gt;
      *             &lt;/complexContent&gt;
@@ -1546,13 +3666,54 @@ public class ECF {
      *             &lt;complexContent&gt;
      *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *                 &lt;sequence&gt;
+     *                   &lt;element name="MontoGravadoTotal" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="MontoGravadoI1" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="MontoGravadoI2" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="MontoGravadoI3" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
      *                   &lt;element name="MontoExento" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="ITBIS1" type="{}Integer2ValidationType" minOccurs="0"/&gt;
+     *                   &lt;element name="ITBIS2" type="{}Integer2ValidationType" minOccurs="0"/&gt;
+     *                   &lt;element name="ITBIS3" type="{}Integer2ValidationType" minOccurs="0"/&gt;
+     *                   &lt;element name="TotalITBIS" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="TotalITBIS1" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="TotalITBIS2" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="TotalITBIS3" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="MontoImpuestoAdicional" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+     *                   &lt;element name="ImpuestosAdicionales" minOccurs="0"&gt;
+     *                     &lt;complexType&gt;
+     *                       &lt;complexContent&gt;
+     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *                           &lt;sequence&gt;
+     *                             &lt;element name="ImpuestoAdicional" maxOccurs="20"&gt;
+     *                               &lt;complexType&gt;
+     *                                 &lt;complexContent&gt;
+     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *                                     &lt;sequence&gt;
+     *                                       &lt;element name="TipoImpuesto" type="{}CodificacionTipoImpuestosType"/&gt;
+     *                                       &lt;element name="TasaImpuestoAdicional" type="{}Decimal5D1or2ValidationTypeMayorCero"/&gt;
+     *                                       &lt;element name="MontoImpuestoSelectivoConsumoEspecifico" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+     *                                       &lt;element name="MontoImpuestoSelectivoConsumoAdvalorem" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+     *                                       &lt;element name="OtrosImpuestosAdicionales" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+     *                                     &lt;/sequence&gt;
+     *                                   &lt;/restriction&gt;
+     *                                 &lt;/complexContent&gt;
+     *                               &lt;/complexType&gt;
+     *                             &lt;/element&gt;
+     *                           &lt;/sequence&gt;
+     *                         &lt;/restriction&gt;
+     *                       &lt;/complexContent&gt;
+     *                     &lt;/complexType&gt;
+     *                   &lt;/element&gt;
      *                   &lt;element name="MontoTotal" type="{}Decimal18D1or2ValidationTypeMayorIgualCero"/&gt;
+     *                   &lt;element name="MontoNoFacturable" type="{}Decimal18D1or2ValidationTypeNegativoPositivo" minOccurs="0"/&gt;
      *                   &lt;element name="MontoPeriodo" type="{}Decimal18D1or2ValidationTypeNegativoPositivo" minOccurs="0"/&gt;
      *                   &lt;element name="SaldoAnterior" type="{}Decimal18D1or2ValidationTypeNegativoPositivo" minOccurs="0"/&gt;
      *                   &lt;element name="MontoAvancePago" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
      *                   &lt;element name="ValorPagar" type="{}Decimal18D1or2ValidationTypeNegativoPositivo" minOccurs="0"/&gt;
+     *                   &lt;element name="TotalITBISRetenido" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
      *                   &lt;element name="TotalISRRetencion" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="TotalITBISPercepcion" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="TotalISRPercepcion" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
      *                 &lt;/sequence&gt;
      *               &lt;/restriction&gt;
      *             &lt;/complexContent&gt;
@@ -1565,7 +3726,41 @@ public class ECF {
      *                 &lt;sequence&gt;
      *                   &lt;element name="TipoMoneda" type="{}TipoMonedaType" minOccurs="0"/&gt;
      *                   &lt;element name="TipoCambio" type="{}Decimal7D1or4ValidationTypeMayorCero" minOccurs="0"/&gt;
+     *                   &lt;element name="MontoGravadoTotalOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="MontoGravado1OtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="MontoGravado2OtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="MontoGravado3OtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
      *                   &lt;element name="MontoExentoOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="TotalITBISOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="TotalITBIS1OtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="TotalITBIS2OtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="TotalITBIS3OtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="MontoImpuestoAdicionalOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+     *                   &lt;element name="ImpuestosAdicionalesOtraMoneda" minOccurs="0"&gt;
+     *                     &lt;complexType&gt;
+     *                       &lt;complexContent&gt;
+     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *                           &lt;sequence&gt;
+     *                             &lt;element name="ImpuestoAdicionalOtraMoneda" maxOccurs="20"&gt;
+     *                               &lt;complexType&gt;
+     *                                 &lt;complexContent&gt;
+     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *                                     &lt;sequence&gt;
+     *                                       &lt;element name="TipoImpuestoOtraMoneda" type="{}CodificacionTipoImpuestosType"/&gt;
+     *                                       &lt;element name="TasaImpuestoAdicionalOtraMoneda" type="{}Decimal5D1or2ValidationTypeMayorCero"/&gt;
+     *                                       &lt;element name="MontoImpuestoSelectivoConsumoEspecificoOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+     *                                       &lt;element name="MontoImpuestoSelectivoConsumoAdvaloremOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+     *                                       &lt;element name="OtrosImpuestosAdicionalesOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+     *                                     &lt;/sequence&gt;
+     *                                   &lt;/restriction&gt;
+     *                                 &lt;/complexContent&gt;
+     *                               &lt;/complexType&gt;
+     *                             &lt;/element&gt;
+     *                           &lt;/sequence&gt;
+     *                         &lt;/restriction&gt;
+     *                       &lt;/complexContent&gt;
+     *                     &lt;/complexType&gt;
+     *                   &lt;/element&gt;
      *                   &lt;element name="MontoTotalOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
      *                 &lt;/sequence&gt;
      *               &lt;/restriction&gt;
@@ -1586,6 +3781,7 @@ public class ECF {
         "idDoc",
         "emisor",
         "comprador",
+        "informacionesAdicionales",
         "transporte",
         "totales",
         "otraMoneda"
@@ -1600,6 +3796,8 @@ public class ECF {
         protected ECF.Encabezado.Emisor emisor;
         @XmlElement(name = "Comprador")
         protected ECF.Encabezado.Comprador comprador;
+        @XmlElement(name = "InformacionesAdicionales")
+        protected ECF.Encabezado.InformacionesAdicionales informacionesAdicionales;
         @XmlElement(name = "Transporte")
         protected ECF.Encabezado.Transporte transporte;
         @XmlElement(name = "Totales", required = true)
@@ -1704,6 +3902,30 @@ public class ECF {
         }
 
         /**
+         * Obtiene el valor de la propiedad informacionesAdicionales.
+         * 
+         * @return
+         *     possible object is
+         *     {@link ECF.Encabezado.InformacionesAdicionales }
+         *     
+         */
+        public ECF.Encabezado.InformacionesAdicionales getInformacionesAdicionales() {
+            return informacionesAdicionales;
+        }
+
+        /**
+         * Define el valor de la propiedad informacionesAdicionales.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link ECF.Encabezado.InformacionesAdicionales }
+         *     
+         */
+        public void setInformacionesAdicionales(ECF.Encabezado.InformacionesAdicionales value) {
+            this.informacionesAdicionales = value;
+        }
+
+        /**
          * Obtiene el valor de la propiedad transporte.
          * 
          * @return
@@ -1786,8 +4008,23 @@ public class ECF {
          *   &lt;complexContent&gt;
          *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
          *       &lt;sequence&gt;
+         *         &lt;element name="RNCComprador" type="{}RNCValidationType" minOccurs="0"/&gt;
          *         &lt;element name="IdentificadorExtranjero" type="{}AlfNum20Type" minOccurs="0"/&gt;
          *         &lt;element name="RazonSocialComprador" type="{}AlfNum150Type" minOccurs="0"/&gt;
+         *         &lt;element name="ContactoComprador" type="{}AlfNum80Type" minOccurs="0"/&gt;
+         *         &lt;element name="CorreoComprador" type="{}CorreoValidationType" minOccurs="0"/&gt;
+         *         &lt;element name="DireccionComprador" type="{}AlfNum100Type" minOccurs="0"/&gt;
+         *         &lt;element name="MunicipioComprador" type="{}ProvinciaMunicipioType" minOccurs="0"/&gt;
+         *         &lt;element name="ProvinciaComprador" type="{}ProvinciaMunicipioType" minOccurs="0"/&gt;
+         *         &lt;element name="FechaEntrega" type="{}FechaValidationType" minOccurs="0"/&gt;
+         *         &lt;element name="ContactoEntrega" type="{}AlfNum100Type" minOccurs="0"/&gt;
+         *         &lt;element name="DireccionEntrega" type="{}AlfNum100Type" minOccurs="0"/&gt;
+         *         &lt;element name="TelefonoAdicional" type="{}TelefonoValidationType" minOccurs="0"/&gt;
+         *         &lt;element name="FechaOrdenCompra" type="{}FechaValidationType" minOccurs="0"/&gt;
+         *         &lt;element name="NumeroOrdenCompra" type="{}AlfNum20Type" minOccurs="0"/&gt;
+         *         &lt;element name="CodigoInternoComprador" type="{}AlfNum20Type" minOccurs="0"/&gt;
+         *         &lt;element name="ResponsablePago" type="{}Alfa20Type" minOccurs="0"/&gt;
+         *         &lt;element name="InformacionAdicionalComprador" type="{}AlfNum150Type" minOccurs="0"/&gt;
          *       &lt;/sequence&gt;
          *     &lt;/restriction&gt;
          *   &lt;/complexContent&gt;
@@ -1798,15 +4035,84 @@ public class ECF {
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
+            "rncComprador",
             "identificadorExtranjero",
-            "razonSocialComprador"
+            "razonSocialComprador",
+            "contactoComprador",
+            "correoComprador",
+            "direccionComprador",
+            "municipioComprador",
+            "provinciaComprador",
+            "fechaEntrega",
+            "contactoEntrega",
+            "direccionEntrega",
+            "telefonoAdicional",
+            "fechaOrdenCompra",
+            "numeroOrdenCompra",
+            "codigoInternoComprador",
+            "responsablePago",
+            "informacionAdicionalComprador"
         })
         public static class Comprador {
 
+            @XmlElement(name = "RNCComprador")
+            protected String rncComprador;
             @XmlElement(name = "IdentificadorExtranjero")
             protected String identificadorExtranjero;
             @XmlElement(name = "RazonSocialComprador")
             protected String razonSocialComprador;
+            @XmlElement(name = "ContactoComprador")
+            protected String contactoComprador;
+            @XmlElement(name = "CorreoComprador")
+            protected String correoComprador;
+            @XmlElement(name = "DireccionComprador")
+            protected String direccionComprador;
+            @XmlElement(name = "MunicipioComprador")
+            protected String municipioComprador;
+            @XmlElement(name = "ProvinciaComprador")
+            protected String provinciaComprador;
+            @XmlElement(name = "FechaEntrega")
+            protected String fechaEntrega;
+            @XmlElement(name = "ContactoEntrega")
+            protected String contactoEntrega;
+            @XmlElement(name = "DireccionEntrega")
+            protected String direccionEntrega;
+            @XmlElement(name = "TelefonoAdicional")
+            protected String telefonoAdicional;
+            @XmlElement(name = "FechaOrdenCompra")
+            protected String fechaOrdenCompra;
+            @XmlElement(name = "NumeroOrdenCompra")
+            protected String numeroOrdenCompra;
+            @XmlElement(name = "CodigoInternoComprador")
+            protected String codigoInternoComprador;
+            @XmlElement(name = "ResponsablePago")
+            protected String responsablePago;
+            @XmlElement(name = "InformacionAdicionalComprador")
+            protected String informacionAdicionalComprador;
+
+            /**
+             * Obtiene el valor de la propiedad rncComprador.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getRNCComprador() {
+                return rncComprador;
+            }
+
+            /**
+             * Define el valor de la propiedad rncComprador.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setRNCComprador(String value) {
+                this.rncComprador = value;
+            }
 
             /**
              * Obtiene el valor de la propiedad identificadorExtranjero.
@@ -1856,6 +4162,342 @@ public class ECF {
                 this.razonSocialComprador = value;
             }
 
+            /**
+             * Obtiene el valor de la propiedad contactoComprador.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getContactoComprador() {
+                return contactoComprador;
+            }
+
+            /**
+             * Define el valor de la propiedad contactoComprador.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setContactoComprador(String value) {
+                this.contactoComprador = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad correoComprador.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getCorreoComprador() {
+                return correoComprador;
+            }
+
+            /**
+             * Define el valor de la propiedad correoComprador.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setCorreoComprador(String value) {
+                this.correoComprador = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad direccionComprador.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getDireccionComprador() {
+                return direccionComprador;
+            }
+
+            /**
+             * Define el valor de la propiedad direccionComprador.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setDireccionComprador(String value) {
+                this.direccionComprador = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad municipioComprador.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getMunicipioComprador() {
+                return municipioComprador;
+            }
+
+            /**
+             * Define el valor de la propiedad municipioComprador.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setMunicipioComprador(String value) {
+                this.municipioComprador = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad provinciaComprador.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getProvinciaComprador() {
+                return provinciaComprador;
+            }
+
+            /**
+             * Define el valor de la propiedad provinciaComprador.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setProvinciaComprador(String value) {
+                this.provinciaComprador = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad fechaEntrega.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getFechaEntrega() {
+                return fechaEntrega;
+            }
+
+            /**
+             * Define el valor de la propiedad fechaEntrega.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setFechaEntrega(String value) {
+                this.fechaEntrega = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad contactoEntrega.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getContactoEntrega() {
+                return contactoEntrega;
+            }
+
+            /**
+             * Define el valor de la propiedad contactoEntrega.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setContactoEntrega(String value) {
+                this.contactoEntrega = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad direccionEntrega.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getDireccionEntrega() {
+                return direccionEntrega;
+            }
+
+            /**
+             * Define el valor de la propiedad direccionEntrega.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setDireccionEntrega(String value) {
+                this.direccionEntrega = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad telefonoAdicional.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getTelefonoAdicional() {
+                return telefonoAdicional;
+            }
+
+            /**
+             * Define el valor de la propiedad telefonoAdicional.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setTelefonoAdicional(String value) {
+                this.telefonoAdicional = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad fechaOrdenCompra.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getFechaOrdenCompra() {
+                return fechaOrdenCompra;
+            }
+
+            /**
+             * Define el valor de la propiedad fechaOrdenCompra.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setFechaOrdenCompra(String value) {
+                this.fechaOrdenCompra = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad numeroOrdenCompra.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getNumeroOrdenCompra() {
+                return numeroOrdenCompra;
+            }
+
+            /**
+             * Define el valor de la propiedad numeroOrdenCompra.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setNumeroOrdenCompra(String value) {
+                this.numeroOrdenCompra = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad codigoInternoComprador.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getCodigoInternoComprador() {
+                return codigoInternoComprador;
+            }
+
+            /**
+             * Define el valor de la propiedad codigoInternoComprador.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setCodigoInternoComprador(String value) {
+                this.codigoInternoComprador = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad responsablePago.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getResponsablePago() {
+                return responsablePago;
+            }
+
+            /**
+             * Define el valor de la propiedad responsablePago.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setResponsablePago(String value) {
+                this.responsablePago = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad informacionAdicionalComprador.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getInformacionAdicionalComprador() {
+                return informacionAdicionalComprador;
+            }
+
+            /**
+             * Define el valor de la propiedad informacionAdicionalComprador.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setInformacionAdicionalComprador(String value) {
+                this.informacionAdicionalComprador = value;
+            }
+
         }
 
 
@@ -1890,8 +4532,11 @@ public class ECF {
          *         &lt;element name="CorreoEmisor" type="{}CorreoValidationType" minOccurs="0"/&gt;
          *         &lt;element name="WebSite" type="{}AlfNum50Type" minOccurs="0"/&gt;
          *         &lt;element name="ActividadEconomica" type="{}AlfNum100Type" minOccurs="0"/&gt;
+         *         &lt;element name="CodigoVendedor" type="{}AlfNum60Type" minOccurs="0"/&gt;
          *         &lt;element name="NumeroFacturaInterna" type="{}AlfNum20Type" minOccurs="0"/&gt;
          *         &lt;element name="NumeroPedidoInterno" type="{}Integer20ValidationType" minOccurs="0"/&gt;
+         *         &lt;element name="ZonaVenta" type="{}AlfNum20Type" minOccurs="0"/&gt;
+         *         &lt;element name="RutaVenta" type="{}AlfNum20Type" minOccurs="0"/&gt;
          *         &lt;element name="InformacionAdicionalEmisor" type="{}AlfNum250Type" minOccurs="0"/&gt;
          *         &lt;element name="FechaEmision" type="{}FechaValidationType"/&gt;
          *       &lt;/sequence&gt;
@@ -1915,8 +4560,11 @@ public class ECF {
             "correoEmisor",
             "webSite",
             "actividadEconomica",
+            "codigoVendedor",
             "numeroFacturaInterna",
             "numeroPedidoInterno",
+            "zonaVenta",
+            "rutaVenta",
             "informacionAdicionalEmisor",
             "fechaEmision"
         })
@@ -1944,10 +4592,16 @@ public class ECF {
             protected String webSite;
             @XmlElement(name = "ActividadEconomica")
             protected String actividadEconomica;
+            @XmlElement(name = "CodigoVendedor")
+            protected String codigoVendedor;
             @XmlElement(name = "NumeroFacturaInterna")
             protected String numeroFacturaInterna;
             @XmlElement(name = "NumeroPedidoInterno")
             protected BigInteger numeroPedidoInterno;
+            @XmlElement(name = "ZonaVenta")
+            protected String zonaVenta;
+            @XmlElement(name = "RutaVenta")
+            protected String rutaVenta;
             @XmlElement(name = "InformacionAdicionalEmisor")
             protected String informacionAdicionalEmisor;
             @XmlElement(name = "FechaEmision", required = true)
@@ -2218,6 +4872,30 @@ public class ECF {
             }
 
             /**
+             * Obtiene el valor de la propiedad codigoVendedor.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getCodigoVendedor() {
+                return codigoVendedor;
+            }
+
+            /**
+             * Define el valor de la propiedad codigoVendedor.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setCodigoVendedor(String value) {
+                this.codigoVendedor = value;
+            }
+
+            /**
              * Obtiene el valor de la propiedad numeroFacturaInterna.
              * 
              * @return
@@ -2263,6 +4941,54 @@ public class ECF {
              */
             public void setNumeroPedidoInterno(BigInteger value) {
                 this.numeroPedidoInterno = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad zonaVenta.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getZonaVenta() {
+                return zonaVenta;
+            }
+
+            /**
+             * Define el valor de la propiedad zonaVenta.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setZonaVenta(String value) {
+                this.zonaVenta = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad rutaVenta.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getRutaVenta() {
+                return rutaVenta;
+            }
+
+            /**
+             * Define el valor de la propiedad rutaVenta.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setRutaVenta(String value) {
+                this.rutaVenta = value;
             }
 
             /**
@@ -2389,7 +5115,11 @@ public class ECF {
          *         &lt;element name="TipoeCF" type="{}TipoeCFType"/&gt;
          *         &lt;element name="eNCF" type="{}eNCFValidationType"/&gt;
          *         &lt;element name="FechaVencimientoSecuencia" type="{}FechaValidationType"/&gt;
-         *         &lt;element name="TipoPago" type="{}TipoPagoType" minOccurs="0"/&gt;
+         *         &lt;element name="IndicadorEnvioDiferido" type="{}IndicadorEnvioDiferidoType" minOccurs="0"/&gt;
+         *         &lt;element name="IndicadorMontoGravado" type="{}IndicadorMontoGravadoType" minOccurs="0"/&gt;
+         *         &lt;element name="IndicadorServicioTodoIncluido" type="{}IndicadorServicioTodoIncluidoType" minOccurs="0"/&gt;
+         *         &lt;element name="TipoIngresos" type="{}TipoIngresosValidationType"/&gt;
+         *         &lt;element name="TipoPago" type="{}TipoPagoType"/&gt;
          *         &lt;element name="FechaLimitePago" type="{}FechaValidationType" minOccurs="0"/&gt;
          *         &lt;element name="TerminoPago" type="{}TerminoPagoValidationType" minOccurs="0"/&gt;
          *         &lt;element name="TablaFormasPago" minOccurs="0"&gt;
@@ -2419,7 +5149,7 @@ public class ECF {
          *         &lt;element name="BancoPago" type="{}BancoPagoType" minOccurs="0"/&gt;
          *         &lt;element name="FechaDesde" type="{}FechaValidationType" minOccurs="0"/&gt;
          *         &lt;element name="FechaHasta" type="{}FechaValidationType" minOccurs="0"/&gt;
-         *         &lt;element name="TotalPaginas" type="{}Integer4ValidationTypeMayorUno" minOccurs="0"/&gt;
+         *         &lt;element name="TotalPaginas" type="{}Integer5ValidationTypeMayorUno" minOccurs="0"/&gt;
          *       &lt;/sequence&gt;
          *     &lt;/restriction&gt;
          *   &lt;/complexContent&gt;
@@ -2433,6 +5163,10 @@ public class ECF {
             "tipoeCF",
             "encf",
             "fechaVencimientoSecuencia",
+            "indicadorEnvioDiferido",
+            "indicadorMontoGravado",
+            "indicadorServicioTodoIncluido",
+            "tipoIngresos",
             "tipoPago",
             "fechaLimitePago",
             "terminoPago",
@@ -2452,7 +5186,15 @@ public class ECF {
             protected String encf;
             @XmlElement(name = "FechaVencimientoSecuencia", required = true)
             protected String fechaVencimientoSecuencia;
-            @XmlElement(name = "TipoPago")
+            @XmlElement(name = "IndicadorEnvioDiferido")
+            protected BigInteger indicadorEnvioDiferido;
+            @XmlElement(name = "IndicadorMontoGravado")
+            protected BigInteger indicadorMontoGravado;
+            @XmlElement(name = "IndicadorServicioTodoIncluido")
+            protected BigInteger indicadorServicioTodoIncluido;
+            @XmlElement(name = "TipoIngresos", required = true)
+            protected String tipoIngresos;
+            @XmlElement(name = "TipoPago", required = true)
             protected BigInteger tipoPago;
             @XmlElement(name = "FechaLimitePago")
             protected String fechaLimitePago;
@@ -2544,6 +5286,102 @@ public class ECF {
              */
             public void setFechaVencimientoSecuencia(String value) {
                 this.fechaVencimientoSecuencia = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad indicadorEnvioDiferido.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigInteger }
+             *     
+             */
+            public BigInteger getIndicadorEnvioDiferido() {
+                return indicadorEnvioDiferido;
+            }
+
+            /**
+             * Define el valor de la propiedad indicadorEnvioDiferido.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigInteger }
+             *     
+             */
+            public void setIndicadorEnvioDiferido(BigInteger value) {
+                this.indicadorEnvioDiferido = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad indicadorMontoGravado.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigInteger }
+             *     
+             */
+            public BigInteger getIndicadorMontoGravado() {
+                return indicadorMontoGravado;
+            }
+
+            /**
+             * Define el valor de la propiedad indicadorMontoGravado.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigInteger }
+             *     
+             */
+            public void setIndicadorMontoGravado(BigInteger value) {
+                this.indicadorMontoGravado = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad indicadorServicioTodoIncluido.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigInteger }
+             *     
+             */
+            public BigInteger getIndicadorServicioTodoIncluido() {
+                return indicadorServicioTodoIncluido;
+            }
+
+            /**
+             * Define el valor de la propiedad indicadorServicioTodoIncluido.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigInteger }
+             *     
+             */
+            public void setIndicadorServicioTodoIncluido(BigInteger value) {
+                this.indicadorServicioTodoIncluido = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad tipoIngresos.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getTipoIngresos() {
+                return tipoIngresos;
+            }
+
+            /**
+             * Define el valor de la propiedad tipoIngresos.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setTipoIngresos(String value) {
+                this.tipoIngresos = value;
             }
 
             /**
@@ -2953,9 +5791,406 @@ public class ECF {
          *   &lt;complexContent&gt;
          *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
          *       &lt;sequence&gt;
+         *         &lt;element name="FechaEmbarque" type="{}FechaValidationType" minOccurs="0"/&gt;
+         *         &lt;element name="NumeroEmbarque" type="{}AlfNum25Type" minOccurs="0"/&gt;
+         *         &lt;element name="NumeroContenedor" type="{}AlfNum100Type" minOccurs="0"/&gt;
+         *         &lt;element name="NumeroReferencia" type="{}Integer20ValidationType" minOccurs="0"/&gt;
+         *         &lt;element name="PesoBruto" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="PesoNeto" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="UnidadPesoBruto" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+         *         &lt;element name="UnidadPesoNeto" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+         *         &lt;element name="CantidadBulto" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="UnidadBulto" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+         *         &lt;element name="VolumenBulto" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+         *         &lt;element name="UnidadVolumen" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+         *       &lt;/sequence&gt;
+         *     &lt;/restriction&gt;
+         *   &lt;/complexContent&gt;
+         * &lt;/complexType&gt;
+         * </pre>
+         * 
+         * 
+         */
+        @XmlAccessorType(XmlAccessType.FIELD)
+        @XmlType(name = "", propOrder = {
+            "fechaEmbarque",
+            "numeroEmbarque",
+            "numeroContenedor",
+            "numeroReferencia",
+            "pesoBruto",
+            "pesoNeto",
+            "unidadPesoBruto",
+            "unidadPesoNeto",
+            "cantidadBulto",
+            "unidadBulto",
+            "volumenBulto",
+            "unidadVolumen"
+        })
+        public static class InformacionesAdicionales {
+
+            @XmlElement(name = "FechaEmbarque")
+            protected String fechaEmbarque;
+            @XmlElement(name = "NumeroEmbarque")
+            protected String numeroEmbarque;
+            @XmlElement(name = "NumeroContenedor")
+            protected String numeroContenedor;
+            @XmlElement(name = "NumeroReferencia")
+            protected BigInteger numeroReferencia;
+            @XmlElement(name = "PesoBruto")
+            protected BigDecimal pesoBruto;
+            @XmlElement(name = "PesoNeto")
+            protected BigDecimal pesoNeto;
+            @XmlElement(name = "UnidadPesoBruto")
+            protected String unidadPesoBruto;
+            @XmlElement(name = "UnidadPesoNeto")
+            protected String unidadPesoNeto;
+            @XmlElement(name = "CantidadBulto")
+            protected BigDecimal cantidadBulto;
+            @XmlElement(name = "UnidadBulto")
+            protected String unidadBulto;
+            @XmlElement(name = "VolumenBulto")
+            protected BigDecimal volumenBulto;
+            @XmlElement(name = "UnidadVolumen")
+            protected String unidadVolumen;
+
+            /**
+             * Obtiene el valor de la propiedad fechaEmbarque.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getFechaEmbarque() {
+                return fechaEmbarque;
+            }
+
+            /**
+             * Define el valor de la propiedad fechaEmbarque.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setFechaEmbarque(String value) {
+                this.fechaEmbarque = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad numeroEmbarque.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getNumeroEmbarque() {
+                return numeroEmbarque;
+            }
+
+            /**
+             * Define el valor de la propiedad numeroEmbarque.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setNumeroEmbarque(String value) {
+                this.numeroEmbarque = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad numeroContenedor.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getNumeroContenedor() {
+                return numeroContenedor;
+            }
+
+            /**
+             * Define el valor de la propiedad numeroContenedor.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setNumeroContenedor(String value) {
+                this.numeroContenedor = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad numeroReferencia.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigInteger }
+             *     
+             */
+            public BigInteger getNumeroReferencia() {
+                return numeroReferencia;
+            }
+
+            /**
+             * Define el valor de la propiedad numeroReferencia.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigInteger }
+             *     
+             */
+            public void setNumeroReferencia(BigInteger value) {
+                this.numeroReferencia = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad pesoBruto.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getPesoBruto() {
+                return pesoBruto;
+            }
+
+            /**
+             * Define el valor de la propiedad pesoBruto.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setPesoBruto(BigDecimal value) {
+                this.pesoBruto = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad pesoNeto.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getPesoNeto() {
+                return pesoNeto;
+            }
+
+            /**
+             * Define el valor de la propiedad pesoNeto.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setPesoNeto(BigDecimal value) {
+                this.pesoNeto = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad unidadPesoBruto.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getUnidadPesoBruto() {
+                return unidadPesoBruto;
+            }
+
+            /**
+             * Define el valor de la propiedad unidadPesoBruto.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setUnidadPesoBruto(String value) {
+                this.unidadPesoBruto = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad unidadPesoNeto.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getUnidadPesoNeto() {
+                return unidadPesoNeto;
+            }
+
+            /**
+             * Define el valor de la propiedad unidadPesoNeto.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setUnidadPesoNeto(String value) {
+                this.unidadPesoNeto = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad cantidadBulto.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getCantidadBulto() {
+                return cantidadBulto;
+            }
+
+            /**
+             * Define el valor de la propiedad cantidadBulto.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setCantidadBulto(BigDecimal value) {
+                this.cantidadBulto = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad unidadBulto.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getUnidadBulto() {
+                return unidadBulto;
+            }
+
+            /**
+             * Define el valor de la propiedad unidadBulto.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setUnidadBulto(String value) {
+                this.unidadBulto = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad volumenBulto.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getVolumenBulto() {
+                return volumenBulto;
+            }
+
+            /**
+             * Define el valor de la propiedad volumenBulto.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setVolumenBulto(BigDecimal value) {
+                this.volumenBulto = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad unidadVolumen.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getUnidadVolumen() {
+                return unidadVolumen;
+            }
+
+            /**
+             * Define el valor de la propiedad unidadVolumen.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setUnidadVolumen(String value) {
+                this.unidadVolumen = value;
+            }
+
+        }
+
+
+        /**
+         * <p>Clase Java para anonymous complex type.
+         * 
+         * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+         * 
+         * <pre>
+         * &lt;complexType&gt;
+         *   &lt;complexContent&gt;
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+         *       &lt;sequence&gt;
          *         &lt;element name="TipoMoneda" type="{}TipoMonedaType" minOccurs="0"/&gt;
          *         &lt;element name="TipoCambio" type="{}Decimal7D1or4ValidationTypeMayorCero" minOccurs="0"/&gt;
+         *         &lt;element name="MontoGravadoTotalOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="MontoGravado1OtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="MontoGravado2OtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="MontoGravado3OtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
          *         &lt;element name="MontoExentoOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="TotalITBISOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="TotalITBIS1OtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="TotalITBIS2OtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="TotalITBIS3OtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="MontoImpuestoAdicionalOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+         *         &lt;element name="ImpuestosAdicionalesOtraMoneda" minOccurs="0"&gt;
+         *           &lt;complexType&gt;
+         *             &lt;complexContent&gt;
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+         *                 &lt;sequence&gt;
+         *                   &lt;element name="ImpuestoAdicionalOtraMoneda" maxOccurs="20"&gt;
+         *                     &lt;complexType&gt;
+         *                       &lt;complexContent&gt;
+         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+         *                           &lt;sequence&gt;
+         *                             &lt;element name="TipoImpuestoOtraMoneda" type="{}CodificacionTipoImpuestosType"/&gt;
+         *                             &lt;element name="TasaImpuestoAdicionalOtraMoneda" type="{}Decimal5D1or2ValidationTypeMayorCero"/&gt;
+         *                             &lt;element name="MontoImpuestoSelectivoConsumoEspecificoOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+         *                             &lt;element name="MontoImpuestoSelectivoConsumoAdvaloremOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+         *                             &lt;element name="OtrosImpuestosAdicionalesOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+         *                           &lt;/sequence&gt;
+         *                         &lt;/restriction&gt;
+         *                       &lt;/complexContent&gt;
+         *                     &lt;/complexType&gt;
+         *                   &lt;/element&gt;
+         *                 &lt;/sequence&gt;
+         *               &lt;/restriction&gt;
+         *             &lt;/complexContent&gt;
+         *           &lt;/complexType&gt;
+         *         &lt;/element&gt;
          *         &lt;element name="MontoTotalOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
          *       &lt;/sequence&gt;
          *     &lt;/restriction&gt;
@@ -2969,7 +6204,17 @@ public class ECF {
         @XmlType(name = "", propOrder = {
             "tipoMoneda",
             "tipoCambio",
+            "montoGravadoTotalOtraMoneda",
+            "montoGravado1OtraMoneda",
+            "montoGravado2OtraMoneda",
+            "montoGravado3OtraMoneda",
             "montoExentoOtraMoneda",
+            "totalITBISOtraMoneda",
+            "totalITBIS1OtraMoneda",
+            "totalITBIS2OtraMoneda",
+            "totalITBIS3OtraMoneda",
+            "montoImpuestoAdicionalOtraMoneda",
+            "impuestosAdicionalesOtraMoneda",
             "montoTotalOtraMoneda"
         })
         public static class OtraMoneda {
@@ -2979,8 +6224,28 @@ public class ECF {
             protected TipoMonedaType tipoMoneda;
             @XmlElement(name = "TipoCambio")
             protected BigDecimal tipoCambio;
+            @XmlElement(name = "MontoGravadoTotalOtraMoneda")
+            protected BigDecimal montoGravadoTotalOtraMoneda;
+            @XmlElement(name = "MontoGravado1OtraMoneda")
+            protected BigDecimal montoGravado1OtraMoneda;
+            @XmlElement(name = "MontoGravado2OtraMoneda")
+            protected BigDecimal montoGravado2OtraMoneda;
+            @XmlElement(name = "MontoGravado3OtraMoneda")
+            protected BigDecimal montoGravado3OtraMoneda;
             @XmlElement(name = "MontoExentoOtraMoneda")
             protected BigDecimal montoExentoOtraMoneda;
+            @XmlElement(name = "TotalITBISOtraMoneda")
+            protected BigDecimal totalITBISOtraMoneda;
+            @XmlElement(name = "TotalITBIS1OtraMoneda")
+            protected BigDecimal totalITBIS1OtraMoneda;
+            @XmlElement(name = "TotalITBIS2OtraMoneda")
+            protected BigDecimal totalITBIS2OtraMoneda;
+            @XmlElement(name = "TotalITBIS3OtraMoneda")
+            protected BigDecimal totalITBIS3OtraMoneda;
+            @XmlElement(name = "MontoImpuestoAdicionalOtraMoneda")
+            protected BigDecimal montoImpuestoAdicionalOtraMoneda;
+            @XmlElement(name = "ImpuestosAdicionalesOtraMoneda")
+            protected ECF.Encabezado.OtraMoneda.ImpuestosAdicionalesOtraMoneda impuestosAdicionalesOtraMoneda;
             @XmlElement(name = "MontoTotalOtraMoneda")
             protected BigDecimal montoTotalOtraMoneda;
 
@@ -3033,6 +6298,102 @@ public class ECF {
             }
 
             /**
+             * Obtiene el valor de la propiedad montoGravadoTotalOtraMoneda.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getMontoGravadoTotalOtraMoneda() {
+                return montoGravadoTotalOtraMoneda;
+            }
+
+            /**
+             * Define el valor de la propiedad montoGravadoTotalOtraMoneda.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setMontoGravadoTotalOtraMoneda(BigDecimal value) {
+                this.montoGravadoTotalOtraMoneda = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad montoGravado1OtraMoneda.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getMontoGravado1OtraMoneda() {
+                return montoGravado1OtraMoneda;
+            }
+
+            /**
+             * Define el valor de la propiedad montoGravado1OtraMoneda.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setMontoGravado1OtraMoneda(BigDecimal value) {
+                this.montoGravado1OtraMoneda = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad montoGravado2OtraMoneda.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getMontoGravado2OtraMoneda() {
+                return montoGravado2OtraMoneda;
+            }
+
+            /**
+             * Define el valor de la propiedad montoGravado2OtraMoneda.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setMontoGravado2OtraMoneda(BigDecimal value) {
+                this.montoGravado2OtraMoneda = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad montoGravado3OtraMoneda.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getMontoGravado3OtraMoneda() {
+                return montoGravado3OtraMoneda;
+            }
+
+            /**
+             * Define el valor de la propiedad montoGravado3OtraMoneda.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setMontoGravado3OtraMoneda(BigDecimal value) {
+                this.montoGravado3OtraMoneda = value;
+            }
+
+            /**
              * Obtiene el valor de la propiedad montoExentoOtraMoneda.
              * 
              * @return
@@ -3054,6 +6415,150 @@ public class ECF {
              */
             public void setMontoExentoOtraMoneda(BigDecimal value) {
                 this.montoExentoOtraMoneda = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad totalITBISOtraMoneda.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getTotalITBISOtraMoneda() {
+                return totalITBISOtraMoneda;
+            }
+
+            /**
+             * Define el valor de la propiedad totalITBISOtraMoneda.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setTotalITBISOtraMoneda(BigDecimal value) {
+                this.totalITBISOtraMoneda = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad totalITBIS1OtraMoneda.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getTotalITBIS1OtraMoneda() {
+                return totalITBIS1OtraMoneda;
+            }
+
+            /**
+             * Define el valor de la propiedad totalITBIS1OtraMoneda.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setTotalITBIS1OtraMoneda(BigDecimal value) {
+                this.totalITBIS1OtraMoneda = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad totalITBIS2OtraMoneda.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getTotalITBIS2OtraMoneda() {
+                return totalITBIS2OtraMoneda;
+            }
+
+            /**
+             * Define el valor de la propiedad totalITBIS2OtraMoneda.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setTotalITBIS2OtraMoneda(BigDecimal value) {
+                this.totalITBIS2OtraMoneda = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad totalITBIS3OtraMoneda.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getTotalITBIS3OtraMoneda() {
+                return totalITBIS3OtraMoneda;
+            }
+
+            /**
+             * Define el valor de la propiedad totalITBIS3OtraMoneda.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setTotalITBIS3OtraMoneda(BigDecimal value) {
+                this.totalITBIS3OtraMoneda = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad montoImpuestoAdicionalOtraMoneda.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getMontoImpuestoAdicionalOtraMoneda() {
+                return montoImpuestoAdicionalOtraMoneda;
+            }
+
+            /**
+             * Define el valor de la propiedad montoImpuestoAdicionalOtraMoneda.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setMontoImpuestoAdicionalOtraMoneda(BigDecimal value) {
+                this.montoImpuestoAdicionalOtraMoneda = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad impuestosAdicionalesOtraMoneda.
+             * 
+             * @return
+             *     possible object is
+             *     {@link ECF.Encabezado.OtraMoneda.ImpuestosAdicionalesOtraMoneda }
+             *     
+             */
+            public ECF.Encabezado.OtraMoneda.ImpuestosAdicionalesOtraMoneda getImpuestosAdicionalesOtraMoneda() {
+                return impuestosAdicionalesOtraMoneda;
+            }
+
+            /**
+             * Define el valor de la propiedad impuestosAdicionalesOtraMoneda.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link ECF.Encabezado.OtraMoneda.ImpuestosAdicionalesOtraMoneda }
+             *     
+             */
+            public void setImpuestosAdicionalesOtraMoneda(ECF.Encabezado.OtraMoneda.ImpuestosAdicionalesOtraMoneda value) {
+                this.impuestosAdicionalesOtraMoneda = value;
             }
 
             /**
@@ -3080,6 +6585,247 @@ public class ECF {
                 this.montoTotalOtraMoneda = value;
             }
 
+
+            /**
+             * <p>Clase Java para anonymous complex type.
+             * 
+             * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+             * 
+             * <pre>
+             * &lt;complexType&gt;
+             *   &lt;complexContent&gt;
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+             *       &lt;sequence&gt;
+             *         &lt;element name="ImpuestoAdicionalOtraMoneda" maxOccurs="20"&gt;
+             *           &lt;complexType&gt;
+             *             &lt;complexContent&gt;
+             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+             *                 &lt;sequence&gt;
+             *                   &lt;element name="TipoImpuestoOtraMoneda" type="{}CodificacionTipoImpuestosType"/&gt;
+             *                   &lt;element name="TasaImpuestoAdicionalOtraMoneda" type="{}Decimal5D1or2ValidationTypeMayorCero"/&gt;
+             *                   &lt;element name="MontoImpuestoSelectivoConsumoEspecificoOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+             *                   &lt;element name="MontoImpuestoSelectivoConsumoAdvaloremOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+             *                   &lt;element name="OtrosImpuestosAdicionalesOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+             *                 &lt;/sequence&gt;
+             *               &lt;/restriction&gt;
+             *             &lt;/complexContent&gt;
+             *           &lt;/complexType&gt;
+             *         &lt;/element&gt;
+             *       &lt;/sequence&gt;
+             *     &lt;/restriction&gt;
+             *   &lt;/complexContent&gt;
+             * &lt;/complexType&gt;
+             * </pre>
+             * 
+             * 
+             */
+            @XmlAccessorType(XmlAccessType.FIELD)
+            @XmlType(name = "", propOrder = {
+                "impuestoAdicionalOtraMoneda"
+            })
+            public static class ImpuestosAdicionalesOtraMoneda {
+
+                @XmlElement(name = "ImpuestoAdicionalOtraMoneda", required = true)
+                protected List<ECF.Encabezado.OtraMoneda.ImpuestosAdicionalesOtraMoneda.ImpuestoAdicionalOtraMoneda> impuestoAdicionalOtraMoneda;
+
+                /**
+                 * Gets the value of the impuestoAdicionalOtraMoneda property.
+                 * 
+                 * <p>
+                 * This accessor method returns a reference to the live list,
+                 * not a snapshot. Therefore any modification you make to the
+                 * returned list will be present inside the JAXB object.
+                 * This is why there is not a <CODE>set</CODE> method for the impuestoAdicionalOtraMoneda property.
+                 * 
+                 * <p>
+                 * For example, to add a new item, do as follows:
+                 * <pre>
+                 *    getImpuestoAdicionalOtraMoneda().add(newItem);
+                 * </pre>
+                 * 
+                 * 
+                 * <p>
+                 * Objects of the following type(s) are allowed in the list
+                 * {@link ECF.Encabezado.OtraMoneda.ImpuestosAdicionalesOtraMoneda.ImpuestoAdicionalOtraMoneda }
+                 * 
+                 * 
+                 */
+                public List<ECF.Encabezado.OtraMoneda.ImpuestosAdicionalesOtraMoneda.ImpuestoAdicionalOtraMoneda> getImpuestoAdicionalOtraMoneda() {
+                    if (impuestoAdicionalOtraMoneda == null) {
+                        impuestoAdicionalOtraMoneda = new ArrayList<ECF.Encabezado.OtraMoneda.ImpuestosAdicionalesOtraMoneda.ImpuestoAdicionalOtraMoneda>();
+                    }
+                    return this.impuestoAdicionalOtraMoneda;
+                }
+
+
+                /**
+                 * <p>Clase Java para anonymous complex type.
+                 * 
+                 * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+                 * 
+                 * <pre>
+                 * &lt;complexType&gt;
+                 *   &lt;complexContent&gt;
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+                 *       &lt;sequence&gt;
+                 *         &lt;element name="TipoImpuestoOtraMoneda" type="{}CodificacionTipoImpuestosType"/&gt;
+                 *         &lt;element name="TasaImpuestoAdicionalOtraMoneda" type="{}Decimal5D1or2ValidationTypeMayorCero"/&gt;
+                 *         &lt;element name="MontoImpuestoSelectivoConsumoEspecificoOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+                 *         &lt;element name="MontoImpuestoSelectivoConsumoAdvaloremOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+                 *         &lt;element name="OtrosImpuestosAdicionalesOtraMoneda" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+                 *       &lt;/sequence&gt;
+                 *     &lt;/restriction&gt;
+                 *   &lt;/complexContent&gt;
+                 * &lt;/complexType&gt;
+                 * </pre>
+                 * 
+                 * 
+                 */
+                @XmlAccessorType(XmlAccessType.FIELD)
+                @XmlType(name = "", propOrder = {
+                    "tipoImpuestoOtraMoneda",
+                    "tasaImpuestoAdicionalOtraMoneda",
+                    "montoImpuestoSelectivoConsumoEspecificoOtraMoneda",
+                    "montoImpuestoSelectivoConsumoAdvaloremOtraMoneda",
+                    "otrosImpuestosAdicionalesOtraMoneda"
+                })
+                public static class ImpuestoAdicionalOtraMoneda {
+
+                    @XmlElement(name = "TipoImpuestoOtraMoneda", required = true)
+                    protected String tipoImpuestoOtraMoneda;
+                    @XmlElement(name = "TasaImpuestoAdicionalOtraMoneda", required = true)
+                    protected BigDecimal tasaImpuestoAdicionalOtraMoneda;
+                    @XmlElement(name = "MontoImpuestoSelectivoConsumoEspecificoOtraMoneda")
+                    protected BigDecimal montoImpuestoSelectivoConsumoEspecificoOtraMoneda;
+                    @XmlElement(name = "MontoImpuestoSelectivoConsumoAdvaloremOtraMoneda")
+                    protected BigDecimal montoImpuestoSelectivoConsumoAdvaloremOtraMoneda;
+                    @XmlElement(name = "OtrosImpuestosAdicionalesOtraMoneda")
+                    protected BigDecimal otrosImpuestosAdicionalesOtraMoneda;
+
+                    /**
+                     * Obtiene el valor de la propiedad tipoImpuestoOtraMoneda.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link String }
+                     *     
+                     */
+                    public String getTipoImpuestoOtraMoneda() {
+                        return tipoImpuestoOtraMoneda;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad tipoImpuestoOtraMoneda.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link String }
+                     *     
+                     */
+                    public void setTipoImpuestoOtraMoneda(String value) {
+                        this.tipoImpuestoOtraMoneda = value;
+                    }
+
+                    /**
+                     * Obtiene el valor de la propiedad tasaImpuestoAdicionalOtraMoneda.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public BigDecimal getTasaImpuestoAdicionalOtraMoneda() {
+                        return tasaImpuestoAdicionalOtraMoneda;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad tasaImpuestoAdicionalOtraMoneda.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public void setTasaImpuestoAdicionalOtraMoneda(BigDecimal value) {
+                        this.tasaImpuestoAdicionalOtraMoneda = value;
+                    }
+
+                    /**
+                     * Obtiene el valor de la propiedad montoImpuestoSelectivoConsumoEspecificoOtraMoneda.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public BigDecimal getMontoImpuestoSelectivoConsumoEspecificoOtraMoneda() {
+                        return montoImpuestoSelectivoConsumoEspecificoOtraMoneda;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad montoImpuestoSelectivoConsumoEspecificoOtraMoneda.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public void setMontoImpuestoSelectivoConsumoEspecificoOtraMoneda(BigDecimal value) {
+                        this.montoImpuestoSelectivoConsumoEspecificoOtraMoneda = value;
+                    }
+
+                    /**
+                     * Obtiene el valor de la propiedad montoImpuestoSelectivoConsumoAdvaloremOtraMoneda.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public BigDecimal getMontoImpuestoSelectivoConsumoAdvaloremOtraMoneda() {
+                        return montoImpuestoSelectivoConsumoAdvaloremOtraMoneda;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad montoImpuestoSelectivoConsumoAdvaloremOtraMoneda.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public void setMontoImpuestoSelectivoConsumoAdvaloremOtraMoneda(BigDecimal value) {
+                        this.montoImpuestoSelectivoConsumoAdvaloremOtraMoneda = value;
+                    }
+
+                    /**
+                     * Obtiene el valor de la propiedad otrosImpuestosAdicionalesOtraMoneda.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public BigDecimal getOtrosImpuestosAdicionalesOtraMoneda() {
+                        return otrosImpuestosAdicionalesOtraMoneda;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad otrosImpuestosAdicionalesOtraMoneda.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public void setOtrosImpuestosAdicionalesOtraMoneda(BigDecimal value) {
+                        this.otrosImpuestosAdicionalesOtraMoneda = value;
+                    }
+
+                }
+
+            }
+
         }
 
 
@@ -3093,13 +6839,54 @@ public class ECF {
          *   &lt;complexContent&gt;
          *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
          *       &lt;sequence&gt;
+         *         &lt;element name="MontoGravadoTotal" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="MontoGravadoI1" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="MontoGravadoI2" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="MontoGravadoI3" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
          *         &lt;element name="MontoExento" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="ITBIS1" type="{}Integer2ValidationType" minOccurs="0"/&gt;
+         *         &lt;element name="ITBIS2" type="{}Integer2ValidationType" minOccurs="0"/&gt;
+         *         &lt;element name="ITBIS3" type="{}Integer2ValidationType" minOccurs="0"/&gt;
+         *         &lt;element name="TotalITBIS" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="TotalITBIS1" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="TotalITBIS2" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="TotalITBIS3" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="MontoImpuestoAdicional" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+         *         &lt;element name="ImpuestosAdicionales" minOccurs="0"&gt;
+         *           &lt;complexType&gt;
+         *             &lt;complexContent&gt;
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+         *                 &lt;sequence&gt;
+         *                   &lt;element name="ImpuestoAdicional" maxOccurs="20"&gt;
+         *                     &lt;complexType&gt;
+         *                       &lt;complexContent&gt;
+         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+         *                           &lt;sequence&gt;
+         *                             &lt;element name="TipoImpuesto" type="{}CodificacionTipoImpuestosType"/&gt;
+         *                             &lt;element name="TasaImpuestoAdicional" type="{}Decimal5D1or2ValidationTypeMayorCero"/&gt;
+         *                             &lt;element name="MontoImpuestoSelectivoConsumoEspecifico" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+         *                             &lt;element name="MontoImpuestoSelectivoConsumoAdvalorem" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+         *                             &lt;element name="OtrosImpuestosAdicionales" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+         *                           &lt;/sequence&gt;
+         *                         &lt;/restriction&gt;
+         *                       &lt;/complexContent&gt;
+         *                     &lt;/complexType&gt;
+         *                   &lt;/element&gt;
+         *                 &lt;/sequence&gt;
+         *               &lt;/restriction&gt;
+         *             &lt;/complexContent&gt;
+         *           &lt;/complexType&gt;
+         *         &lt;/element&gt;
          *         &lt;element name="MontoTotal" type="{}Decimal18D1or2ValidationTypeMayorIgualCero"/&gt;
+         *         &lt;element name="MontoNoFacturable" type="{}Decimal18D1or2ValidationTypeNegativoPositivo" minOccurs="0"/&gt;
          *         &lt;element name="MontoPeriodo" type="{}Decimal18D1or2ValidationTypeNegativoPositivo" minOccurs="0"/&gt;
          *         &lt;element name="SaldoAnterior" type="{}Decimal18D1or2ValidationTypeNegativoPositivo" minOccurs="0"/&gt;
          *         &lt;element name="MontoAvancePago" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
          *         &lt;element name="ValorPagar" type="{}Decimal18D1or2ValidationTypeNegativoPositivo" minOccurs="0"/&gt;
+         *         &lt;element name="TotalITBISRetenido" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
          *         &lt;element name="TotalISRRetencion" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="TotalITBISPercepcion" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="TotalISRPercepcion" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
          *       &lt;/sequence&gt;
          *     &lt;/restriction&gt;
          *   &lt;/complexContent&gt;
@@ -3110,20 +6897,65 @@ public class ECF {
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
+            "montoGravadoTotal",
+            "montoGravadoI1",
+            "montoGravadoI2",
+            "montoGravadoI3",
             "montoExento",
+            "itbis1",
+            "itbis2",
+            "itbis3",
+            "totalITBIS",
+            "totalITBIS1",
+            "totalITBIS2",
+            "totalITBIS3",
+            "montoImpuestoAdicional",
+            "impuestosAdicionales",
             "montoTotal",
+            "montoNoFacturable",
             "montoPeriodo",
             "saldoAnterior",
             "montoAvancePago",
             "valorPagar",
-            "totalISRRetencion"
+            "totalITBISRetenido",
+            "totalISRRetencion",
+            "totalITBISPercepcion",
+            "totalISRPercepcion"
         })
         public static class Totales {
 
+            @XmlElement(name = "MontoGravadoTotal")
+            protected BigDecimal montoGravadoTotal;
+            @XmlElement(name = "MontoGravadoI1")
+            protected BigDecimal montoGravadoI1;
+            @XmlElement(name = "MontoGravadoI2")
+            protected BigDecimal montoGravadoI2;
+            @XmlElement(name = "MontoGravadoI3")
+            protected BigDecimal montoGravadoI3;
             @XmlElement(name = "MontoExento")
             protected BigDecimal montoExento;
+            @XmlElement(name = "ITBIS1")
+            protected BigInteger itbis1;
+            @XmlElement(name = "ITBIS2")
+            protected BigInteger itbis2;
+            @XmlElement(name = "ITBIS3")
+            protected BigInteger itbis3;
+            @XmlElement(name = "TotalITBIS")
+            protected BigDecimal totalITBIS;
+            @XmlElement(name = "TotalITBIS1")
+            protected BigDecimal totalITBIS1;
+            @XmlElement(name = "TotalITBIS2")
+            protected BigDecimal totalITBIS2;
+            @XmlElement(name = "TotalITBIS3")
+            protected BigDecimal totalITBIS3;
+            @XmlElement(name = "MontoImpuestoAdicional")
+            protected BigDecimal montoImpuestoAdicional;
+            @XmlElement(name = "ImpuestosAdicionales")
+            protected ECF.Encabezado.Totales.ImpuestosAdicionales impuestosAdicionales;
             @XmlElement(name = "MontoTotal", required = true)
             protected BigDecimal montoTotal;
+            @XmlElement(name = "MontoNoFacturable")
+            protected BigDecimal montoNoFacturable;
             @XmlElement(name = "MontoPeriodo")
             protected BigDecimal montoPeriodo;
             @XmlElement(name = "SaldoAnterior")
@@ -3132,8 +6964,110 @@ public class ECF {
             protected BigDecimal montoAvancePago;
             @XmlElement(name = "ValorPagar")
             protected BigDecimal valorPagar;
+            @XmlElement(name = "TotalITBISRetenido")
+            protected BigDecimal totalITBISRetenido;
             @XmlElement(name = "TotalISRRetencion")
             protected BigDecimal totalISRRetencion;
+            @XmlElement(name = "TotalITBISPercepcion")
+            protected BigDecimal totalITBISPercepcion;
+            @XmlElement(name = "TotalISRPercepcion")
+            protected BigDecimal totalISRPercepcion;
+
+            /**
+             * Obtiene el valor de la propiedad montoGravadoTotal.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getMontoGravadoTotal() {
+                return montoGravadoTotal;
+            }
+
+            /**
+             * Define el valor de la propiedad montoGravadoTotal.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setMontoGravadoTotal(BigDecimal value) {
+                this.montoGravadoTotal = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad montoGravadoI1.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getMontoGravadoI1() {
+                return montoGravadoI1;
+            }
+
+            /**
+             * Define el valor de la propiedad montoGravadoI1.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setMontoGravadoI1(BigDecimal value) {
+                this.montoGravadoI1 = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad montoGravadoI2.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getMontoGravadoI2() {
+                return montoGravadoI2;
+            }
+
+            /**
+             * Define el valor de la propiedad montoGravadoI2.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setMontoGravadoI2(BigDecimal value) {
+                this.montoGravadoI2 = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad montoGravadoI3.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getMontoGravadoI3() {
+                return montoGravadoI3;
+            }
+
+            /**
+             * Define el valor de la propiedad montoGravadoI3.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setMontoGravadoI3(BigDecimal value) {
+                this.montoGravadoI3 = value;
+            }
 
             /**
              * Obtiene el valor de la propiedad montoExento.
@@ -3160,6 +7094,222 @@ public class ECF {
             }
 
             /**
+             * Obtiene el valor de la propiedad itbis1.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigInteger }
+             *     
+             */
+            public BigInteger getITBIS1() {
+                return itbis1;
+            }
+
+            /**
+             * Define el valor de la propiedad itbis1.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigInteger }
+             *     
+             */
+            public void setITBIS1(BigInteger value) {
+                this.itbis1 = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad itbis2.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigInteger }
+             *     
+             */
+            public BigInteger getITBIS2() {
+                return itbis2;
+            }
+
+            /**
+             * Define el valor de la propiedad itbis2.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigInteger }
+             *     
+             */
+            public void setITBIS2(BigInteger value) {
+                this.itbis2 = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad itbis3.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigInteger }
+             *     
+             */
+            public BigInteger getITBIS3() {
+                return itbis3;
+            }
+
+            /**
+             * Define el valor de la propiedad itbis3.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigInteger }
+             *     
+             */
+            public void setITBIS3(BigInteger value) {
+                this.itbis3 = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad totalITBIS.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getTotalITBIS() {
+                return totalITBIS;
+            }
+
+            /**
+             * Define el valor de la propiedad totalITBIS.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setTotalITBIS(BigDecimal value) {
+                this.totalITBIS = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad totalITBIS1.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getTotalITBIS1() {
+                return totalITBIS1;
+            }
+
+            /**
+             * Define el valor de la propiedad totalITBIS1.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setTotalITBIS1(BigDecimal value) {
+                this.totalITBIS1 = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad totalITBIS2.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getTotalITBIS2() {
+                return totalITBIS2;
+            }
+
+            /**
+             * Define el valor de la propiedad totalITBIS2.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setTotalITBIS2(BigDecimal value) {
+                this.totalITBIS2 = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad totalITBIS3.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getTotalITBIS3() {
+                return totalITBIS3;
+            }
+
+            /**
+             * Define el valor de la propiedad totalITBIS3.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setTotalITBIS3(BigDecimal value) {
+                this.totalITBIS3 = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad montoImpuestoAdicional.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getMontoImpuestoAdicional() {
+                return montoImpuestoAdicional;
+            }
+
+            /**
+             * Define el valor de la propiedad montoImpuestoAdicional.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setMontoImpuestoAdicional(BigDecimal value) {
+                this.montoImpuestoAdicional = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad impuestosAdicionales.
+             * 
+             * @return
+             *     possible object is
+             *     {@link ECF.Encabezado.Totales.ImpuestosAdicionales }
+             *     
+             */
+            public ECF.Encabezado.Totales.ImpuestosAdicionales getImpuestosAdicionales() {
+                return impuestosAdicionales;
+            }
+
+            /**
+             * Define el valor de la propiedad impuestosAdicionales.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link ECF.Encabezado.Totales.ImpuestosAdicionales }
+             *     
+             */
+            public void setImpuestosAdicionales(ECF.Encabezado.Totales.ImpuestosAdicionales value) {
+                this.impuestosAdicionales = value;
+            }
+
+            /**
              * Obtiene el valor de la propiedad montoTotal.
              * 
              * @return
@@ -3181,6 +7331,30 @@ public class ECF {
              */
             public void setMontoTotal(BigDecimal value) {
                 this.montoTotal = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad montoNoFacturable.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getMontoNoFacturable() {
+                return montoNoFacturable;
+            }
+
+            /**
+             * Define el valor de la propiedad montoNoFacturable.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setMontoNoFacturable(BigDecimal value) {
+                this.montoNoFacturable = value;
             }
 
             /**
@@ -3280,6 +7454,30 @@ public class ECF {
             }
 
             /**
+             * Obtiene el valor de la propiedad totalITBISRetenido.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getTotalITBISRetenido() {
+                return totalITBISRetenido;
+            }
+
+            /**
+             * Define el valor de la propiedad totalITBISRetenido.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setTotalITBISRetenido(BigDecimal value) {
+                this.totalITBISRetenido = value;
+            }
+
+            /**
              * Obtiene el valor de la propiedad totalISRRetencion.
              * 
              * @return
@@ -3303,6 +7501,295 @@ public class ECF {
                 this.totalISRRetencion = value;
             }
 
+            /**
+             * Obtiene el valor de la propiedad totalITBISPercepcion.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getTotalITBISPercepcion() {
+                return totalITBISPercepcion;
+            }
+
+            /**
+             * Define el valor de la propiedad totalITBISPercepcion.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setTotalITBISPercepcion(BigDecimal value) {
+                this.totalITBISPercepcion = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad totalISRPercepcion.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getTotalISRPercepcion() {
+                return totalISRPercepcion;
+            }
+
+            /**
+             * Define el valor de la propiedad totalISRPercepcion.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setTotalISRPercepcion(BigDecimal value) {
+                this.totalISRPercepcion = value;
+            }
+
+
+            /**
+             * <p>Clase Java para anonymous complex type.
+             * 
+             * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+             * 
+             * <pre>
+             * &lt;complexType&gt;
+             *   &lt;complexContent&gt;
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+             *       &lt;sequence&gt;
+             *         &lt;element name="ImpuestoAdicional" maxOccurs="20"&gt;
+             *           &lt;complexType&gt;
+             *             &lt;complexContent&gt;
+             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+             *                 &lt;sequence&gt;
+             *                   &lt;element name="TipoImpuesto" type="{}CodificacionTipoImpuestosType"/&gt;
+             *                   &lt;element name="TasaImpuestoAdicional" type="{}Decimal5D1or2ValidationTypeMayorCero"/&gt;
+             *                   &lt;element name="MontoImpuestoSelectivoConsumoEspecifico" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+             *                   &lt;element name="MontoImpuestoSelectivoConsumoAdvalorem" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+             *                   &lt;element name="OtrosImpuestosAdicionales" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+             *                 &lt;/sequence&gt;
+             *               &lt;/restriction&gt;
+             *             &lt;/complexContent&gt;
+             *           &lt;/complexType&gt;
+             *         &lt;/element&gt;
+             *       &lt;/sequence&gt;
+             *     &lt;/restriction&gt;
+             *   &lt;/complexContent&gt;
+             * &lt;/complexType&gt;
+             * </pre>
+             * 
+             * 
+             */
+            @XmlAccessorType(XmlAccessType.FIELD)
+            @XmlType(name = "", propOrder = {
+                "impuestoAdicional"
+            })
+            public static class ImpuestosAdicionales {
+
+                @XmlElement(name = "ImpuestoAdicional", required = true)
+                protected List<ECF.Encabezado.Totales.ImpuestosAdicionales.ImpuestoAdicional> impuestoAdicional;
+
+                /**
+                 * Gets the value of the impuestoAdicional property.
+                 * 
+                 * <p>
+                 * This accessor method returns a reference to the live list,
+                 * not a snapshot. Therefore any modification you make to the
+                 * returned list will be present inside the JAXB object.
+                 * This is why there is not a <CODE>set</CODE> method for the impuestoAdicional property.
+                 * 
+                 * <p>
+                 * For example, to add a new item, do as follows:
+                 * <pre>
+                 *    getImpuestoAdicional().add(newItem);
+                 * </pre>
+                 * 
+                 * 
+                 * <p>
+                 * Objects of the following type(s) are allowed in the list
+                 * {@link ECF.Encabezado.Totales.ImpuestosAdicionales.ImpuestoAdicional }
+                 * 
+                 * 
+                 */
+                public List<ECF.Encabezado.Totales.ImpuestosAdicionales.ImpuestoAdicional> getImpuestoAdicional() {
+                    if (impuestoAdicional == null) {
+                        impuestoAdicional = new ArrayList<ECF.Encabezado.Totales.ImpuestosAdicionales.ImpuestoAdicional>();
+                    }
+                    return this.impuestoAdicional;
+                }
+
+
+                /**
+                 * <p>Clase Java para anonymous complex type.
+                 * 
+                 * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+                 * 
+                 * <pre>
+                 * &lt;complexType&gt;
+                 *   &lt;complexContent&gt;
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+                 *       &lt;sequence&gt;
+                 *         &lt;element name="TipoImpuesto" type="{}CodificacionTipoImpuestosType"/&gt;
+                 *         &lt;element name="TasaImpuestoAdicional" type="{}Decimal5D1or2ValidationTypeMayorCero"/&gt;
+                 *         &lt;element name="MontoImpuestoSelectivoConsumoEspecifico" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+                 *         &lt;element name="MontoImpuestoSelectivoConsumoAdvalorem" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+                 *         &lt;element name="OtrosImpuestosAdicionales" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+                 *       &lt;/sequence&gt;
+                 *     &lt;/restriction&gt;
+                 *   &lt;/complexContent&gt;
+                 * &lt;/complexType&gt;
+                 * </pre>
+                 * 
+                 * 
+                 */
+                @XmlAccessorType(XmlAccessType.FIELD)
+                @XmlType(name = "", propOrder = {
+                    "tipoImpuesto",
+                    "tasaImpuestoAdicional",
+                    "montoImpuestoSelectivoConsumoEspecifico",
+                    "montoImpuestoSelectivoConsumoAdvalorem",
+                    "otrosImpuestosAdicionales"
+                })
+                public static class ImpuestoAdicional {
+
+                    @XmlElement(name = "TipoImpuesto", required = true)
+                    protected String tipoImpuesto;
+                    @XmlElement(name = "TasaImpuestoAdicional", required = true)
+                    protected BigDecimal tasaImpuestoAdicional;
+                    @XmlElement(name = "MontoImpuestoSelectivoConsumoEspecifico")
+                    protected BigDecimal montoImpuestoSelectivoConsumoEspecifico;
+                    @XmlElement(name = "MontoImpuestoSelectivoConsumoAdvalorem")
+                    protected BigDecimal montoImpuestoSelectivoConsumoAdvalorem;
+                    @XmlElement(name = "OtrosImpuestosAdicionales")
+                    protected BigDecimal otrosImpuestosAdicionales;
+
+                    /**
+                     * Obtiene el valor de la propiedad tipoImpuesto.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link String }
+                     *     
+                     */
+                    public String getTipoImpuesto() {
+                        return tipoImpuesto;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad tipoImpuesto.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link String }
+                     *     
+                     */
+                    public void setTipoImpuesto(String value) {
+                        this.tipoImpuesto = value;
+                    }
+
+                    /**
+                     * Obtiene el valor de la propiedad tasaImpuestoAdicional.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public BigDecimal getTasaImpuestoAdicional() {
+                        return tasaImpuestoAdicional;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad tasaImpuestoAdicional.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public void setTasaImpuestoAdicional(BigDecimal value) {
+                        this.tasaImpuestoAdicional = value;
+                    }
+
+                    /**
+                     * Obtiene el valor de la propiedad montoImpuestoSelectivoConsumoEspecifico.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public BigDecimal getMontoImpuestoSelectivoConsumoEspecifico() {
+                        return montoImpuestoSelectivoConsumoEspecifico;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad montoImpuestoSelectivoConsumoEspecifico.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public void setMontoImpuestoSelectivoConsumoEspecifico(BigDecimal value) {
+                        this.montoImpuestoSelectivoConsumoEspecifico = value;
+                    }
+
+                    /**
+                     * Obtiene el valor de la propiedad montoImpuestoSelectivoConsumoAdvalorem.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public BigDecimal getMontoImpuestoSelectivoConsumoAdvalorem() {
+                        return montoImpuestoSelectivoConsumoAdvalorem;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad montoImpuestoSelectivoConsumoAdvalorem.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public void setMontoImpuestoSelectivoConsumoAdvalorem(BigDecimal value) {
+                        this.montoImpuestoSelectivoConsumoAdvalorem = value;
+                    }
+
+                    /**
+                     * Obtiene el valor de la propiedad otrosImpuestosAdicionales.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public BigDecimal getOtrosImpuestosAdicionales() {
+                        return otrosImpuestosAdicionales;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad otrosImpuestosAdicionales.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public void setOtrosImpuestosAdicionales(BigDecimal value) {
+                        this.otrosImpuestosAdicionales = value;
+                    }
+
+                }
+
+            }
+
         }
 
 
@@ -3316,7 +7803,13 @@ public class ECF {
          *   &lt;complexContent&gt;
          *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
          *       &lt;sequence&gt;
-         *         &lt;element name="PaisDestino" type="{}Alfa60Type" minOccurs="0"/&gt;
+         *         &lt;element name="Conductor" type="{}AlfNum20Type" minOccurs="0"/&gt;
+         *         &lt;element name="DocumentoTransporte" type="{}Integer20ValidationType" minOccurs="0"/&gt;
+         *         &lt;element name="Ficha" type="{}AlfNum10Type" minOccurs="0"/&gt;
+         *         &lt;element name="Placa" type="{}AlfNum7Type" minOccurs="0"/&gt;
+         *         &lt;element name="RutaTransporte" type="{}AlfNum20Type" minOccurs="0"/&gt;
+         *         &lt;element name="ZonaTransporte" type="{}AlfNum20Type" minOccurs="0"/&gt;
+         *         &lt;element name="NumeroAlbaran" type="{}AlfNum20Type" minOccurs="0"/&gt;
          *       &lt;/sequence&gt;
          *     &lt;/restriction&gt;
          *   &lt;/complexContent&gt;
@@ -3327,35 +7820,197 @@ public class ECF {
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "paisDestino"
+            "conductor",
+            "documentoTransporte",
+            "ficha",
+            "placa",
+            "rutaTransporte",
+            "zonaTransporte",
+            "numeroAlbaran"
         })
         public static class Transporte {
 
-            @XmlElement(name = "PaisDestino")
-            protected String paisDestino;
+            @XmlElement(name = "Conductor")
+            protected String conductor;
+            @XmlElement(name = "DocumentoTransporte")
+            protected BigInteger documentoTransporte;
+            @XmlElement(name = "Ficha")
+            protected String ficha;
+            @XmlElement(name = "Placa")
+            protected String placa;
+            @XmlElement(name = "RutaTransporte")
+            protected String rutaTransporte;
+            @XmlElement(name = "ZonaTransporte")
+            protected String zonaTransporte;
+            @XmlElement(name = "NumeroAlbaran")
+            protected String numeroAlbaran;
 
             /**
-             * Obtiene el valor de la propiedad paisDestino.
+             * Obtiene el valor de la propiedad conductor.
              * 
              * @return
              *     possible object is
              *     {@link String }
              *     
              */
-            public String getPaisDestino() {
-                return paisDestino;
+            public String getConductor() {
+                return conductor;
             }
 
             /**
-             * Define el valor de la propiedad paisDestino.
+             * Define el valor de la propiedad conductor.
              * 
              * @param value
              *     allowed object is
              *     {@link String }
              *     
              */
-            public void setPaisDestino(String value) {
-                this.paisDestino = value;
+            public void setConductor(String value) {
+                this.conductor = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad documentoTransporte.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigInteger }
+             *     
+             */
+            public BigInteger getDocumentoTransporte() {
+                return documentoTransporte;
+            }
+
+            /**
+             * Define el valor de la propiedad documentoTransporte.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigInteger }
+             *     
+             */
+            public void setDocumentoTransporte(BigInteger value) {
+                this.documentoTransporte = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad ficha.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getFicha() {
+                return ficha;
+            }
+
+            /**
+             * Define el valor de la propiedad ficha.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setFicha(String value) {
+                this.ficha = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad placa.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getPlaca() {
+                return placa;
+            }
+
+            /**
+             * Define el valor de la propiedad placa.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setPlaca(String value) {
+                this.placa = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad rutaTransporte.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getRutaTransporte() {
+                return rutaTransporte;
+            }
+
+            /**
+             * Define el valor de la propiedad rutaTransporte.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setRutaTransporte(String value) {
+                this.rutaTransporte = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad zonaTransporte.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getZonaTransporte() {
+                return zonaTransporte;
+            }
+
+            /**
+             * Define el valor de la propiedad zonaTransporte.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setZonaTransporte(String value) {
+                this.zonaTransporte = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad numeroAlbaran.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getNumeroAlbaran() {
+                return numeroAlbaran;
+            }
+
+            /**
+             * Define el valor de la propiedad numeroAlbaran.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setNumeroAlbaran(String value) {
+                this.numeroAlbaran = value;
             }
 
         }
@@ -3373,10 +8028,11 @@ public class ECF {
      *   &lt;complexContent&gt;
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *       &lt;sequence&gt;
-     *         &lt;element name="NCFModificado" type="{}AlfNum11a19ValidationType" minOccurs="0"/&gt;
+     *         &lt;element name="NCFModificado" type="{}AlfNum11a19ValidationType"/&gt;
      *         &lt;element name="RNCOtroContribuyente" type="{}RNCValidationType" minOccurs="0"/&gt;
-     *         &lt;element name="FechaNCFModificado" type="{}FechaValidationType" minOccurs="0"/&gt;
-     *         &lt;element name="CodigoModificacion" type="{}CodigoModificacionType" minOccurs="0"/&gt;
+     *         &lt;element name="FechaNCFModificado" type="{}FechaValidationType"/&gt;
+     *         &lt;element name="CodigoModificacion" type="{}CodigoModificacionType"/&gt;
+     *         &lt;element name="RazonModificacion" type="{}AlfNum90ValidationType" minOccurs="0"/&gt;
      *       &lt;/sequence&gt;
      *     &lt;/restriction&gt;
      *   &lt;/complexContent&gt;
@@ -3390,18 +8046,21 @@ public class ECF {
         "ncfModificado",
         "rncOtroContribuyente",
         "fechaNCFModificado",
-        "codigoModificacion"
+        "codigoModificacion",
+        "razonModificacion"
     })
     public static class InformacionReferencia {
 
-        @XmlElement(name = "NCFModificado")
+        @XmlElement(name = "NCFModificado", required = true)
         protected String ncfModificado;
         @XmlElement(name = "RNCOtroContribuyente")
         protected String rncOtroContribuyente;
-        @XmlElement(name = "FechaNCFModificado")
+        @XmlElement(name = "FechaNCFModificado", required = true)
         protected String fechaNCFModificado;
-        @XmlElement(name = "CodigoModificacion")
+        @XmlElement(name = "CodigoModificacion", required = true)
         protected BigInteger codigoModificacion;
+        @XmlElement(name = "RazonModificacion")
+        protected String razonModificacion;
 
         /**
          * Obtiene el valor de la propiedad ncfModificado.
@@ -3499,6 +8158,30 @@ public class ECF {
             this.codigoModificacion = value;
         }
 
+        /**
+         * Obtiene el valor de la propiedad razonModificacion.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getRazonModificacion() {
+            return razonModificacion;
+        }
+
+        /**
+         * Define el valor de la propiedad razonModificacion.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setRazonModificacion(String value) {
+            this.razonModificacion = value;
+        }
+
     }
 
 
@@ -3512,16 +8195,38 @@ public class ECF {
      *   &lt;complexContent&gt;
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *       &lt;sequence&gt;
-     *         &lt;element name="Pagina" maxOccurs="1000"&gt;
+     *         &lt;element name="Pagina" maxOccurs="10000"&gt;
      *           &lt;complexType&gt;
      *             &lt;complexContent&gt;
      *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *                 &lt;sequence&gt;
-     *                   &lt;element name="PaginaNo" type="{}Integer4V1To1000ValidationType" minOccurs="0"/&gt;
-     *                   &lt;element name="NoLineaDesde" type="{}Integer4V1To1000ValidationType" minOccurs="0"/&gt;
-     *                   &lt;element name="NoLineaHasta" type="{}Integer4V1To1000ValidationType" minOccurs="0"/&gt;
+     *                   &lt;element name="PaginaNo" type="{}Integer5V1To10000ValidationType" minOccurs="0"/&gt;
+     *                   &lt;element name="NoLineaDesde" type="{}Integer5V1To10000ValidationType" minOccurs="0"/&gt;
+     *                   &lt;element name="NoLineaHasta" type="{}Integer5V1To10000ValidationType" minOccurs="0"/&gt;
+     *                   &lt;element name="SubtotalMontoGravadoPagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="SubtotalMontoGravado1Pagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="SubtotalMontoGravado2Pagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="SubtotalMontoGravado3Pagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
      *                   &lt;element name="SubtotalExentoPagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="SubtotalItbisPagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="SubtotalItbis1Pagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="SubtotalItbis2Pagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="SubtotalItbis3Pagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="SubtotalImpuestoAdicionalPagina" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+     *                   &lt;element name="SubtotalImpuestoAdicional" minOccurs="0"&gt;
+     *                     &lt;complexType&gt;
+     *                       &lt;complexContent&gt;
+     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *                           &lt;sequence&gt;
+     *                             &lt;element name="SubtotalImpuestoSelectivoConsumoEspecificoPagina" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+     *                             &lt;element name="SubtotalOtrosImpuesto" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+     *                           &lt;/sequence&gt;
+     *                         &lt;/restriction&gt;
+     *                       &lt;/complexContent&gt;
+     *                     &lt;/complexType&gt;
+     *                   &lt;/element&gt;
      *                   &lt;element name="MontoSubtotalPagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="SubtotalMontoNoFacturablePagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
      *                 &lt;/sequence&gt;
      *               &lt;/restriction&gt;
      *             &lt;/complexContent&gt;
@@ -3584,11 +8289,33 @@ public class ECF {
          *   &lt;complexContent&gt;
          *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
          *       &lt;sequence&gt;
-         *         &lt;element name="PaginaNo" type="{}Integer4V1To1000ValidationType" minOccurs="0"/&gt;
-         *         &lt;element name="NoLineaDesde" type="{}Integer4V1To1000ValidationType" minOccurs="0"/&gt;
-         *         &lt;element name="NoLineaHasta" type="{}Integer4V1To1000ValidationType" minOccurs="0"/&gt;
+         *         &lt;element name="PaginaNo" type="{}Integer5V1To10000ValidationType" minOccurs="0"/&gt;
+         *         &lt;element name="NoLineaDesde" type="{}Integer5V1To10000ValidationType" minOccurs="0"/&gt;
+         *         &lt;element name="NoLineaHasta" type="{}Integer5V1To10000ValidationType" minOccurs="0"/&gt;
+         *         &lt;element name="SubtotalMontoGravadoPagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="SubtotalMontoGravado1Pagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="SubtotalMontoGravado2Pagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="SubtotalMontoGravado3Pagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
          *         &lt;element name="SubtotalExentoPagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="SubtotalItbisPagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="SubtotalItbis1Pagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="SubtotalItbis2Pagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="SubtotalItbis3Pagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="SubtotalImpuestoAdicionalPagina" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+         *         &lt;element name="SubtotalImpuestoAdicional" minOccurs="0"&gt;
+         *           &lt;complexType&gt;
+         *             &lt;complexContent&gt;
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+         *                 &lt;sequence&gt;
+         *                   &lt;element name="SubtotalImpuestoSelectivoConsumoEspecificoPagina" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+         *                   &lt;element name="SubtotalOtrosImpuesto" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+         *                 &lt;/sequence&gt;
+         *               &lt;/restriction&gt;
+         *             &lt;/complexContent&gt;
+         *           &lt;/complexType&gt;
+         *         &lt;/element&gt;
          *         &lt;element name="MontoSubtotalPagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="SubtotalMontoNoFacturablePagina" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
          *       &lt;/sequence&gt;
          *     &lt;/restriction&gt;
          *   &lt;/complexContent&gt;
@@ -3602,8 +8329,19 @@ public class ECF {
             "paginaNo",
             "noLineaDesde",
             "noLineaHasta",
+            "subtotalMontoGravadoPagina",
+            "subtotalMontoGravado1Pagina",
+            "subtotalMontoGravado2Pagina",
+            "subtotalMontoGravado3Pagina",
             "subtotalExentoPagina",
-            "montoSubtotalPagina"
+            "subtotalItbisPagina",
+            "subtotalItbis1Pagina",
+            "subtotalItbis2Pagina",
+            "subtotalItbis3Pagina",
+            "subtotalImpuestoAdicionalPagina",
+            "subtotalImpuestoAdicional",
+            "montoSubtotalPagina",
+            "subtotalMontoNoFacturablePagina"
         })
         public static class Pagina {
 
@@ -3616,10 +8354,32 @@ public class ECF {
             @XmlElement(name = "NoLineaHasta")
             @XmlSchemaType(name = "integer")
             protected Integer noLineaHasta;
+            @XmlElement(name = "SubtotalMontoGravadoPagina")
+            protected BigDecimal subtotalMontoGravadoPagina;
+            @XmlElement(name = "SubtotalMontoGravado1Pagina")
+            protected BigDecimal subtotalMontoGravado1Pagina;
+            @XmlElement(name = "SubtotalMontoGravado2Pagina")
+            protected BigDecimal subtotalMontoGravado2Pagina;
+            @XmlElement(name = "SubtotalMontoGravado3Pagina")
+            protected BigDecimal subtotalMontoGravado3Pagina;
             @XmlElement(name = "SubtotalExentoPagina")
             protected BigDecimal subtotalExentoPagina;
+            @XmlElement(name = "SubtotalItbisPagina")
+            protected BigDecimal subtotalItbisPagina;
+            @XmlElement(name = "SubtotalItbis1Pagina")
+            protected BigDecimal subtotalItbis1Pagina;
+            @XmlElement(name = "SubtotalItbis2Pagina")
+            protected BigDecimal subtotalItbis2Pagina;
+            @XmlElement(name = "SubtotalItbis3Pagina")
+            protected BigDecimal subtotalItbis3Pagina;
+            @XmlElement(name = "SubtotalImpuestoAdicionalPagina")
+            protected BigDecimal subtotalImpuestoAdicionalPagina;
+            @XmlElement(name = "SubtotalImpuestoAdicional")
+            protected ECF.Paginacion.Pagina.SubtotalImpuestoAdicional subtotalImpuestoAdicional;
             @XmlElement(name = "MontoSubtotalPagina")
             protected BigDecimal montoSubtotalPagina;
+            @XmlElement(name = "SubtotalMontoNoFacturablePagina")
+            protected BigDecimal subtotalMontoNoFacturablePagina;
 
             /**
              * Obtiene el valor de la propiedad paginaNo.
@@ -3694,6 +8454,102 @@ public class ECF {
             }
 
             /**
+             * Obtiene el valor de la propiedad subtotalMontoGravadoPagina.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getSubtotalMontoGravadoPagina() {
+                return subtotalMontoGravadoPagina;
+            }
+
+            /**
+             * Define el valor de la propiedad subtotalMontoGravadoPagina.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setSubtotalMontoGravadoPagina(BigDecimal value) {
+                this.subtotalMontoGravadoPagina = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad subtotalMontoGravado1Pagina.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getSubtotalMontoGravado1Pagina() {
+                return subtotalMontoGravado1Pagina;
+            }
+
+            /**
+             * Define el valor de la propiedad subtotalMontoGravado1Pagina.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setSubtotalMontoGravado1Pagina(BigDecimal value) {
+                this.subtotalMontoGravado1Pagina = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad subtotalMontoGravado2Pagina.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getSubtotalMontoGravado2Pagina() {
+                return subtotalMontoGravado2Pagina;
+            }
+
+            /**
+             * Define el valor de la propiedad subtotalMontoGravado2Pagina.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setSubtotalMontoGravado2Pagina(BigDecimal value) {
+                this.subtotalMontoGravado2Pagina = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad subtotalMontoGravado3Pagina.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getSubtotalMontoGravado3Pagina() {
+                return subtotalMontoGravado3Pagina;
+            }
+
+            /**
+             * Define el valor de la propiedad subtotalMontoGravado3Pagina.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setSubtotalMontoGravado3Pagina(BigDecimal value) {
+                this.subtotalMontoGravado3Pagina = value;
+            }
+
+            /**
              * Obtiene el valor de la propiedad subtotalExentoPagina.
              * 
              * @return
@@ -3715,6 +8571,150 @@ public class ECF {
              */
             public void setSubtotalExentoPagina(BigDecimal value) {
                 this.subtotalExentoPagina = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad subtotalItbisPagina.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getSubtotalItbisPagina() {
+                return subtotalItbisPagina;
+            }
+
+            /**
+             * Define el valor de la propiedad subtotalItbisPagina.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setSubtotalItbisPagina(BigDecimal value) {
+                this.subtotalItbisPagina = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad subtotalItbis1Pagina.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getSubtotalItbis1Pagina() {
+                return subtotalItbis1Pagina;
+            }
+
+            /**
+             * Define el valor de la propiedad subtotalItbis1Pagina.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setSubtotalItbis1Pagina(BigDecimal value) {
+                this.subtotalItbis1Pagina = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad subtotalItbis2Pagina.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getSubtotalItbis2Pagina() {
+                return subtotalItbis2Pagina;
+            }
+
+            /**
+             * Define el valor de la propiedad subtotalItbis2Pagina.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setSubtotalItbis2Pagina(BigDecimal value) {
+                this.subtotalItbis2Pagina = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad subtotalItbis3Pagina.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getSubtotalItbis3Pagina() {
+                return subtotalItbis3Pagina;
+            }
+
+            /**
+             * Define el valor de la propiedad subtotalItbis3Pagina.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setSubtotalItbis3Pagina(BigDecimal value) {
+                this.subtotalItbis3Pagina = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad subtotalImpuestoAdicionalPagina.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getSubtotalImpuestoAdicionalPagina() {
+                return subtotalImpuestoAdicionalPagina;
+            }
+
+            /**
+             * Define el valor de la propiedad subtotalImpuestoAdicionalPagina.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setSubtotalImpuestoAdicionalPagina(BigDecimal value) {
+                this.subtotalImpuestoAdicionalPagina = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad subtotalImpuestoAdicional.
+             * 
+             * @return
+             *     possible object is
+             *     {@link ECF.Paginacion.Pagina.SubtotalImpuestoAdicional }
+             *     
+             */
+            public ECF.Paginacion.Pagina.SubtotalImpuestoAdicional getSubtotalImpuestoAdicional() {
+                return subtotalImpuestoAdicional;
+            }
+
+            /**
+             * Define el valor de la propiedad subtotalImpuestoAdicional.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link ECF.Paginacion.Pagina.SubtotalImpuestoAdicional }
+             *     
+             */
+            public void setSubtotalImpuestoAdicional(ECF.Paginacion.Pagina.SubtotalImpuestoAdicional value) {
+                this.subtotalImpuestoAdicional = value;
             }
 
             /**
@@ -3741,6 +8741,113 @@ public class ECF {
                 this.montoSubtotalPagina = value;
             }
 
+            /**
+             * Obtiene el valor de la propiedad subtotalMontoNoFacturablePagina.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getSubtotalMontoNoFacturablePagina() {
+                return subtotalMontoNoFacturablePagina;
+            }
+
+            /**
+             * Define el valor de la propiedad subtotalMontoNoFacturablePagina.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setSubtotalMontoNoFacturablePagina(BigDecimal value) {
+                this.subtotalMontoNoFacturablePagina = value;
+            }
+
+
+            /**
+             * <p>Clase Java para anonymous complex type.
+             * 
+             * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+             * 
+             * <pre>
+             * &lt;complexType&gt;
+             *   &lt;complexContent&gt;
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+             *       &lt;sequence&gt;
+             *         &lt;element name="SubtotalImpuestoSelectivoConsumoEspecificoPagina" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+             *         &lt;element name="SubtotalOtrosImpuesto" type="{}Decimal18D1or2ValidationTypeMayorCero" minOccurs="0"/&gt;
+             *       &lt;/sequence&gt;
+             *     &lt;/restriction&gt;
+             *   &lt;/complexContent&gt;
+             * &lt;/complexType&gt;
+             * </pre>
+             * 
+             * 
+             */
+            @XmlAccessorType(XmlAccessType.FIELD)
+            @XmlType(name = "", propOrder = {
+                "subtotalImpuestoSelectivoConsumoEspecificoPagina",
+                "subtotalOtrosImpuesto"
+            })
+            public static class SubtotalImpuestoAdicional {
+
+                @XmlElement(name = "SubtotalImpuestoSelectivoConsumoEspecificoPagina")
+                protected BigDecimal subtotalImpuestoSelectivoConsumoEspecificoPagina;
+                @XmlElement(name = "SubtotalOtrosImpuesto")
+                protected BigDecimal subtotalOtrosImpuesto;
+
+                /**
+                 * Obtiene el valor de la propiedad subtotalImpuestoSelectivoConsumoEspecificoPagina.
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link BigDecimal }
+                 *     
+                 */
+                public BigDecimal getSubtotalImpuestoSelectivoConsumoEspecificoPagina() {
+                    return subtotalImpuestoSelectivoConsumoEspecificoPagina;
+                }
+
+                /**
+                 * Define el valor de la propiedad subtotalImpuestoSelectivoConsumoEspecificoPagina.
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link BigDecimal }
+                 *     
+                 */
+                public void setSubtotalImpuestoSelectivoConsumoEspecificoPagina(BigDecimal value) {
+                    this.subtotalImpuestoSelectivoConsumoEspecificoPagina = value;
+                }
+
+                /**
+                 * Obtiene el valor de la propiedad subtotalOtrosImpuesto.
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link BigDecimal }
+                 *     
+                 */
+                public BigDecimal getSubtotalOtrosImpuesto() {
+                    return subtotalOtrosImpuesto;
+                }
+
+                /**
+                 * Define el valor de la propiedad subtotalOtrosImpuesto.
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link BigDecimal }
+                 *     
+                 */
+                public void setSubtotalOtrosImpuesto(BigDecimal value) {
+                    this.subtotalOtrosImpuesto = value;
+                }
+
+            }
+
         }
 
     }
@@ -3764,6 +8871,15 @@ public class ECF {
      *                   &lt;element name="NumeroSubTotal" type="{}Integer2ValidationType" minOccurs="0"/&gt;
      *                   &lt;element name="DescripcionSubtotal" type="{}AlfNum40Type" minOccurs="0"/&gt;
      *                   &lt;element name="Orden" type="{}Integer2ValidationType" minOccurs="0"/&gt;
+     *                   &lt;element name="SubTotalMontoGravadoTotal" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="SubTotalMontoGravadoI1" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="SubTotalMontoGravadoI2" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="SubTotalMontoGravadoI3" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="SubTotaITBIS" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="SubTotaITBIS1" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="SubTotaITBIS2" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="SubTotaITBIS3" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+     *                   &lt;element name="SubTotalImpuestoAdicional" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
      *                   &lt;element name="SubTotalExento" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
      *                   &lt;element name="MontoSubTotal" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
      *                   &lt;element name="Lineas" type="{}Integer2ValidationType" minOccurs="0"/&gt;
@@ -3832,6 +8948,15 @@ public class ECF {
          *         &lt;element name="NumeroSubTotal" type="{}Integer2ValidationType" minOccurs="0"/&gt;
          *         &lt;element name="DescripcionSubtotal" type="{}AlfNum40Type" minOccurs="0"/&gt;
          *         &lt;element name="Orden" type="{}Integer2ValidationType" minOccurs="0"/&gt;
+         *         &lt;element name="SubTotalMontoGravadoTotal" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="SubTotalMontoGravadoI1" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="SubTotalMontoGravadoI2" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="SubTotalMontoGravadoI3" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="SubTotaITBIS" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="SubTotaITBIS1" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="SubTotaITBIS2" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="SubTotaITBIS3" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+         *         &lt;element name="SubTotalImpuestoAdicional" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
          *         &lt;element name="SubTotalExento" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
          *         &lt;element name="MontoSubTotal" type="{}Decimal18D1or2ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
          *         &lt;element name="Lineas" type="{}Integer2ValidationType" minOccurs="0"/&gt;
@@ -3848,6 +8973,15 @@ public class ECF {
             "numeroSubTotal",
             "descripcionSubtotal",
             "orden",
+            "subTotalMontoGravadoTotal",
+            "subTotalMontoGravadoI1",
+            "subTotalMontoGravadoI2",
+            "subTotalMontoGravadoI3",
+            "subTotaITBIS",
+            "subTotaITBIS1",
+            "subTotaITBIS2",
+            "subTotaITBIS3",
+            "subTotalImpuestoAdicional",
             "subTotalExento",
             "montoSubTotal",
             "lineas"
@@ -3860,6 +8994,24 @@ public class ECF {
             protected String descripcionSubtotal;
             @XmlElement(name = "Orden")
             protected BigInteger orden;
+            @XmlElement(name = "SubTotalMontoGravadoTotal")
+            protected BigDecimal subTotalMontoGravadoTotal;
+            @XmlElement(name = "SubTotalMontoGravadoI1")
+            protected BigDecimal subTotalMontoGravadoI1;
+            @XmlElement(name = "SubTotalMontoGravadoI2")
+            protected BigDecimal subTotalMontoGravadoI2;
+            @XmlElement(name = "SubTotalMontoGravadoI3")
+            protected BigDecimal subTotalMontoGravadoI3;
+            @XmlElement(name = "SubTotaITBIS")
+            protected BigDecimal subTotaITBIS;
+            @XmlElement(name = "SubTotaITBIS1")
+            protected BigDecimal subTotaITBIS1;
+            @XmlElement(name = "SubTotaITBIS2")
+            protected BigDecimal subTotaITBIS2;
+            @XmlElement(name = "SubTotaITBIS3")
+            protected BigDecimal subTotaITBIS3;
+            @XmlElement(name = "SubTotalImpuestoAdicional")
+            protected BigDecimal subTotalImpuestoAdicional;
             @XmlElement(name = "SubTotalExento")
             protected BigDecimal subTotalExento;
             @XmlElement(name = "MontoSubTotal")
@@ -3937,6 +9089,222 @@ public class ECF {
              */
             public void setOrden(BigInteger value) {
                 this.orden = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad subTotalMontoGravadoTotal.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getSubTotalMontoGravadoTotal() {
+                return subTotalMontoGravadoTotal;
+            }
+
+            /**
+             * Define el valor de la propiedad subTotalMontoGravadoTotal.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setSubTotalMontoGravadoTotal(BigDecimal value) {
+                this.subTotalMontoGravadoTotal = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad subTotalMontoGravadoI1.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getSubTotalMontoGravadoI1() {
+                return subTotalMontoGravadoI1;
+            }
+
+            /**
+             * Define el valor de la propiedad subTotalMontoGravadoI1.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setSubTotalMontoGravadoI1(BigDecimal value) {
+                this.subTotalMontoGravadoI1 = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad subTotalMontoGravadoI2.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getSubTotalMontoGravadoI2() {
+                return subTotalMontoGravadoI2;
+            }
+
+            /**
+             * Define el valor de la propiedad subTotalMontoGravadoI2.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setSubTotalMontoGravadoI2(BigDecimal value) {
+                this.subTotalMontoGravadoI2 = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad subTotalMontoGravadoI3.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getSubTotalMontoGravadoI3() {
+                return subTotalMontoGravadoI3;
+            }
+
+            /**
+             * Define el valor de la propiedad subTotalMontoGravadoI3.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setSubTotalMontoGravadoI3(BigDecimal value) {
+                this.subTotalMontoGravadoI3 = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad subTotaITBIS.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getSubTotaITBIS() {
+                return subTotaITBIS;
+            }
+
+            /**
+             * Define el valor de la propiedad subTotaITBIS.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setSubTotaITBIS(BigDecimal value) {
+                this.subTotaITBIS = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad subTotaITBIS1.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getSubTotaITBIS1() {
+                return subTotaITBIS1;
+            }
+
+            /**
+             * Define el valor de la propiedad subTotaITBIS1.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setSubTotaITBIS1(BigDecimal value) {
+                this.subTotaITBIS1 = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad subTotaITBIS2.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getSubTotaITBIS2() {
+                return subTotaITBIS2;
+            }
+
+            /**
+             * Define el valor de la propiedad subTotaITBIS2.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setSubTotaITBIS2(BigDecimal value) {
+                this.subTotaITBIS2 = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad subTotaITBIS3.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getSubTotaITBIS3() {
+                return subTotaITBIS3;
+            }
+
+            /**
+             * Define el valor de la propiedad subTotaITBIS3.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setSubTotaITBIS3(BigDecimal value) {
+                this.subTotaITBIS3 = value;
+            }
+
+            /**
+             * Obtiene el valor de la propiedad subTotalImpuestoAdicional.
+             * 
+             * @return
+             *     possible object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public BigDecimal getSubTotalImpuestoAdicional() {
+                return subTotalImpuestoAdicional;
+            }
+
+            /**
+             * Define el valor de la propiedad subTotalImpuestoAdicional.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link BigDecimal }
+             *     
+             */
+            public void setSubTotalImpuestoAdicional(BigDecimal value) {
+                this.subTotalImpuestoAdicional = value;
             }
 
             /**

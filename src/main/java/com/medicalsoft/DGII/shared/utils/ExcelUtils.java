@@ -3,6 +3,10 @@ package com.medicalsoft.DGII.shared.utils;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.apache.poi.ss.usermodel.Cell;
 
 public class ExcelUtils {
@@ -65,5 +69,17 @@ public class ExcelUtils {
             case BOOLEAN -> String.valueOf(cell.getBooleanCellValue());
             default -> "";
         };
+    }
+
+
+    public static int extractIndex(String input) {
+        Matcher m = Pattern.compile("\\[(\\d+)]").matcher(input);
+        return m.find() ? Integer.parseInt(m.group(1)) : 1;
+    }
+
+    public static <T> void ensureSize(List<T> list, int size) {
+        while (list.size() < size) {
+            list.add(null);
+        }
     }
 }

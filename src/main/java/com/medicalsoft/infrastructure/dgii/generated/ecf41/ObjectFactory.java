@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2025.07.23 a las 06:59:05 PM COT 
+// Generado el: 2025.07.24 a las 03:17:38 PM COT 
 //
 
 
@@ -53,6 +53,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ECF.DescuentosORecargos }
+     * 
+     */
+    public ECF.DescuentosORecargos createECFDescuentosORecargos() {
+        return new ECF.DescuentosORecargos();
+    }
+
+    /**
      * Create an instance of {@link ECF.Subtotales }
      * 
      */
@@ -74,6 +82,22 @@ public class ObjectFactory {
      */
     public ECF.DetallesItems.Item createECFDetallesItemsItem() {
         return new ECF.DetallesItems.Item();
+    }
+
+    /**
+     * Create an instance of {@link ECF.DetallesItems.Item.TablaSubRecargo }
+     * 
+     */
+    public ECF.DetallesItems.Item.TablaSubRecargo createECFDetallesItemsItemTablaSubRecargo() {
+        return new ECF.DetallesItems.Item.TablaSubRecargo();
+    }
+
+    /**
+     * Create an instance of {@link ECF.DetallesItems.Item.TablaSubDescuento }
+     * 
+     */
+    public ECF.DetallesItems.Item.TablaSubDescuento createECFDetallesItemsItemTablaSubDescuento() {
+        return new ECF.DetallesItems.Item.TablaSubDescuento();
     }
 
     /**
@@ -133,6 +157,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ECF.DescuentosORecargos.DescuentoORecargo }
+     * 
+     */
+    public ECF.DescuentosORecargos.DescuentoORecargo createECFDescuentosORecargosDescuentoORecargo() {
+        return new ECF.DescuentosORecargos.DescuentoORecargo();
+    }
+
+    /**
      * Create an instance of {@link ECF.Subtotales.Subtotal }
      * 
      */
@@ -157,6 +189,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ECF.DetallesItems.Item.TablaSubRecargo.SubRecargo }
+     * 
+     */
+    public ECF.DetallesItems.Item.TablaSubRecargo.SubRecargo createECFDetallesItemsItemTablaSubRecargoSubRecargo() {
+        return new ECF.DetallesItems.Item.TablaSubRecargo.SubRecargo();
+    }
+
+    /**
+     * Create an instance of {@link ECF.DetallesItems.Item.TablaSubDescuento.SubDescuento }
+     * 
+     */
+    public ECF.DetallesItems.Item.TablaSubDescuento.SubDescuento createECFDetallesItemsItemTablaSubDescuentoSubDescuento() {
+        return new ECF.DetallesItems.Item.TablaSubDescuento.SubDescuento();
+    }
+
+    /**
      * Create an instance of {@link ECF.DetallesItems.Item.TablaCodigosItem.CodigosItem }
      * 
      */
@@ -170,14 +218,6 @@ public class ObjectFactory {
      */
     public ECF.Encabezado.Comprador createECFEncabezadoComprador() {
         return new ECF.Encabezado.Comprador();
-    }
-
-    /**
-     * Create an instance of {@link ECF.Encabezado.Transporte }
-     * 
-     */
-    public ECF.Encabezado.Transporte createECFEncabezadoTransporte() {
-        return new ECF.Encabezado.Transporte();
     }
 
     /**
