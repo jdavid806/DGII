@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
@@ -21,17 +20,17 @@ public class EcfXmlMapper41 implements ExcelToEcfMapper<ECF> {
     public ECF map(Sheet sheet) throws Exception {
         Row headerRow = sheet.getRow(0);
         Row dataRow = sheet.getRow(1);
+
         ECF ecf = new ECF();
         ECF.Encabezado encabezado = new ECF.Encabezado();
         ECF.Encabezado.Emisor emisor = new ECF.Encabezado.Emisor();
         ECF.Encabezado.Comprador comprador = new ECF.Encabezado.Comprador();
         ECF.Encabezado.IdDoc idDoc = new ECF.Encabezado.IdDoc();
-        ECF.Encabezado.Totales totales = new ECF.Encabezado.Totales();
-        ECF.Encabezado.IdDoc.TablaFormasPago tablaFormasPago = new ECF.Encabezado.IdDoc.TablaFormasPago();
+        ECF.Encabezado.Totales totales = new ECF.Encabezado.Totales();        
+        ECF.Encabezado.IdDoc.TablaFormasPago tablaFormasPago = new ECF.Encabezado.IdDoc.TablaFormasPago();        
         ECF.Encabezado.OtraMoneda otraMoneda = new ECF.Encabezado.OtraMoneda();
         ECF.Paginacion.Pagina pagina = new ECF.Paginacion.Pagina();
-        ECF.Subtotales.Subtotal subtotal = new ECF.Subtotales.Subtotal();
-
+        ECF.Subtotales.Subtotal subtotal = new ECF.Subtotales.Subtotal();        
         Map<Integer, ECF.DetallesItems.Item> itemMap = new TreeMap<>();
 
         Map<String, Object> baseMap = new HashMap<>();
@@ -113,6 +112,7 @@ public class EcfXmlMapper41 implements ExcelToEcfMapper<ECF> {
                 Map.entry("SaldoAnterior", totales),
                 Map.entry("MontoAvancePago", totales),
                 Map.entry("ValorPagar", totales),
+                
 
                 Map.entry("TipoMoneda", otraMoneda),
                 Map.entry("TipoCambio", otraMoneda),
@@ -128,7 +128,7 @@ public class EcfXmlMapper41 implements ExcelToEcfMapper<ECF> {
                 Map.entry("MontoImpuestoAdicionalOtraMoneda", otraMoneda),
                 Map.entry("ImpuestosAdicionalesOtraMoneda", otraMoneda),
                 Map.entry("MontoTotalOtraMoneda", otraMoneda),
-
+             
                 Map.entry("PaginaNo", pagina),
                 Map.entry("NoLineaDesde", pagina),
                 Map.entry("NoLineaHasta", pagina),
@@ -161,8 +161,8 @@ public class EcfXmlMapper41 implements ExcelToEcfMapper<ECF> {
                 Map.entry("SubTotalExento", subtotal),
                 Map.entry("MontoSubTotal", subtotal),
                 Map.entry("Lineas", subtotal)
-        // Transporte
-        ));
+                // Transporte
+                ));
 
         for (int i = 0; i < headerRow.getPhysicalNumberOfCells(); i++) {
             String columnName = headerRow.getCell(i).getStringCellValue().trim();
@@ -220,26 +220,28 @@ public class EcfXmlMapper41 implements ExcelToEcfMapper<ECF> {
                 String cleanField = columnName.replaceAll("\\[\\d+]", "");
 
                 try {
-                    if (cleanField.equals("IndicadorAgenteRetencionoPercepcion")
-                            || cleanField.equals("MontoISRRetenido")) {
-                        if (item.getRetencion() == null) {
-                            item.setRetencion(new ECF.DetallesItems.Item.Retencion());
-                        }
-                        Method setter = ExcelUtils.findSetter(item.getRetencion().getClass(),
-                                cleanField);
-                        Object parsed = ExcelUtils.parseValue(cellValue,
-                                setter.getParameterTypes()[0]);
-                        setter.invoke(item.getRetencion(), parsed);
-                    } else {
-                        Method setter = ExcelUtils.findSetter(item.getClass(), cleanField);
-                        Object parsed = ExcelUtils.parseValue(cellValue,
-                                setter.getParameterTypes()[0]);
-                        setter.invoke(item, parsed);
-                    }
-                } catch (Exception e) {
-                    System.err.println("Error en Item[" + itemIndex + "]: " + columnName + " - "
-                            + e.getMessage());
+                if (cleanField.equals("IndicadorAgenteRetencionoPercepcion")
+                || cleanField.equals("MontoISRRetenido")) {
+                if (item.getRetencion() == null) {
+                item.setRetencion(new ECF.DetallesItems.Item.Retencion());
                 }
+                Method setter = ExcelUtils.findSetter(item.getRetencion().getClass(),
+                cleanField);
+                Object parsed = ExcelUtils.parseValue(cellValue,
+                setter.getParameterTypes()[0]);
+                setter.invoke(item.getRetencion(), parsed);
+                } else {
+                Method setter = ExcelUtils.findSetter(item.getClass(), cleanField);
+                Object parsed = ExcelUtils.parseValue(cellValue,
+                setter.getParameterTypes()[0]);
+                setter.invoke(item, parsed);
+                }
+                } catch (Exception e) {
+                System.err.println("Error en Item[" + itemIndex + "]: " + columnName + " - "
+                + e.getMessage());
+                }
+
+                
             }
         }
 

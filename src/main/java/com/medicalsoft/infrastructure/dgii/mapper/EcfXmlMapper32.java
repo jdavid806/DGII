@@ -267,6 +267,7 @@ public class EcfXmlMapper32 implements ExcelToEcfMapper<ECF> {
                 // System.err.println("Error en Item[" + itemIndex + "]: " + columnName + " - "
                 // + e.getMessage());
                 // }
+
                 
             }
         }

@@ -8,6 +8,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
 
 public class ExcelUtils {
 
@@ -82,4 +84,17 @@ public class ExcelUtils {
             list.add(null);
         }
     }
+
+     public static boolean filaVacia(Row row) {
+        if (row == null)
+            return true;
+        for (Cell cell : row) {
+            if (cell.getCellType() != CellType.BLANK &&
+                    cell.getCellType() != CellType._NONE) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

@@ -211,6 +211,18 @@
 				<version>0.14.0</version>
 				<executions>
 					<execution>
+						<id>generate-ecf31</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<schemaDirectory>${project.basedir}/src/main/resources/xsd/xsd31</schemaDirectory>
+							<schemaFiles>e-CF-31.xsd</schemaFiles>
+							<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+							<generatePackage>com.medicalsoft.infrastructure.dgii.generated.ecf31</generatePackage>
+						</configuration>
+					</execution>
+					<execution>
 						<id>generate-ecf32</id>
 						<goals>
 							<goal>generate</goal>
@@ -256,6 +268,54 @@
 							<schemaFiles>e-CF-32.xsd</schemaFiles>
 							<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
 							<generatePackage>com.medicalsoft.infrastructure.dgii.generated.ecf41</generatePackage>
+						</configuration>
+					</execution>
+					<execution>
+						<id>generate-ecf43</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<schemaDirectory>${project.basedir}/src/main/resources/xsd/xsd43</schemaDirectory>
+							<schemaFiles>e-CF-43.xsd</schemaFiles>
+							<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+							<generatePackage>com.medicalsoft.infrastructure.dgii.generated.ecf43</generatePackage>
+						</configuration>
+					</execution>
+					<execution>
+						<id>generate-ecf44</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<schemaDirectory>${project.basedir}/src/main/resources/xsd/xsd44</schemaDirectory>
+							<schemaFiles>e-CF-44.xsd</schemaFiles>
+							<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+							<generatePackage>com.medicalsoft.infrastructure.dgii.generated.ecf44</generatePackage>
+						</configuration>
+					</execution>
+					<execution>
+						<id>generate-ecf45</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<schemaDirectory>${project.basedir}/src/main/resources/xsd/xsd45</schemaDirectory>
+							<schemaFiles>e-CF-45.xsd</schemaFiles>
+							<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+							<generatePackage>com.medicalsoft.infrastructure.dgii.generated.ecf45</generatePackage>
+						</configuration>
+					</execution>
+					<execution>
+						<id>generate-ecf46</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<schemaDirectory>${project.basedir}/src/main/resources/xsd/xsd46</schemaDirectory>
+							<schemaFiles>e-CF-32.xsd</schemaFiles>
+							<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+							<generatePackage>com.medicalsoft.infrastructure.dgii.generated.ecf46</generatePackage>
 						</configuration>
 					</execution>
 					<execution>

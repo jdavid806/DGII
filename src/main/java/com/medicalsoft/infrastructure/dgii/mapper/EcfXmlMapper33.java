@@ -247,27 +247,27 @@ public class EcfXmlMapper33 implements ExcelToEcfMapper<ECF> {
                 ECF.DetallesItems.Item item = itemMap.computeIfAbsent(itemIndex, k -> new ECF.DetallesItems.Item());
                 String cleanField = columnName.replaceAll("\\[\\d+]", "");
 
-                // try {
-                // if (cleanField.equals("IndicadorAgenteRetencionoPercepcion")
-                // || cleanField.equals("MontoISRRetenido")) {
-                // if (item.getRetencion() == null) {
-                // item.setRetencion(new ECF.DetallesItems.Item.Retencion());
-                // }
-                // Method setter = ExcelUtils.findSetter(item.getRetencion().getClass(),
-                // cleanField);
-                // Object parsed = ExcelUtils.parseValue(cellValue,
-                // setter.getParameterTypes()[0]);
-                // setter.invoke(item.getRetencion(), parsed);
-                // } else {
-                // Method setter = ExcelUtils.findSetter(item.getClass(), cleanField);
-                // Object parsed = ExcelUtils.parseValue(cellValue,
-                // setter.getParameterTypes()[0]);
-                // setter.invoke(item, parsed);
-                // }
-                // } catch (Exception e) {
-                // System.err.println("Error en Item[" + itemIndex + "]: " + columnName + " - "
-                // + e.getMessage());
-                // }
+                try {
+                if (cleanField.equals("IndicadorAgenteRetencionoPercepcion")
+                || cleanField.equals("MontoISRRetenido")) {
+                if (item.getRetencion() == null) {
+                item.setRetencion(new ECF.DetallesItems.Item.Retencion());
+                }
+                Method setter = ExcelUtils.findSetter(item.getRetencion().getClass(),
+                cleanField);
+                Object parsed = ExcelUtils.parseValue(cellValue,
+                setter.getParameterTypes()[0]);
+                setter.invoke(item.getRetencion(), parsed);
+                } else {
+                Method setter = ExcelUtils.findSetter(item.getClass(), cleanField);
+                Object parsed = ExcelUtils.parseValue(cellValue,
+                setter.getParameterTypes()[0]);
+                setter.invoke(item, parsed);
+                }
+                } catch (Exception e) {
+                System.err.println("Error en Item[" + itemIndex + "]: " + columnName + " - "
+                + e.getMessage());
+                }
             }
         }
 
