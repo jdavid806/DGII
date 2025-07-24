@@ -33,7 +33,7 @@ public class DgiiAuthenticationService implements DgiiAuthPort {
     private final KeystoreLoader keystoreLoader;
     private final DgiiApiProperties dgiiApiProperties;
     private final XmlSigner xmlSigner;
-    private final DgiiHttpClientService dgiiHttpClientService;
+
 
     @Override
     @Cacheable("dgiiToken")
@@ -94,7 +94,7 @@ public class DgiiAuthenticationService implements DgiiAuthPort {
             String url = dgiiApiProperties.getBaseUrl() +
                          dgiiApiProperties.getEndpoints().getAuth().getValidate();
 
-            String respuesta = dgiiHttpClientService.sendSignedXml(tempFile, url, null);
+            String respuesta = DgiiHttpClientService.sendSignedXml(tempFile, url, null);
             log.info("Respuesta validación semilla:\n{}", respuesta);
             return respuesta;
 

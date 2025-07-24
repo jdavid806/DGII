@@ -2,7 +2,6 @@ package com.medicalsoft.DGII.adapters.out.DGII;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.medicalsoft.DGII.application.ports.out.DgiiReceptionPort;
-import com.medicalsoft.DGII.config.DgiiApiProperties;
 import com.medicalsoft.DGII.shared.dtos.DgiiResponseReception;
 import com.medicalsoft.DGII.shared.utils.DgiiHttpClientService;
 import com.medicalsoft.DGII.application.service.EcfXmlService;
@@ -20,8 +19,6 @@ import java.io.InputStream;
 public class DgiiRecepcionService implements DgiiReceptionPort {
 
     private final EcfXmlService ecfXmlService;
-    // private final DgiiApiProperties dgiiApiProperties;
-    private final DgiiHttpClientService dgiiHttpClientService;
     private final ObjectMapper objectMapper;
 
     @Override

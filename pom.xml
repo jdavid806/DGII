@@ -131,10 +131,10 @@
 			<artifactId>httpmime</artifactId>
 			<version>4.5.14</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>jakarta.xml.bind</groupId>
 			<artifactId>jakarta.xml.bind-api</artifactId>
@@ -210,19 +210,127 @@
 				<artifactId>maven-jaxb2-plugin</artifactId>
 				<version>0.14.0</version>
 				<executions>
+					<!-- Generar modelo para e-CF47 -->
 					<execution>
-						<id>generate-dgii-auth-model</id>
+						<id>generate-ecf47</id>
 						<goals>
 							<goal>generate</goal>
 						</goals>
+						<configuration>
+							<schemaDirectory>${project.basedir}/src/main/resources/xsd</schemaDirectory>
+							<schemaFiles>e-CF-47.xsd</schemaFiles>
+							<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+							<generatePackage>com.medicalsoft.infrastructure.dgii.generated.ecf47</generatePackage>
+						</configuration>
 					</execution>
+					<!-- Generar modelo para e-CF33 -->
+					<execution>
+						<id>generate-ecf33</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<schemaDirectory>${project.basedir}/src/main/resources/xsd</schemaDirectory>
+							<schemaFiles>e-CF-33.xsd</schemaFiles>
+							<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+							<generatePackage>com.medicalsoft.infrastructure.dgii.generated.ecf33</generatePackage>
+						</configuration>
+					</execution>
+					<!-- Generar modelo para e-CF32 -->
+					<execution>
+						<id>generate-ecf32</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<schemaDirectory>${project.basedir}/src/main/resources/xsd</schemaDirectory>
+							<schemaFiles>e-CF-32.xsd</schemaFiles>
+							<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+							<generatePackage>com.medicalsoft.infrastructure.dgii.generated.ecf32</generatePackage>
+						</configuration>
+					</execution>
+					<!-- Generar modelo para e-CF34 -->
+					<execution>
+						<id>generate-ecf34</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<schemaDirectory>${project.basedir}/src/main/resources/xsd</schemaDirectory>
+							<schemaFiles>e-CF-34.xsd</schemaFiles>
+							<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+							<generatePackage>com.medicalsoft.infrastructure.dgii.generated.ecf34</generatePackage>
+						</configuration>
+					</execution>
+					<!-- Generar modelo para e-CF41 -->
+					<execution>
+						<id>generate-ecf41</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<schemaDirectory>${project.basedir}/src/main/resources/xsd</schemaDirectory>
+							<schemaFiles>e-CF-41.xsd</schemaFiles>
+							<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+							<generatePackage>com.medicalsoft.infrastructure.dgii.generated.ecf41</generatePackage>
+						</configuration>
+					</execution>
+					<!-- Generar modelo para e-CF43 -->
+					<execution>
+						<id>generate-ecf43</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<schemaDirectory>${project.basedir}/src/main/resources/xsd</schemaDirectory>
+							<schemaFiles>e-CF-43.xsd</schemaFiles>
+							<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+							<generatePackage>com.medicalsoft.infrastructure.dgii.generated.ecf43</generatePackage>
+						</configuration>
+					</execution>
+					<!-- Generar modelo para e-CF44 -->
+					<execution>
+						<id>generate-ecf44</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<schemaDirectory>${project.basedir}/src/main/resources/xsd</schemaDirectory>
+							<schemaFiles>e-CF-44.xsd</schemaFiles>
+							<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+							<generatePackage>com.medicalsoft.infrastructure.dgii.generated.ecf44</generatePackage>
+						</configuration>
+					</execution>
+					<!-- Generar modelo para e-CF45 -->
+					<execution>
+						<id>generate-ecf45</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<schemaDirectory>${project.basedir}/src/main/resources/xsd</schemaDirectory>
+							<schemaFiles>e-CF-45.xsd</schemaFiles>
+							<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+							<generatePackage>com.medicalsoft.infrastructure.dgii.generated.ecf45</generatePackage>
+						</configuration>
+					</execution>
+					<!-- Generar modelo para e-CF46 -->
+					<execution>
+						<id>generate-ecf46</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<schemaDirectory>${project.basedir}/src/main/resources/xsd</schemaDirectory>
+							<schemaFiles>e-CF-46.xsd</schemaFiles>
+							<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+							<generatePackage>com.medicalsoft.infrastructure.dgii.generated.ecf46</generatePackage>
+						</configuration>
+					</execution>
+					
 				</executions>
-				<configuration>
-					<schemaDirectory>${project.basedir}/src/main/resources/xsd</schemaDirectory>
-					<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-					<generatePackage>com.medicalsoft.infrastructure.dgii.generated.auth</generatePackage>
-				</configuration>
 			</plugin>
+
 		</plugins>
 	</build>
 </project>
