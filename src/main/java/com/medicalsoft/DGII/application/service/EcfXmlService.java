@@ -66,6 +66,8 @@ public class EcfXmlService {
         marshaller.marshal(ecfObject, writer);
         String xmlSinFirmar = writer.toString();
 
+        System.out.println("XML sin firmar" + xmlSinFirmar);
+
         // 6. Firmar el XML
         String xmlFirmado;
         try (InputStream keystoreStream = keystoreLoader.loadKeystoreStream()) {
@@ -106,19 +108,23 @@ public class EcfXmlService {
 
         SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 
-        try {
-            factory.setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false);
-        } catch (org.xml.sax.SAXNotRecognizedException e) {
-            System.out.println("El parser no reconoce la feature, se omite.");
-        }
+        // try {
+        //     factory.setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false);
+        // } catch (org.xml.sax.SAXNotRecognizedException e) {
+        //     System.out.println("El parser no reconoce la feature, se omite.");
+        // }
 
         File xsdFile = switch (tipoEcf) {
+            case "31" -> new File("src/main/resources/xsd/xsd31/e-CF-31.xsd");
             case "32" -> new File("src/main/resources/xsd/xsd32/e-CF-32.xsd");
-            case "33" -> new File("src/main/resources/xsd/xsd32/e-CF-33.xsd");
-            case "34" -> new File("src/main/resources/xsd/xsd32/e-CF-34.xsd");
-            case "41" -> new File("src/main/resources/xsd/xsd32/e-CF-41.xsd");
+            case "33" -> new File("src/main/resources/xsd/xsd33/e-CF-33.xsd");
+            case "34" -> new File("src/main/resources/xsd/xsd34/e-CF-34.xsd");
+            case "41" -> new File("src/main/resources/xsd/xsd41/e-CF-41.xsd");
+            case "43" -> new File("src/main/resources/xsd/xsd43/e-CF-43.xsd");
+            case "44" -> new File("src/main/resources/xsd/xsd44/e-CF-44.xsd");
+            case "45" -> new File("src/main/resources/xsd/xsd45/e-CF-45.xsd");
+            case "46" -> new File("src/main/resources/xsd/xsd46/e-CF-46.xsd");
             case "47" -> new File("src/main/resources/xsd/xsd47/e-CF-47.xsd");
-            // case "43" -> new File("src/main/resources/xsd/e-CF-43.xsd");
             default -> throw new IllegalArgumentException("XSD no soportado para TipoeCF: " + tipoEcf);
         };
 

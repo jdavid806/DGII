@@ -73,10 +73,21 @@ public class ExcelUtils {
         };
     }
 
-
     public static int extractIndex(String input) {
         Matcher m = Pattern.compile("\\[(\\d+)]").matcher(input);
         return m.find() ? Integer.parseInt(m.group(1)) : 1;
+    }
+
+    public static int extractSubIndex(String fieldName) {
+        try {
+            java.util.regex.Matcher matcher = java.util.regex.Pattern.compile("\\[(\\d+)]").matcher(fieldName);
+            if (matcher.find()) {
+                return Integer.parseInt(matcher.group(1));
+            }
+        } catch (Exception e) {
+            System.err.println("Error extrayendo subíndice de: " + fieldName);
+        }
+        return 0;
     }
 
     public static <T> void ensureSize(List<T> list, int size) {
@@ -85,7 +96,7 @@ public class ExcelUtils {
         }
     }
 
-     public static boolean filaVacia(Row row) {
+    public static boolean filaVacia(Row row) {
         if (row == null)
             return true;
         for (Cell cell : row) {

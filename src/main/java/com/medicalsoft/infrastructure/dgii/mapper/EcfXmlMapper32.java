@@ -243,33 +243,24 @@ public class EcfXmlMapper32 implements ExcelToEcfMapper<ECF> {
 
             if (columnName.matches(".*\\[\\d+].*")) {
                 int itemIndex = ExcelUtils.extractIndex(columnName);
-                ECF.DetallesItems.Item item = itemMap.computeIfAbsent(itemIndex, k -> new ECF.DetallesItems.Item());
+
+                ECF.DetallesItems.Item item = itemMap.computeIfAbsent(itemIndex, k -> {
+                    ECF.DetallesItems.Item newItem = new ECF.DetallesItems.Item();
+                    newItem.setNumeroLinea(k + 1); 
+                    return newItem;
+                });
+
                 String cleanField = columnName.replaceAll("\\[\\d+]", "");
 
-                // try {
-                // if (cleanField.equals("IndicadorAgenteRetencionoPercepcion")
-                // || cleanField.equals("MontoISRRetenido")) {
-                // if (item.getRetencion() == null) {
-                // item.setRetencion(new ECF.DetallesItems.Item.Retencion());
-                // }
-                // Method setter = ExcelUtils.findSetter(item.getRetencion().getClass(),
-                // cleanField);
-                // Object parsed = ExcelUtils.parseValue(cellValue,
-                // setter.getParameterTypes()[0]);
-                // setter.invoke(item.getRetencion(), parsed);
-                // } else {
-                // Method setter = ExcelUtils.findSetter(item.getClass(), cleanField);
-                // Object parsed = ExcelUtils.parseValue(cellValue,
-                // setter.getParameterTypes()[0]);
-                // setter.invoke(item, parsed);
-                // }
-                // } catch (Exception e) {
-                // System.err.println("Error en Item[" + itemIndex + "]: " + columnName + " - "
-                // + e.getMessage());
-                // }
-
-                
+                try {
+                    Method setter = ExcelUtils.findSetter(item.getClass(), cleanField);
+                    Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
+                    setter.invoke(item, parsed);
+                } catch (Exception e) {
+                    System.err.println("Error en Item[" + itemIndex + "]: " + columnName + " - " + e.getMessage());
+                }
             }
+
         }
 
         // Ensamblar estructura final

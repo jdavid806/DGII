@@ -13,7 +13,9 @@ import com.medicalsoft.DGII.config.DgiiApiProperties;
 public class DgiiApplication {
 
 	public static void main(String[] args) {
+		
 		SpringApplication.run(DgiiApplication.class, args);
+		
 	}
 
 }

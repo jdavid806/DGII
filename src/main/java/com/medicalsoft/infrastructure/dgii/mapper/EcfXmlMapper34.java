@@ -14,6 +14,9 @@ import org.apache.poi.ss.usermodel.Sheet;
 import com.medicalsoft.DGII.domain.interfaces.ExcelToEcfMapper;
 import com.medicalsoft.DGII.shared.utils.ExcelUtils;
 import com.medicalsoft.infrastructure.dgii.generated.ecf34.ECF;
+
+// ... (package, imports iguales)
+
 public class EcfXmlMapper34 implements ExcelToEcfMapper<ECF> {
 
     @Override
@@ -27,13 +30,16 @@ public class EcfXmlMapper34 implements ExcelToEcfMapper<ECF> {
         ECF.Encabezado.Comprador comprador = new ECF.Encabezado.Comprador();
         ECF.Encabezado.IdDoc idDoc = new ECF.Encabezado.IdDoc();
         ECF.Encabezado.Totales totales = new ECF.Encabezado.Totales();
-        ECF.Encabezado.Transporte transporte = new ECF.Encabezado.Transporte();        
+        ECF.Encabezado.Transporte transporte = new ECF.Encabezado.Transporte();
         ECF.Encabezado.InformacionesAdicionales informacionesAdicionales = new ECF.Encabezado.InformacionesAdicionales();
         ECF.Encabezado.OtraMoneda otraMoneda = new ECF.Encabezado.OtraMoneda();
         ECF.Paginacion.Pagina pagina = new ECF.Paginacion.Pagina();
         ECF.Subtotales.Subtotal subtotal = new ECF.Subtotales.Subtotal();
         ECF.Encabezado.Totales.ImpuestosAdicionales.ImpuestoAdicional impuestoAdicional = new ECF.Encabezado.Totales.ImpuestosAdicionales.ImpuestoAdicional();
+        ECF.InformacionReferencia informacionReferencia = new ECF.InformacionReferencia();
         Map<Integer, ECF.DetallesItems.Item> itemMap = new TreeMap<>();
+
+        Map<Integer, ECF.DescuentosORecargos.DescuentoORecargo> descuentoMap = new TreeMap<>();
 
         Map<String, Object> baseMap = new HashMap<>();
         baseMap.putAll(Map.ofEntries(
@@ -181,6 +187,11 @@ public class EcfXmlMapper34 implements ExcelToEcfMapper<ECF> {
                 Map.entry("SubTotalExento", subtotal),
                 Map.entry("MontoSubTotal", subtotal),
                 Map.entry("Lineas", subtotal),
+                Map.entry("NCFModificado", informacionReferencia),
+                Map.entry("RNCOtroContribuyente", informacionReferencia),
+                Map.entry("FechaNCFModificado", informacionReferencia),
+                Map.entry("CodigoModificacion", informacionReferencia),   
+                Map.entry("RazonModificacion", informacionReferencia),               
                 // Transporte
                 Map.entry("Conductor", transporte),
                 Map.entry("DocumentoTransporte", transporte),
@@ -201,78 +212,106 @@ public class EcfXmlMapper34 implements ExcelToEcfMapper<ECF> {
             Object baseObject = baseMap.get(normalizedColumnName);
             if (baseObject != null) {
                 try {
-                    Method setter = ExcelUtils.findSetter(baseObject.getClass(), normalizedColumnName);
                     if (columnName.matches("TelefonoEmisor\\[\\d+]")) {
-                        String telefono = cellValue.trim();
-                        if (!telefono.isEmpty()) {
+                        if (!cellValue.trim().isEmpty()) {
                             if (emisor.getTablaTelefonoEmisor() == null)
                                 emisor.setTablaTelefonoEmisor(new ECF.Encabezado.Emisor.TablaTelefonoEmisor());
-                            emisor.getTablaTelefonoEmisor().getTelefonoEmisor().add(telefono);
+                            emisor.getTablaTelefonoEmisor().getTelefonoEmisor().add(cellValue.trim());
                         }
                         continue;
                     }
+
+                    Method setter = ExcelUtils.findSetter(baseObject.getClass(), normalizedColumnName);
                     if (setter != null) {
                         Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
-                        if (parsed != null)
-                            setter.invoke(baseObject, parsed);
+                        setter.invoke(baseObject, parsed);
                     }
                 } catch (Exception e) {
                     System.err.println("Error en campo simple: " + normalizedColumnName + " - " + e.getMessage());
                 }
                 continue;
-            }   
+            }
 
+            // Items
             if (columnName.matches(".*\\[\\d+].*")) {
                 int itemIndex = ExcelUtils.extractIndex(columnName);
-                ECF.DetallesItems.Item item = itemMap.computeIfAbsent(itemIndex, k -> new ECF.DetallesItems.Item());
-                String cleanField = columnName.replaceAll("\\[\\d+]", "");
+                String cleanField = columnName.replaceAll("\\[\\d+]", "").trim();
 
-                try {
-                if (cleanField.equals("IndicadorAgenteRetencionoPercepcion")
-                || cleanField.equals("MontoISRRetenido")) {
-                if (item.getRetencion() == null) {
-                item.setRetencion(new ECF.DetallesItems.Item.Retencion());
+                if (columnName.startsWith("Item[")) {
+                    ECF.DetallesItems.Item item = itemMap.computeIfAbsent(itemIndex, k -> new ECF.DetallesItems.Item());
+                    try {
+                        if (cleanField.equals("IndicadorAgenteRetencionoPercepcion")
+                                || cleanField.equals("MontoISRRetenido")) {
+                            if (item.getRetencion() == null)
+                                item.setRetencion(new ECF.DetallesItems.Item.Retencion());
+                            Method setter = ExcelUtils.findSetter(item.getRetencion().getClass(), cleanField);
+                            if (setter != null) {
+                                Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
+                                setter.invoke(item.getRetencion(), parsed);
+                            }
+                        } else {
+                            Method setter = ExcelUtils.findSetter(item.getClass(), cleanField);
+                            if (setter != null) {
+                                Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
+                                setter.invoke(item, parsed);
+                            }
+                        }
+                    } catch (Exception e) {
+                        System.err.println("Error en Item[" + itemIndex + "]: " + columnName + " - " + e.getMessage());
+                    }
+                    continue;
                 }
-                Method setter = ExcelUtils.findSetter(item.getRetencion().getClass(),
-                cleanField);
-                Object parsed = ExcelUtils.parseValue(cellValue,
-                setter.getParameterTypes()[0]);
-                setter.invoke(item.getRetencion(), parsed);
-                } else {
-                Method setter = ExcelUtils.findSetter(item.getClass(), cleanField);
-                Object parsed = ExcelUtils.parseValue(cellValue,
-                setter.getParameterTypes()[0]);
-                setter.invoke(item, parsed);
+
+                // DescuentoORecargo[n].Campo
+                if (columnName.matches("DescuentoORecargo\\[\\d+]\\..+")) {
+                    int index = ExcelUtils.extractIndex(columnName);
+                    String field = columnName.replaceAll("DescuentoORecargo\\[\\d+]\\.", "").trim();
+
+                    ECF.DescuentosORecargos.DescuentoORecargo descuento = descuentoMap.computeIfAbsent(index,
+                            k -> new ECF.DescuentosORecargos.DescuentoORecargo());
+                    Method setter = ExcelUtils.findSetter(descuento.getClass(), field);
+                    if (setter != null) {
+                        Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
+                        setter.invoke(descuento, parsed);
+                    }
+                    continue;
                 }
-                } catch (Exception e) {
-                System.err.println("Error en Item[" + itemIndex + "]: " + columnName + " - "
-                + e.getMessage());
-                }
+            
             }
         }
 
-        // Ensamblar estructura final
+        // Armar encabezado
         encabezado.setEmisor(emisor);
         encabezado.setComprador(comprador);
         encabezado.setIdDoc(idDoc);
         encabezado.setTotales(totales);
         encabezado.setTransporte(transporte);
-        
-
+        encabezado.setInformacionesAdicionales(informacionesAdicionales);
+        encabezado.setOtraMoneda(otraMoneda);
         encabezado.setVersion(new BigDecimal("1.0"));
         ecf.setEncabezado(encabezado);
+
+        // Asignar DetallesItems
 
         if (!itemMap.isEmpty()) {
             ECF.DetallesItems detallesItems = new ECF.DetallesItems();
             detallesItems.getItem().addAll(itemMap.values());
-            ecf.setDetallesItems(detallesItems);
+            ecf.setDetallesItems(detallesItems); // 👈 antes que descuentos y paginación
         }
 
-        // Establecer FechaHoraFirma
-        String fechaHoraFirma = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
-        ecf.setFechaHoraFirma(fechaHoraFirma);
+        if (!descuentoMap.isEmpty()) {
+            ECF.DescuentosORecargos dor = new ECF.DescuentosORecargos();
+            dor.getDescuentoORecargo().addAll(descuentoMap.values());
+            ecf.setDescuentosORecargos(dor);
+        }      
 
-        return ecf;// Establecer FechaHoraFirma
+        ECF.Paginacion paginacion = new ECF.Paginacion();
+        paginacion.getPagina().add(pagina);
+        ecf.setPaginacion(paginacion);
 
+        // FechaHoraFirma
+        ecf.setFechaHoraFirma(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
+
+        return ecf;
     }
 }
