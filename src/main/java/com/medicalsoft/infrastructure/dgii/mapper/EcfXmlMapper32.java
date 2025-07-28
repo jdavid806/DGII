@@ -268,7 +268,7 @@ public class EcfXmlMapper32 implements ExcelToEcfMapper<ECF> {
         encabezado.setComprador(comprador);
         encabezado.setIdDoc(idDoc);
         encabezado.setTotales(totales);
-        encabezado.setTransporte(transporte);
+        // encabezado.setTransporte(transporte);
 
         if (!tablaFormasPago.getFormaDePago().isEmpty()) {
             idDoc.setTablaFormasPago(tablaFormasPago);

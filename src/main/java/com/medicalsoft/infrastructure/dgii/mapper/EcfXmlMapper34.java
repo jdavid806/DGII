@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -15,9 +16,76 @@ import com.medicalsoft.DGII.domain.interfaces.ExcelToEcfMapper;
 import com.medicalsoft.DGII.shared.utils.ExcelUtils;
 import com.medicalsoft.infrastructure.dgii.generated.ecf34.ECF;
 
-// ... (package, imports iguales)
-
 public class EcfXmlMapper34 implements ExcelToEcfMapper<ECF> {
+
+    private boolean isEmpty(Object obj) {
+        if (obj == null) return true;
+        
+        if (obj instanceof ECF.Encabezado.Transporte) {
+            ECF.Encabezado.Transporte transporte = (ECF.Encabezado.Transporte) obj;
+            return transporte.getConductor() == null && 
+                   transporte.getDocumentoTransporte() == null &&
+                   transporte.getFicha() == null &&
+                   transporte.getPlaca() == null &&
+                   transporte.getRutaTransporte() == null &&
+                   transporte.getZonaTransporte() == null &&
+                   transporte.getNumeroAlbaran() == null;
+        }
+        
+        if (obj instanceof ECF.Encabezado.InformacionesAdicionales) {
+            ECF.Encabezado.InformacionesAdicionales info = (ECF.Encabezado.InformacionesAdicionales) obj;
+            return info.getFechaEmbarque() == null &&
+                   info.getNumeroEmbarque() == null &&
+                   info.getNumeroContenedor() == null &&
+                   info.getNumeroReferencia() == null &&
+                   info.getPesoBruto() == null &&
+                   info.getPesoNeto() == null &&
+                   info.getUnidadPesoBruto() == null &&
+                   info.getUnidadPesoNeto() == null &&
+                   info.getCantidadBulto() == null &&
+                   info.getUnidadBulto() == null &&
+                   info.getVolumenBulto() == null &&
+                   info.getUnidadVolumen() == null;
+        }
+        
+        if (obj instanceof ECF.Paginacion.Pagina) {
+            ECF.Paginacion.Pagina pagina = (ECF.Paginacion.Pagina) obj;
+            return pagina.getPaginaNo() == null &&
+                   pagina.getNoLineaDesde() == null &&
+                   pagina.getNoLineaHasta() == null &&
+                   pagina.getSubtotalMontoGravadoPagina() == null &&
+                   pagina.getSubtotalMontoGravado1Pagina() == null &&
+                   pagina.getSubtotalMontoGravado2Pagina() == null &&
+                   pagina.getSubtotalMontoGravado3Pagina() == null &&
+                   pagina.getSubtotalExentoPagina() == null &&
+                   pagina.getSubtotalItbisPagina() == null &&
+                   pagina.getSubtotalItbis1Pagina() == null &&
+                   pagina.getSubtotalItbis2Pagina() == null &&
+                   pagina.getSubtotalItbis3Pagina() == null &&
+                   pagina.getSubtotalImpuestoAdicionalPagina() == null &&
+                   pagina.getMontoSubtotalPagina() == null &&
+                   pagina.getSubtotalMontoNoFacturablePagina() == null;
+        }
+        
+        if (obj instanceof ECF.Encabezado.OtraMoneda) {
+            ECF.Encabezado.OtraMoneda otraMoneda = (ECF.Encabezado.OtraMoneda) obj;
+            return otraMoneda.getTipoMoneda() == null &&
+                   otraMoneda.getTipoCambio() == null &&
+                   otraMoneda.getMontoGravadoTotalOtraMoneda() == null &&
+                   otraMoneda.getMontoGravado1OtraMoneda() == null &&
+                   otraMoneda.getMontoGravado2OtraMoneda() == null &&
+                   otraMoneda.getMontoGravado3OtraMoneda() == null &&
+                   otraMoneda.getMontoExentoOtraMoneda() == null &&
+                   otraMoneda.getTotalITBISOtraMoneda() == null &&
+                   otraMoneda.getTotalITBIS1OtraMoneda() == null &&
+                   otraMoneda.getTotalITBIS2OtraMoneda() == null &&
+                   otraMoneda.getTotalITBIS3OtraMoneda() == null &&
+                   otraMoneda.getMontoImpuestoAdicionalOtraMoneda() == null &&
+                   otraMoneda.getMontoTotalOtraMoneda() == null;
+        }
+        
+        return false;
+    }
 
     @Override
     public ECF map(Sheet sheet) throws Exception {
@@ -30,15 +98,17 @@ public class EcfXmlMapper34 implements ExcelToEcfMapper<ECF> {
         ECF.Encabezado.Comprador comprador = new ECF.Encabezado.Comprador();
         ECF.Encabezado.IdDoc idDoc = new ECF.Encabezado.IdDoc();
         ECF.Encabezado.Totales totales = new ECF.Encabezado.Totales();
-        ECF.Encabezado.Transporte transporte = new ECF.Encabezado.Transporte();
-        ECF.Encabezado.InformacionesAdicionales informacionesAdicionales = new ECF.Encabezado.InformacionesAdicionales();
-        ECF.Encabezado.OtraMoneda otraMoneda = new ECF.Encabezado.OtraMoneda();
-        ECF.Paginacion.Pagina pagina = new ECF.Paginacion.Pagina();
-        ECF.Subtotales.Subtotal subtotal = new ECF.Subtotales.Subtotal();
-        ECF.Encabezado.Totales.ImpuestosAdicionales.ImpuestoAdicional impuestoAdicional = new ECF.Encabezado.Totales.ImpuestosAdicionales.ImpuestoAdicional();
+        
+        // Objetos opcionales - se crearán solo si son necesarios
+        ECF.Encabezado.Transporte transporte = null;
+        ECF.Encabezado.InformacionesAdicionales informacionesAdicionales = null;
+        ECF.Encabezado.OtraMoneda otraMoneda = null;
+        ECF.Paginacion.Pagina pagina = null;
+        ECF.Subtotales.Subtotal subtotal = null;
+        ECF.Encabezado.Totales.ImpuestosAdicionales.ImpuestoAdicional impuestoAdicional = null;
+        
         ECF.InformacionReferencia informacionReferencia = new ECF.InformacionReferencia();
         Map<Integer, ECF.DetallesItems.Item> itemMap = new TreeMap<>();
-
         Map<Integer, ECF.DescuentosORecargos.DescuentoORecargo> descuentoMap = new TreeMap<>();
 
         Map<String, Object> baseMap = new HashMap<>();
@@ -99,6 +169,8 @@ public class EcfXmlMapper34 implements ExcelToEcfMapper<ECF> {
                 Map.entry("FechaDesde", idDoc),
                 Map.entry("FechaHasta", idDoc),
                 Map.entry("TotalPaginas", idDoc),
+                Map.entry("IndicadorNotaCredito", idDoc),
+
                 // Totales
                 Map.entry("MontoGravadoTotal", totales),
                 Map.entry("MontoGravadoI1", totales),
@@ -121,85 +193,12 @@ public class EcfXmlMapper34 implements ExcelToEcfMapper<ECF> {
                 Map.entry("MontoAvancePago", totales),
                 Map.entry("ValorPagar", totales),
 
-                Map.entry("FechaEmbarque", informacionesAdicionales),
-                Map.entry("NumeroEmbarque", informacionesAdicionales),
-                Map.entry("NumeroContenedor", informacionesAdicionales),
-                Map.entry("NumeroReferencia", informacionesAdicionales),
-                Map.entry("PesoBruto", informacionesAdicionales),
-                Map.entry("PesoNeto", informacionesAdicionales),
-                Map.entry("UnidadPesoBruto", informacionesAdicionales),
-                Map.entry("UnidadPesoNeto", informacionesAdicionales),
-                Map.entry("CantidadBulto", informacionesAdicionales),
-                Map.entry("UnidadBulto", informacionesAdicionales),
-                Map.entry("VolumenBulto", informacionesAdicionales),
-                Map.entry("UnidadVolumen", informacionesAdicionales),
-
-                Map.entry("TipoMoneda", otraMoneda),
-                Map.entry("TipoCambio", otraMoneda),
-                Map.entry("MontoGravadoTotalOtraMoneda", otraMoneda),
-                Map.entry("MontoGravado1OtraMoneda", otraMoneda),
-                Map.entry("MontoGravado2OtraMoneda", otraMoneda),
-                Map.entry("MontoGravado3OtraMoneda", otraMoneda),
-                Map.entry("MontoExentoOtraMoneda", otraMoneda),
-                Map.entry("TotalITBISOtraMoneda", otraMoneda),
-                Map.entry("TotalITBIS1OtraMoneda", otraMoneda),
-                Map.entry("TotalITBIS2OtraMoneda", otraMoneda),
-                Map.entry("TotalITBIS3OtraMoneda", otraMoneda),
-                Map.entry("MontoImpuestoAdicionalOtraMoneda", otraMoneda),
-                Map.entry("ImpuestosAdicionalesOtraMoneda", otraMoneda),
-                Map.entry("MontoTotalOtraMoneda", otraMoneda),
-
-                Map.entry("TipoImpuesto", impuestoAdicional),
-                Map.entry("TasaImpuestoAdicional", impuestoAdicional),
-                Map.entry("MontoImpuestoSelectivoConsumoEspecifico", impuestoAdicional),
-                Map.entry("MontoImpuestoSelectivoConsumoAdvalorem", impuestoAdicional),
-                Map.entry("OtrosImpuestosAdicionales", impuestoAdicional),
-
-                Map.entry("PaginaNo", pagina),
-                Map.entry("NoLineaDesde", pagina),
-                Map.entry("NoLineaHasta", pagina),
-                Map.entry("SubtotalMontoGravadoPagina", pagina),
-                Map.entry("SubtotalMontoGravado1Pagina", pagina),
-                Map.entry("SubtotalMontoGravado2Pagina", pagina),
-                Map.entry("SubtotalMontoGravado3Pagina", pagina),
-                Map.entry("SubtotalExentoPagina", pagina),
-                Map.entry("SubtotalItbisPagina", pagina),
-                Map.entry("SubtotalItbis1Pagina", pagina),
-                Map.entry("SubtotalItbis2Pagina", pagina),
-                Map.entry("SubtotalItbis3Pagina", pagina),
-                Map.entry("SubtotalImpuestoAdicionalPagina", pagina),
-                Map.entry("SubtotalImpuestoAdicional", pagina),
-                Map.entry("MontoSubtotalPagina", pagina),
-                Map.entry("SubtotalMontoNoFacturablePagina", pagina),
-
-                Map.entry("NumeroSubTotal", subtotal),
-                Map.entry("DescripcionSubtotal", subtotal),
-                Map.entry("Orden", subtotal),
-                Map.entry("SubTotalMontoGravadoTotal", subtotal),
-                Map.entry("SubTotalMontoGravadoI1", subtotal),
-                Map.entry("SubTotalMontoGravadoI2", subtotal),
-                Map.entry("SubTotalMontoGravadoI3", subtotal),
-                Map.entry("SubTotaITBIS", subtotal),
-                Map.entry("SubTotaITBIS1", subtotal),
-                Map.entry("SubTotaITBIS2", subtotal),
-                Map.entry("SubTotaITBIS3", subtotal),
-                Map.entry("SubTotalImpuestoAdicional", subtotal),
-                Map.entry("SubTotalExento", subtotal),
-                Map.entry("MontoSubTotal", subtotal),
-                Map.entry("Lineas", subtotal),
+                // Información de referencia
                 Map.entry("NCFModificado", informacionReferencia),
                 Map.entry("RNCOtroContribuyente", informacionReferencia),
                 Map.entry("FechaNCFModificado", informacionReferencia),
-                Map.entry("CodigoModificacion", informacionReferencia),   
-                Map.entry("RazonModificacion", informacionReferencia),               
-                // Transporte
-                Map.entry("Conductor", transporte),
-                Map.entry("DocumentoTransporte", transporte),
-                Map.entry("Ficha", transporte),
-                Map.entry("Placa", transporte),
-                Map.entry("RutaTransporte", transporte),
-                Map.entry("ZonaTransporte", transporte),
-                Map.entry("NumeroAlbaran", transporte)));
+                Map.entry("CodigoModificacion", informacionReferencia),
+                Map.entry("RazonModificacion", informacionReferencia)));
 
         for (int i = 0; i < headerRow.getPhysicalNumberOfCells(); i++) {
             String columnName = headerRow.getCell(i).getStringCellValue().trim();
@@ -209,22 +208,120 @@ public class EcfXmlMapper34 implements ExcelToEcfMapper<ECF> {
             if (cellValue.equalsIgnoreCase("#e") || cellValue.isEmpty())
                 continue;
 
+            // Manejo de campos de transporte
+            if (columnName.startsWith("Conductor") || columnName.startsWith("DocumentoTransporte") || 
+                columnName.startsWith("Ficha") || columnName.startsWith("Placa") || 
+                columnName.startsWith("RutaTransporte") || columnName.startsWith("ZonaTransporte") || 
+                columnName.startsWith("NumeroAlbaran")) {
+                
+                if (transporte == null) {
+                    transporte = new ECF.Encabezado.Transporte();
+                }
+                
+                try {
+                    Method setter = ExcelUtils.findSetter(transporte.getClass(), normalizedColumnName);
+                    if (setter != null) {
+                        Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
+                        setter.invoke(transporte, parsed);
+                    }
+                } catch (Exception e) {
+                    System.err.println("Error en campo de transporte: " + normalizedColumnName + " - " + e.getMessage());
+                }
+                continue;
+            }
+
+            // Manejo de campos de informaciones adicionales
+            if (columnName.startsWith("FechaEmbarque") || columnName.startsWith("NumeroEmbarque") || 
+                columnName.startsWith("NumeroContenedor") || columnName.startsWith("NumeroReferencia") || 
+                columnName.startsWith("PesoBruto") || columnName.startsWith("PesoNeto") || 
+                columnName.startsWith("UnidadPesoBruto") || columnName.startsWith("UnidadPesoNeto") || 
+                columnName.startsWith("CantidadBulto") || columnName.startsWith("UnidadBulto") || 
+                columnName.startsWith("VolumenBulto") || columnName.startsWith("UnidadVolumen")) {
+                
+                if (informacionesAdicionales == null) {
+                    informacionesAdicionales = new ECF.Encabezado.InformacionesAdicionales();
+                }
+                
+                try {
+                    Method setter = ExcelUtils.findSetter(informacionesAdicionales.getClass(), normalizedColumnName);
+                    if (setter != null) {
+                        Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
+                        setter.invoke(informacionesAdicionales, parsed);
+                    }
+                } catch (Exception e) {
+                    System.err.println("Error en campo de informaciones adicionales: " + normalizedColumnName + " - " + e.getMessage());
+                }
+                continue;
+            }
+
+            // Manejo de campos de paginación
+            if (columnName.startsWith("PaginaNo") || columnName.startsWith("NoLineaDesde") || 
+                columnName.startsWith("NoLineaHasta") || columnName.startsWith("SubtotalMontoGravadoPagina") || 
+                columnName.startsWith("SubtotalMontoGravado1Pagina") || columnName.startsWith("SubtotalMontoGravado2Pagina") || 
+                columnName.startsWith("SubtotalMontoGravado3Pagina") || columnName.startsWith("SubtotalExentoPagina") || 
+                columnName.startsWith("SubtotalItbisPagina") || columnName.startsWith("SubtotalItbis1Pagina") || 
+                columnName.startsWith("SubtotalItbis2Pagina") || columnName.startsWith("SubtotalItbis3Pagina") || 
+                columnName.startsWith("SubtotalImpuestoAdicionalPagina") || columnName.startsWith("MontoSubtotalPagina") || 
+                columnName.startsWith("SubtotalMontoNoFacturablePagina")) {
+                
+                if (pagina == null) {
+                    pagina = new ECF.Paginacion.Pagina();
+                }
+                
+                try {
+                    Method setter = ExcelUtils.findSetter(pagina.getClass(), normalizedColumnName);
+                    if (setter != null) {
+                        Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
+                        setter.invoke(pagina, parsed);
+                    }
+                } catch (Exception e) {
+                    System.err.println("Error en campo de paginación: " + normalizedColumnName + " - " + e.getMessage());
+                }
+                continue;
+            }
+
+            // Manejo de campos de otra moneda
+            if (columnName.startsWith("TipoMoneda") || columnName.startsWith("TipoCambio") || 
+                columnName.startsWith("MontoGravadoTotalOtraMoneda") || columnName.startsWith("MontoGravado1OtraMoneda") || 
+                columnName.startsWith("MontoGravado2OtraMoneda") || columnName.startsWith("MontoGravado3OtraMoneda") || 
+                columnName.startsWith("MontoExentoOtraMoneda") || columnName.startsWith("TotalITBISOtraMoneda") || 
+                columnName.startsWith("TotalITBIS1OtraMoneda") || columnName.startsWith("TotalITBIS2OtraMoneda") || 
+                columnName.startsWith("TotalITBIS3OtraMoneda") || columnName.startsWith("MontoImpuestoAdicionalOtraMoneda") || 
+                columnName.startsWith("MontoTotalOtraMoneda")) {
+                
+                if (otraMoneda == null) {
+                    otraMoneda = new ECF.Encabezado.OtraMoneda();
+                }
+                
+                try {
+                    Method setter = ExcelUtils.findSetter(otraMoneda.getClass(), normalizedColumnName);
+                    if (setter != null) {
+                        Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
+                        setter.invoke(otraMoneda, parsed);
+                    }
+                } catch (Exception e) {
+                    System.err.println("Error en campo de otra moneda: " + normalizedColumnName + " - " + e.getMessage());
+                }
+                continue;
+            }
+
             Object baseObject = baseMap.get(normalizedColumnName);
             if (baseObject != null) {
                 try {
+                    Method setter = ExcelUtils.findSetter(baseObject.getClass(), normalizedColumnName);
                     if (columnName.matches("TelefonoEmisor\\[\\d+]")) {
-                        if (!cellValue.trim().isEmpty()) {
+                        String telefono = cellValue.trim();
+                        if (!telefono.isEmpty()) {
                             if (emisor.getTablaTelefonoEmisor() == null)
                                 emisor.setTablaTelefonoEmisor(new ECF.Encabezado.Emisor.TablaTelefonoEmisor());
-                            emisor.getTablaTelefonoEmisor().getTelefonoEmisor().add(cellValue.trim());
+                            emisor.getTablaTelefonoEmisor().getTelefonoEmisor().add(telefono);
                         }
                         continue;
                     }
-
-                    Method setter = ExcelUtils.findSetter(baseObject.getClass(), normalizedColumnName);
                     if (setter != null) {
                         Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
-                        setter.invoke(baseObject, parsed);
+                        if (parsed != null)
+                            setter.invoke(baseObject, parsed);
                     }
                 } catch (Exception e) {
                     System.err.println("Error en campo simple: " + normalizedColumnName + " - " + e.getMessage());
@@ -232,84 +329,192 @@ public class EcfXmlMapper34 implements ExcelToEcfMapper<ECF> {
                 continue;
             }
 
-            // Items
-            if (columnName.matches(".*\\[\\d+].*")) {
+            if (columnName.matches("CodigoItem(\\[\\d+]){2}")) {
                 int itemIndex = ExcelUtils.extractIndex(columnName);
-                String cleanField = columnName.replaceAll("\\[\\d+]", "").trim();
+                int subIndex = ExcelUtils.extractSubIndex(columnName);
 
-                if (columnName.startsWith("Item[")) {
-                    ECF.DetallesItems.Item item = itemMap.computeIfAbsent(itemIndex, k -> new ECF.DetallesItems.Item());
-                    try {
-                        if (cleanField.equals("IndicadorAgenteRetencionoPercepcion")
-                                || cleanField.equals("MontoISRRetenido")) {
-                            if (item.getRetencion() == null)
-                                item.setRetencion(new ECF.DetallesItems.Item.Retencion());
-                            Method setter = ExcelUtils.findSetter(item.getRetencion().getClass(), cleanField);
-                            if (setter != null) {
-                                Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
-                                setter.invoke(item.getRetencion(), parsed);
-                            }
-                        } else {
-                            Method setter = ExcelUtils.findSetter(item.getClass(), cleanField);
-                            if (setter != null) {
-                                Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
-                                setter.invoke(item, parsed);
-                            }
-                        }
-                    } catch (Exception e) {
-                        System.err.println("Error en Item[" + itemIndex + "]: " + columnName + " - " + e.getMessage());
-                    }
-                    continue;
+                if (itemIndex < 0) {
+                    System.err.println("Índice inválido en: " + columnName);
+                    return ecf;
                 }
 
-                // DescuentoORecargo[n].Campo
-                if (columnName.matches("DescuentoORecargo\\[\\d+]\\..+")) {
-                    int index = ExcelUtils.extractIndex(columnName);
-                    String field = columnName.replaceAll("DescuentoORecargo\\[\\d+]\\.", "").trim();
+                if (subIndex < 0) subIndex = 0;
 
-                    ECF.DescuentosORecargos.DescuentoORecargo descuento = descuentoMap.computeIfAbsent(index,
-                            k -> new ECF.DescuentosORecargos.DescuentoORecargo());
-                    Method setter = ExcelUtils.findSetter(descuento.getClass(), field);
+                ECF.DetallesItems.Item item = itemMap.computeIfAbsent(itemIndex, k -> {
+                    ECF.DetallesItems.Item newItem = new ECF.DetallesItems.Item();
+                    newItem.setNumeroLinea(k);
+                    return newItem;
+                });
+
+                ECF.DetallesItems.Item.TablaCodigosItem tabla = item.getTablaCodigosItem();
+                if (tabla == null) {
+                    tabla = new ECF.DetallesItems.Item.TablaCodigosItem();
+                    item.setTablaCodigosItem(tabla);
+                }
+
+                List<ECF.DetallesItems.Item.TablaCodigosItem.CodigosItem> codigosList = tabla.getCodigosItem();
+                while (codigosList.size() <= subIndex) {
+                    codigosList.add(new ECF.DetallesItems.Item.TablaCodigosItem.CodigosItem());
+                }
+
+                String field = columnName.replaceAll(".*\\.", "");
+                ECF.DetallesItems.Item.TablaCodigosItem.CodigosItem codigo = codigosList.get(subIndex);
+
+                try {
+                    Method setter = ExcelUtils.findSetter(codigo.getClass(), field);
                     if (setter != null) {
                         Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
-                        setter.invoke(descuento, parsed);
+                        setter.invoke(codigo, parsed);
                     }
-                    continue;
+                } catch (Exception e) {
+                    System.err.println("Error en CodigosItem[" + itemIndex + "][" + subIndex + "]: " + field + " - "
+                            + e.getMessage());
                 }
-            
+            } else if (columnName.matches("Item\\[\\d+\\]\\..+")) {
+                int itemIndex = ExcelUtils.extractIndex(columnName);
+                String cleanField = columnName.replaceAll(".*\\]\\.", "");
+
+                ECF.DetallesItems.Item item = itemMap.computeIfAbsent(itemIndex, k -> {
+                    ECF.DetallesItems.Item newItem = new ECF.DetallesItems.Item();
+                    newItem.setNumeroLinea(k + 1);
+                    return newItem;
+                });
+
+                try {
+                    if (cleanField.equals("IndicadorAgenteRetencionoPercepcion")
+                            || cleanField.equals("MontoISRRetenido")) {
+                        if (item.getRetencion() == null) {
+                            item.setRetencion(new ECF.DetallesItems.Item.Retencion());
+                        }
+                        Method setter = ExcelUtils.findSetter(item.getRetencion().getClass(), cleanField);
+                        if (setter != null) {
+                            Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
+                            setter.invoke(item.getRetencion(), parsed);
+                        }
+                    } else {
+                        Method setter = ExcelUtils.findSetter(item.getClass(), cleanField);
+                        if (setter != null) {
+                            Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
+                            setter.invoke(item, parsed);
+                        }
+                    }
+                } catch (Exception e) {
+                    System.err.println("Error en Item[" + itemIndex + "]: " + cleanField + " - " + e.getMessage());
+                }
+            } else if (columnName.matches("^[A-Za-z]+Item\\[\\d+\\]$")) {
+                String field = columnName.replaceAll("\\[\\d+\\]", "");
+                int itemIndex = ExcelUtils.extractIndex(columnName);
+
+                ECF.DetallesItems.Item item = itemMap.computeIfAbsent(itemIndex, k -> {
+                    ECF.DetallesItems.Item newItem = new ECF.DetallesItems.Item();
+                    newItem.setNumeroLinea(k + 1);
+                    return newItem;
+                });
+
+                try {
+                    Method setter = ExcelUtils.findSetter(item.getClass(), field);
+                    if (setter != null) {
+                        Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
+                        setter.invoke(item, parsed);
+                    }
+                } catch (Exception e) {
+                    System.err.println("Error asignando campo simple del item [" + itemIndex + "]: " + field + " - "
+                            + e.getMessage());
+                }
+            } else if (columnName.matches("^(IndicadorFacturacion|IndicadorBienoServicio)\\[\\d+\\]$")) {
+                int itemIndex = ExcelUtils.extractIndex(columnName);
+                String field = columnName.replaceAll("\\[\\d+\\]", "");
+
+                ECF.DetallesItems.Item item = itemMap.computeIfAbsent(itemIndex, k -> {
+                    ECF.DetallesItems.Item newItem = new ECF.DetallesItems.Item();
+                    newItem.setNumeroLinea(k + 1);
+                    return newItem;
+                });
+
+                try {
+                    Method setter = ExcelUtils.findSetter(item.getClass(), field);
+                    if (setter != null) {
+                        Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
+                        setter.invoke(item, parsed);
+                    }
+                } catch (Exception e) {
+                    System.err.println("Error en Item[" + itemIndex + "]: " + field + " - " + e.getMessage());
+                }
+            }
+            else if (columnName.matches("NumeroLinea\\[\\d+]")) {
+                int itemIndex = ExcelUtils.extractIndex(columnName);
+                if (itemIndex < 0) {
+                    System.err.println("Índice inválido en: " + columnName);
+                    return ecf;
+                }
+
+                ECF.DetallesItems.Item item = itemMap.computeIfAbsent(itemIndex, k -> {
+                    ECF.DetallesItems.Item newItem = new ECF.DetallesItems.Item();
+                    return newItem;
+                });
+
+                try {
+                    Object parsed = ExcelUtils.parseValue(cellValue, Integer.class);
+                    item.setNumeroLinea((Integer) parsed);
+                } catch (Exception e) {
+                    System.err.println("Error seteando NumeroLinea[" + itemIndex + "]: " + e.getMessage());
+                }
             }
         }
 
-        // Armar encabezado
+        // Configuración final del ECF
         encabezado.setEmisor(emisor);
         encabezado.setComprador(comprador);
         encabezado.setIdDoc(idDoc);
         encabezado.setTotales(totales);
-        encabezado.setTransporte(transporte);
-        encabezado.setInformacionesAdicionales(informacionesAdicionales);
-        encabezado.setOtraMoneda(otraMoneda);
+        
+        // Solo agregar transporte si tiene datos
+        if (transporte != null && !isEmpty(transporte)) {
+            encabezado.setTransporte(transporte);
+        }
+        
+        // Solo agregar informaciones adicionales si tiene datos
+        if (informacionesAdicionales != null && !isEmpty(informacionesAdicionales)) {
+            encabezado.setInformacionesAdicionales(informacionesAdicionales);
+        }
+        
+        // Solo agregar otra moneda si tiene datos
+        if (otraMoneda != null && !isEmpty(otraMoneda)) {
+            encabezado.setOtraMoneda(otraMoneda);
+        }
+        
         encabezado.setVersion(new BigDecimal("1.0"));
         ecf.setEncabezado(encabezado);
 
-        // Asignar DetallesItems
-
+        // Configura DetallesItems solo si hay items
         if (!itemMap.isEmpty()) {
             ECF.DetallesItems detallesItems = new ECF.DetallesItems();
             detallesItems.getItem().addAll(itemMap.values());
-            ecf.setDetallesItems(detallesItems); // 👈 antes que descuentos y paginación
+            ecf.setDetallesItems(detallesItems);
         }
 
+        // Configura DescuentosORecargos solo si hay descuentos
         if (!descuentoMap.isEmpty()) {
             ECF.DescuentosORecargos dor = new ECF.DescuentosORecargos();
             dor.getDescuentoORecargo().addAll(descuentoMap.values());
             ecf.setDescuentosORecargos(dor);
-        }      
+        }
 
-        ECF.Paginacion paginacion = new ECF.Paginacion();
-        paginacion.getPagina().add(pagina);
-        ecf.setPaginacion(paginacion);
+        // Configura Paginación solo si la página tiene datos
+        if (pagina != null && !isEmpty(pagina)) {
+            ECF.Paginacion paginacion = new ECF.Paginacion();
+            paginacion.getPagina().add(pagina);
+            ecf.setPaginacion(paginacion);
+        }
 
-        // FechaHoraFirma
+        // Configura Subtotales solo si hay subtotales
+        if (subtotal != null && !isEmpty(subtotal)) {
+            ECF.Subtotales subtotales = new ECF.Subtotales();
+            subtotales.getSubtotal().add(subtotal);
+            ecf.setSubtotales(subtotales);
+        };
+
+        ecf.setInformacionReferencia(informacionReferencia);
         ecf.setFechaHoraFirma(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
 
         return ecf;

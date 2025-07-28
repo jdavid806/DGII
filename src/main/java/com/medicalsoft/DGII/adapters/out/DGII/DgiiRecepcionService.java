@@ -29,12 +29,8 @@ public class DgiiRecepcionService implements DgiiReceptionPort {
             File xmlFirmado = ecfXmlService.procesarExcelYGenerarXml(excelInputStream);
 
             // 2. Construir URL y enviar archivo a DGII
-            String url = "https://ecf.dgii.gov.do/testecf/recepcion/api/FacturasElectronicas";
+            String url = "https://ecf.dgii.gov.do/certecf/recepcion/api/FacturasElectronicas";
 
-            log.info("Enviando a la URL: {}", url);
-
-            log.info("Archivo firmado: {}", xmlFirmado.getAbsolutePath());
-            log.info("Tamaño del archivo firmado: {}", xmlFirmado.length());
 
             String respuesta = DgiiHttpClientService.sendSignedXml(xmlFirmado, url, token);
             log.info("Respuesta DGII recepción:\n{}", respuesta);

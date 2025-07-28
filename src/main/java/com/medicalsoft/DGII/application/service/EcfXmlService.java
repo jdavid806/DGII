@@ -80,7 +80,8 @@ public class EcfXmlService {
         // 8. Guardar archivo XML
         File xmlDir = new File("xml_enviados");
         xmlDir.mkdirs();
-        File xmlFile = new File(xmlDir, "ecf-firmado-" + System.currentTimeMillis() + ".xml");
+        String nombreCaso = obtenerNombreCasoPruebaDesdeExcel(sheet);
+        File xmlFile = new File(xmlDir, nombreCaso + ".xml");
 
         try (FileOutputStream fos = new FileOutputStream(xmlFile)) {
             fos.write(xmlFirmado.getBytes(StandardCharsets.UTF_8));
@@ -109,9 +110,10 @@ public class EcfXmlService {
         SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 
         // try {
-        //     factory.setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false);
+        // factory.setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar",
+        // false);
         // } catch (org.xml.sax.SAXNotRecognizedException e) {
-        //     System.out.println("El parser no reconoce la feature, se omite.");
+        // System.out.println("El parser no reconoce la feature, se omite.");
         // }
 
         File xsdFile = switch (tipoEcf) {
@@ -139,4 +141,17 @@ public class EcfXmlService {
             throw e;
         }
     }
+
+    private String obtenerNombreCasoPruebaDesdeExcel(Sheet sheet) {
+        Row headerRow = sheet.getRow(0);
+        Row dataRow = sheet.getRow(1);
+        for (int i = 0; i < headerRow.getPhysicalNumberOfCells(); i++) {
+            String colName = headerRow.getCell(i).getStringCellValue();
+            if ("CasoPrueba".equalsIgnoreCase(colName)) {
+                return ExcelUtils.getCellString(dataRow.getCell(i)).trim().replaceAll("[^a-zA-Z0-9-_]", "_");
+            }
+        }
+        return "ecf-sin-nombre";
+    }
+
 }

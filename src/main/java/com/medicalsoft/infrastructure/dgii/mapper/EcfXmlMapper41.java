@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -26,11 +27,11 @@ public class EcfXmlMapper41 implements ExcelToEcfMapper<ECF> {
         ECF.Encabezado.Emisor emisor = new ECF.Encabezado.Emisor();
         ECF.Encabezado.Comprador comprador = new ECF.Encabezado.Comprador();
         ECF.Encabezado.IdDoc idDoc = new ECF.Encabezado.IdDoc();
-        ECF.Encabezado.Totales totales = new ECF.Encabezado.Totales();        
-        ECF.Encabezado.IdDoc.TablaFormasPago tablaFormasPago = new ECF.Encabezado.IdDoc.TablaFormasPago();        
+        ECF.Encabezado.Totales totales = new ECF.Encabezado.Totales();
+        ECF.Encabezado.IdDoc.TablaFormasPago tablaFormasPago = new ECF.Encabezado.IdDoc.TablaFormasPago();
         ECF.Encabezado.OtraMoneda otraMoneda = new ECF.Encabezado.OtraMoneda();
         ECF.Paginacion.Pagina pagina = new ECF.Paginacion.Pagina();
-        ECF.Subtotales.Subtotal subtotal = new ECF.Subtotales.Subtotal();        
+        ECF.Subtotales.Subtotal subtotal = new ECF.Subtotales.Subtotal();
         Map<Integer, ECF.DetallesItems.Item> itemMap = new TreeMap<>();
 
         Map<String, Object> baseMap = new HashMap<>();
@@ -112,7 +113,6 @@ public class EcfXmlMapper41 implements ExcelToEcfMapper<ECF> {
                 Map.entry("SaldoAnterior", totales),
                 Map.entry("MontoAvancePago", totales),
                 Map.entry("ValorPagar", totales),
-                
 
                 Map.entry("TipoMoneda", otraMoneda),
                 Map.entry("TipoCambio", otraMoneda),
@@ -128,7 +128,7 @@ public class EcfXmlMapper41 implements ExcelToEcfMapper<ECF> {
                 Map.entry("MontoImpuestoAdicionalOtraMoneda", otraMoneda),
                 Map.entry("ImpuestosAdicionalesOtraMoneda", otraMoneda),
                 Map.entry("MontoTotalOtraMoneda", otraMoneda),
-             
+
                 Map.entry("PaginaNo", pagina),
                 Map.entry("NoLineaDesde", pagina),
                 Map.entry("NoLineaHasta", pagina),
@@ -161,8 +161,8 @@ public class EcfXmlMapper41 implements ExcelToEcfMapper<ECF> {
                 Map.entry("SubTotalExento", subtotal),
                 Map.entry("MontoSubTotal", subtotal),
                 Map.entry("Lineas", subtotal)
-                // Transporte
-                ));
+        // Transporte
+        ));
 
         for (int i = 0; i < headerRow.getPhysicalNumberOfCells(); i++) {
             String columnName = headerRow.getCell(i).getStringCellValue().trim();
@@ -214,34 +214,153 @@ public class EcfXmlMapper41 implements ExcelToEcfMapper<ECF> {
                 continue;
             }
 
-            if (columnName.matches(".*\\[\\d+].*")) {
+            if (columnName.matches("CodigoItem(\\[\\d+]){2}")) {
                 int itemIndex = ExcelUtils.extractIndex(columnName);
-                ECF.DetallesItems.Item item = itemMap.computeIfAbsent(itemIndex, k -> new ECF.DetallesItems.Item());
-                String cleanField = columnName.replaceAll("\\[\\d+]", "");
+                int subIndex = ExcelUtils.extractSubIndex(columnName);
+                if (itemIndex < 0) {
+                    System.err.println("Índice inválido en: " + columnName);
+                    return ecf;
+                }
+                if (subIndex < 0)
+                    subIndex = 0;
+
+                ECF.DetallesItems.Item item = itemMap.computeIfAbsent(itemIndex, k -> {
+                    ECF.DetallesItems.Item newItem = new ECF.DetallesItems.Item();
+                    newItem.setNumeroLinea(k + 1);
+                    return newItem;
+                });
+
+                ECF.DetallesItems.Item.TablaCodigosItem tabla = item.getTablaCodigosItem();
+                if (tabla == null) {
+                    tabla = new ECF.DetallesItems.Item.TablaCodigosItem();
+                    item.setTablaCodigosItem(tabla);
+                }
+
+                List<ECF.DetallesItems.Item.TablaCodigosItem.CodigosItem> codigosList = tabla.getCodigosItem();
+                while (codigosList.size() <= subIndex) {
+                    codigosList.add(new ECF.DetallesItems.Item.TablaCodigosItem.CodigosItem());
+                }
+
+                String field = columnName.replaceAll(".*\\.", "");
+                ECF.DetallesItems.Item.TablaCodigosItem.CodigosItem codigo = codigosList.get(subIndex);
 
                 try {
-                if (cleanField.equals("IndicadorAgenteRetencionoPercepcion")
-                || cleanField.equals("MontoISRRetenido")) {
-                if (item.getRetencion() == null) {
-                item.setRetencion(new ECF.DetallesItems.Item.Retencion());
-                }
-                Method setter = ExcelUtils.findSetter(item.getRetencion().getClass(),
-                cleanField);
-                Object parsed = ExcelUtils.parseValue(cellValue,
-                setter.getParameterTypes()[0]);
-                setter.invoke(item.getRetencion(), parsed);
-                } else {
-                Method setter = ExcelUtils.findSetter(item.getClass(), cleanField);
-                Object parsed = ExcelUtils.parseValue(cellValue,
-                setter.getParameterTypes()[0]);
-                setter.invoke(item, parsed);
-                }
+                    Method setter = ExcelUtils.findSetter(codigo.getClass(), field);
+                    if (setter != null) {
+                        Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
+                        setter.invoke(codigo, parsed);
+                    }
                 } catch (Exception e) {
-                System.err.println("Error en Item[" + itemIndex + "]: " + columnName + " - "
-                + e.getMessage());
+                    System.err.println("Error en CodigosItem[" + itemIndex + "][" + subIndex + "]: " + field + " - "
+                            + e.getMessage());
                 }
 
-                
+            } else if (columnName.matches("Item\\[\\d+\\]\\..+")) {
+                int itemIndex = ExcelUtils.extractIndex(columnName);
+                String cleanField = columnName.replaceAll(".*\\]\\.", "");
+
+                ECF.DetallesItems.Item item = itemMap.computeIfAbsent(itemIndex, k -> {
+                    ECF.DetallesItems.Item newItem = new ECF.DetallesItems.Item();
+                    newItem.setNumeroLinea(k + 1);
+                    return newItem;
+                });
+
+                try {
+                    // Procesar campos de Retencion primero
+                    if (cleanField.equals("IndicadorAgenteRetencionoPercepcion")
+                            || cleanField.equals("MontoISRRetenido")
+                            || cleanField.equals("MontoITBISRetenido")) {
+                        if (item.getRetencion() == null) {
+                            item.setRetencion(new ECF.DetallesItems.Item.Retencion());
+                        }
+                        Method setter = ExcelUtils.findSetter(item.getRetencion().getClass(), cleanField);
+                        if (setter != null) {
+                            Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
+                            setter.invoke(item.getRetencion(), parsed);
+                        }
+                    } else {
+                        Method setter = ExcelUtils.findSetter(item.getClass(), cleanField);
+                        if (setter != null) {
+                            Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
+                            setter.invoke(item, parsed);
+                        }
+                    }
+                } catch (Exception e) {
+                    System.err.println("Error en Item[" + itemIndex + "]: " + cleanField + " - " + e.getMessage());
+                }
+
+            } else if (columnName.matches("^[A-Za-z]+Item\\[\\d+\\]$")) {
+                String field = columnName.replaceAll("\\[\\d+\\]", "");
+                int itemIndex = ExcelUtils.extractIndex(columnName);
+
+                ECF.DetallesItems.Item item = itemMap.computeIfAbsent(itemIndex, k -> {
+                    ECF.DetallesItems.Item newItem = new ECF.DetallesItems.Item();
+                    newItem.setNumeroLinea(k + 1);
+                    return newItem;
+                });
+
+                try {
+                    Method setter = ExcelUtils.findSetter(item.getClass(), field);
+                    if (setter != null) {
+                        Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
+                        setter.invoke(item, parsed);
+                    }
+                } catch (Exception e) {
+                    System.err.println("Error asignando campo simple del item [" + itemIndex + "]: " + field + " - "
+                            + e.getMessage());
+                }
+
+            } else if (columnName.matches("^(IndicadorFacturacion|IndicadorBienoServicio)\\[\\d+\\]$")) {
+                int itemIndex = ExcelUtils.extractIndex(columnName);
+                String field = columnName.replaceAll("\\[\\d+\\]", "");
+
+                ECF.DetallesItems.Item item = itemMap.computeIfAbsent(itemIndex, k -> {
+                    ECF.DetallesItems.Item newItem = new ECF.DetallesItems.Item();
+                    newItem.setNumeroLinea(k + 1);
+                    return newItem;
+                });
+
+                try {
+                    Method setter = ExcelUtils.findSetter(item.getClass(), field);
+                    if (setter != null) {
+                        Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
+                        setter.invoke(item, parsed);
+                    }
+                } catch (Exception e) {
+                    System.err.println("Error en Item[" + itemIndex + "]: " + field + " - " + e.getMessage());
+                }
+            } else if (columnName
+                    .matches("^(IndicadorAgenteRetencionoPercepcion|MontoITBISRetenido|MontoISRRetenido)\\[\\d+\\]$")) {
+                int itemIndex = ExcelUtils.extractIndex(columnName);
+                String field = columnName.replaceAll("\\[\\d+\\]", "");
+
+                ECF.DetallesItems.Item item = itemMap.computeIfAbsent(itemIndex, k -> {
+                    ECF.DetallesItems.Item newItem = new ECF.DetallesItems.Item();
+                    newItem.setNumeroLinea(k + 1);
+                    return newItem;
+                });
+
+                if (item.getRetencion() == null) {
+                    item.setRetencion(new ECF.DetallesItems.Item.Retencion());
+                }
+
+                try {
+                    Method setter = ExcelUtils.findSetter(item.getRetencion().getClass(), field);
+                    if (setter != null) {
+                        Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
+                        setter.invoke(item.getRetencion(), parsed);
+                    }
+                } catch (Exception e) {
+                    System.err.println("Error en Retencion[" + itemIndex + "]: " + field + " - " + e.getMessage());
+                }
+            }
+
+        }
+
+        // Asegurar que todos los items tengan el nodo Retencion (obligatorio en el XSD)
+        for (ECF.DetallesItems.Item item : itemMap.values()) {
+            if (item.getRetencion() == null) {
+                item.setRetencion(new ECF.DetallesItems.Item.Retencion());
             }
         }
 
