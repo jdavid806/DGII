@@ -1,6 +1,5 @@
 package com.medicalsoft.infrastructure.dgii.mapper;
 
-import com.medicalsoft.DGII.domain.interfaces.ExcelToEcfMapper;
 import com.medicalsoft.infrastructure.dgii.generated.ecf47.*;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -10,6 +9,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+import com.medicalsoft.DGII.application.ports.input.ExcelToEcfMapper;
 import com.medicalsoft.DGII.shared.utils.ExcelUtils;
 
 public class EcfXmlMapper47 implements ExcelToEcfMapper<ECF> {

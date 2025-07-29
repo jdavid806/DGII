@@ -11,7 +11,7 @@ import java.util.TreeMap;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
-import com.medicalsoft.DGII.domain.interfaces.ExcelToEcfMapper;
+import com.medicalsoft.DGII.application.ports.input.ExcelToEcfMapper;
 import com.medicalsoft.DGII.shared.utils.ExcelUtils;
 import com.medicalsoft.infrastructure.dgii.generated.ecf33.ECF;
 

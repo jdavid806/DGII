@@ -1,7 +1,7 @@
 package com.medicalsoft.DGII.application.factory;
 
 
-import com.medicalsoft.DGII.domain.interfaces.ExcelToEcfMapper;
+import com.medicalsoft.DGII.application.ports.input.ExcelToEcfMapper;
 import com.medicalsoft.infrastructure.dgii.mapper.EcfXmlMapper31;
 import com.medicalsoft.infrastructure.dgii.mapper.EcfXmlMapper32;
 import com.medicalsoft.infrastructure.dgii.mapper.EcfXmlMapper33;

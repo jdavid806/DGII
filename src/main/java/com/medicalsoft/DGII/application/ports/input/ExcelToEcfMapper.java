@@ -1,4 +1,4 @@
-package com.medicalsoft.DGII.domain.interfaces;
+package com.medicalsoft.DGII.application.ports.input;
 import org.apache.poi.ss.usermodel.Sheet;
 
 public interface ExcelToEcfMapper<T> {

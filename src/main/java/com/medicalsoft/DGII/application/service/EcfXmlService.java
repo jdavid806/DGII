@@ -1,7 +1,7 @@
 package com.medicalsoft.DGII.application.service;
 
 import com.medicalsoft.DGII.application.factory.EcfXmlMapperFactory;
-import com.medicalsoft.DGII.domain.interfaces.ExcelToEcfMapper;
+import com.medicalsoft.DGII.application.ports.input.ExcelToEcfMapper;
 import com.medicalsoft.DGII.shared.utils.ExcelUtils;
 import com.medicalsoft.DGII.shared.utils.KeystoreLoader;
 import com.medicalsoft.DGII.shared.utils.XmlSigner;
