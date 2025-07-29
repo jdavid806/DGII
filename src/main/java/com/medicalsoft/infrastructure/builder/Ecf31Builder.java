@@ -6,70 +6,59 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import java.util.Objects;
-
 import org.apache.poi.ss.usermodel.Sheet;
 
 import com.medicalsoft.DGII.model.FieldHandler;
 import com.medicalsoft.DGII.shared.utils.ExcelUtils;
 import com.medicalsoft.infrastructure.adapters.AbstractEcfBuilder;
 import com.medicalsoft.infrastructure.dgii.generated.ecf31.ECF;
-import com.medicalsoft.infrastructure.dgii.generated.ecf31.ECF.Encabezado.Comprador;
-import com.medicalsoft.infrastructure.dgii.generated.ecf31.ECF.Encabezado.Emisor;
-import com.medicalsoft.infrastructure.dgii.generated.ecf31.ECF.Encabezado.IdDoc;
-import com.medicalsoft.infrastructure.dgii.generated.ecf31.ECF.Encabezado.InformacionesAdicionales;
-import com.medicalsoft.infrastructure.dgii.generated.ecf31.ECF.Encabezado.OtraMoneda;
-import com.medicalsoft.infrastructure.dgii.generated.ecf31.ECF.Encabezado.Totales;
-import com.medicalsoft.infrastructure.dgii.generated.ecf31.ECF.Encabezado.Totales.ImpuestosAdicionales.ImpuestoAdicional;
-import com.medicalsoft.infrastructure.dgii.generated.ecf31.ECF.Encabezado.Transporte;
-import com.medicalsoft.infrastructure.dgii.generated.ecf31.ECF.Paginacion.Pagina;
-import com.medicalsoft.infrastructure.dgii.generated.ecf31.ECF.Subtotales.Subtotal;
+import com.medicalsoft.infrastructure.dgii.generated.ecf31.ECF.Encabezado;
+import com.medicalsoft.infrastructure.dgii.generated.ecf31.ECF.Encabezado.*;
+import com.medicalsoft.infrastructure.dgii.hanlder.ecf31.DetallesItemHandler31;
+import com.medicalsoft.infrastructure.dgii.hanlder.ecf31.FormaPagoHandler31;
 
 public class Ecf31Builder extends AbstractEcfBuilder<ECF> {
 
     private final ECF ecf;
-    private final ECF.Encabezado encabezado;
-
-    // Subcomponentes del encabezado
-    private final ECF.Encabezado.Emisor emisor;
-    private final ECF.Encabezado.Comprador comprador;
-    private final ECF.Encabezado.IdDoc idDoc;
-    private final ECF.Encabezado.Totales totales;
-    private final ECF.Encabezado.InformacionesAdicionales informacionesAdicionales;
-    private final ECF.Encabezado.OtraMoneda otraMoneda;
-    private final ECF.Encabezado.Totales.ImpuestosAdicionales.ImpuestoAdicional impuestoAdicional;
-    private final ECF.Paginacion.Pagina pagina;
-    private final ECF.Subtotales.Subtotal subtotal;
-    private final ECF.Encabezado.Transporte transporte;
+    private final Encabezado encabezado;
+    private final Emisor emisor;
+    private final Comprador comprador;
+    private final IdDoc idDoc;
+    private final Totales totales;
+    private final InformacionesAdicionales informacionesAdicionales;
+    private final OtraMoneda otraMoneda;
+    private final Transporte transporte;
 
     public Ecf31Builder(Sheet sheet) {
         super(Objects.requireNonNull(sheet, "Sheet no puede ser nulo"));
-
+        
+        // Inicialización de componentes principales
         this.ecf = new ECF();
-        this.encabezado = new ECF.Encabezado();
-
-        // Inicialización de componentes
-        this.emisor = new ECF.Encabezado.Emisor();
-        this.comprador = new ECF.Encabezado.Comprador();
-        this.idDoc = new ECF.Encabezado.IdDoc();
-        this.totales = new ECF.Encabezado.Totales();
-        this.informacionesAdicionales = new ECF.Encabezado.InformacionesAdicionales();
-        this.otraMoneda = new ECF.Encabezado.OtraMoneda();
-        this.impuestoAdicional = new ECF.Encabezado.Totales.ImpuestosAdicionales.ImpuestoAdicional();
-        this.pagina = new ECF.Paginacion.Pagina();
-        this.subtotal = new ECF.Subtotales.Subtotal();
-        this.transporte = new ECF.Encabezado.Transporte();
+        this.encabezado = new Encabezado();
+        this.emisor = new Emisor();
+        this.comprador = new Comprador();
+        this.idDoc = new IdDoc();
+        this.totales = new Totales();
+        this.informacionesAdicionales = new InformacionesAdicionales();
+        this.otraMoneda = new OtraMoneda();
+        this.transporte = new Transporte();
 
         initializeHandlers();
     }
 
     @Override
     protected void registerFieldHandlers() {
+        // Handler para campos simples
         addFieldHandler("simpleFields", new SimpleFieldsHandler(
-            emisor, comprador, idDoc, totales,
-            informacionesAdicionales, otraMoneda,
-            impuestoAdicional, pagina, subtotal, transporte
-        ));
-        // Puedes registrar más handlers si necesitas
+            emisor, comprador, idDoc, totales, 
+            informacionesAdicionales, otraMoneda, transporte
+        ));        
+       
+        addFieldHandler("telefonosEmisor", new TelefonoEmisorHandler(emisor));       
+        addFieldHandler("formasPago", new FormaPagoHandler31(idDoc));
+        addFieldHandler("detallesItem", new DetallesItemHandler31(ecf));
+        
+        // Puedes agregar más handlers específicos aquí según necesites
     }
 
     @Override
@@ -79,18 +68,16 @@ public class Ecf31Builder extends AbstractEcfBuilder<ECF> {
 
     @Override
     protected ECF postProcess() throws Exception {
+        // Establecer la estructura jerárquica en el orden correcto
         encabezado.setVersion(new BigDecimal("1.0"));
-        encabezado.setIdDoc(idDoc);
         encabezado.setEmisor(emisor);
         encabezado.setComprador(comprador);
+        encabezado.setIdDoc(idDoc);
         encabezado.setTotales(totales);
         encabezado.setInformacionesAdicionales(informacionesAdicionales);
         encabezado.setOtraMoneda(otraMoneda);
-        // encabezado.setImpuestoAdicional(impuestoAdicional);
-        // encabezado.setPagina(pagina);
-        // encabezado.setSubTotal(subtotal);
         encabezado.setTransporte(transporte);
-
+        
         ecf.setEncabezado(encabezado);
         ecf.setFechaHoraFirma(LocalDateTime.now()
                 .format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
@@ -101,18 +88,19 @@ public class Ecf31Builder extends AbstractEcfBuilder<ECF> {
     @Override
     protected void handleUnmappedField(String columnName) {
         System.err.println("Campo no mapeado: " + columnName);
+        // Opcional: registrar en un log de campos no mapeados
     }
 
-    private class SimpleFieldsHandler implements FieldHandler<ECF> {
-
+    /**
+     * Handler para campos simples que no requieren lógica especial
+     */
+    private static class SimpleFieldsHandler implements FieldHandler<ECF> {
         private final Map<String, Object> fieldTargetMap;
 
-        public SimpleFieldsHandler(Emisor emisor, Comprador comprador, IdDoc idDoc, Totales totales,
-        InformacionesAdicionales informacionesAdicionales, OtraMoneda otraMoneda,
-        ImpuestoAdicional impuestoAdicional, Pagina pagina, Subtotal subtotal, Transporte transporte)
-         {
+        public SimpleFieldsHandler(Emisor emisor, Comprador comprador, IdDoc idDoc, 
+                                 Totales totales, InformacionesAdicionales infoAdicional,
+                                 OtraMoneda otraMoneda, Transporte transporte) {
             this.fieldTargetMap = Map.ofEntries(
-                // Emisor
                 Map.entry("RNCEmisor", emisor),
                 Map.entry("RazonSocialEmisor", emisor),
                 Map.entry("NombreComercial", emisor),
@@ -193,18 +181,18 @@ public class Ecf31Builder extends AbstractEcfBuilder<ECF> {
                 Map.entry("ValorPagar", totales),
 
                 // Informaciones Adicionales
-                Map.entry("FechaEmbarque", informacionesAdicionales),
-                Map.entry("NumeroEmbarque", informacionesAdicionales),
-                Map.entry("NumeroContenedor", informacionesAdicionales),
-                Map.entry("NumeroReferencia", informacionesAdicionales),
-                Map.entry("PesoBruto", informacionesAdicionales),
-                Map.entry("PesoNeto", informacionesAdicionales),
-                Map.entry("UnidadPesoBruto", informacionesAdicionales),
-                Map.entry("UnidadPesoNeto", informacionesAdicionales),
-                Map.entry("CantidadBulto", informacionesAdicionales),
-                Map.entry("UnidadBulto", informacionesAdicionales),
-                Map.entry("VolumenBulto", informacionesAdicionales),
-                Map.entry("UnidadVolumen", informacionesAdicionales),
+                // Map.entry("FechaEmbarque", informacionesAdicionales),
+                // Map.entry("NumeroEmbarque", informacionesAdicionales),
+                // Map.entry("NumeroContenedor", informacionesAdicionales),
+                // Map.entry("NumeroReferencia", informacionesAdicionales),
+                // Map.entry("PesoBruto", informacionesAdicionales),
+                // Map.entry("PesoNeto", informacionesAdicionales),
+                // Map.entry("UnidadPesoBruto", informacionesAdicionales),
+                // Map.entry("UnidadPesoNeto", informacionesAdicionales),
+                // Map.entry("CantidadBulto", informacionesAdicionales),
+                // Map.entry("UnidadBulto", informacionesAdicionales),
+                // Map.entry("VolumenBulto", informacionesAdicionales),
+                // Map.entry("UnidadVolumen", informacionesAdicionales),
 
                 // Otra moneda
                 Map.entry("TipoMoneda", otraMoneda),
@@ -223,46 +211,46 @@ public class Ecf31Builder extends AbstractEcfBuilder<ECF> {
                 Map.entry("MontoTotalOtraMoneda", otraMoneda),
 
                 // Impuesto adicional
-                Map.entry("TipoImpuesto", impuestoAdicional),
-                Map.entry("TasaImpuestoAdicional", impuestoAdicional),
-                Map.entry("MontoImpuestoSelectivoConsumoEspecifico", impuestoAdicional),
-                Map.entry("MontoImpuestoSelectivoConsumoAdvalorem", impuestoAdicional),
-                Map.entry("OtrosImpuestosAdicionales", impuestoAdicional),
+                // Map.entry("TipoImpuesto", impuestoAdicional),
+                // Map.entry("TasaImpuestoAdicional", impuestoAdicional),
+                // Map.entry("MontoImpuestoSelectivoConsumoEspecifico", impuestoAdicional),
+                // Map.entry("MontoImpuestoSelectivoConsumoAdvalorem", impuestoAdicional),
+                // Map.entry("OtrosImpuestosAdicionales", impuestoAdicional),
 
                 // Página
-                Map.entry("PaginaNo", pagina),
-                Map.entry("NoLineaDesde", pagina),
-                Map.entry("NoLineaHasta", pagina),
-                Map.entry("SubtotalMontoGravadoPagina", pagina),
-                Map.entry("SubtotalMontoGravado1Pagina", pagina),
-                Map.entry("SubtotalMontoGravado2Pagina", pagina),
-                Map.entry("SubtotalMontoGravado3Pagina", pagina),
-                Map.entry("SubtotalExentoPagina", pagina),
-                Map.entry("SubtotalItbisPagina", pagina),
-                Map.entry("SubtotalItbis1Pagina", pagina),
-                Map.entry("SubtotalItbis2Pagina", pagina),
-                Map.entry("SubtotalItbis3Pagina", pagina),
-                Map.entry("SubtotalImpuestoAdicionalPagina", pagina),
-                Map.entry("SubtotalImpuestoAdicional", pagina),
-                Map.entry("MontoSubtotalPagina", pagina),
-                Map.entry("SubtotalMontoNoFacturablePagina", pagina),
+                // Map.entry("PaginaNo", pagina),
+                // Map.entry("NoLineaDesde", pagina),
+                // Map.entry("NoLineaHasta", pagina),
+                // Map.entry("SubtotalMontoGravadoPagina", pagina),
+                // Map.entry("SubtotalMontoGravado1Pagina", pagina),
+                // Map.entry("SubtotalMontoGravado2Pagina", pagina),
+                // Map.entry("SubtotalMontoGravado3Pagina", pagina),
+                // Map.entry("SubtotalExentoPagina", pagina),
+                // Map.entry("SubtotalItbisPagina", pagina),
+                // Map.entry("SubtotalItbis1Pagina", pagina),
+                // Map.entry("SubtotalItbis2Pagina", pagina),
+                // Map.entry("SubtotalItbis3Pagina", pagina),
+                // Map.entry("SubtotalImpuestoAdicionalPagina", pagina),
+                // Map.entry("SubtotalImpuestoAdicional", pagina),
+                // Map.entry("MontoSubtotalPagina", pagina),
+                // Map.entry("SubtotalMontoNoFacturablePagina", pagina),
 
                 // Subtotal
-                Map.entry("NumeroSubTotal", subtotal),
-                Map.entry("DescripcionSubtotal", subtotal),
-                Map.entry("Orden", subtotal),
-                Map.entry("SubTotalMontoGravadoTotal", subtotal),
-                Map.entry("SubTotalMontoGravadoI1", subtotal),
-                Map.entry("SubTotalMontoGravadoI2", subtotal),
-                Map.entry("SubTotalMontoGravadoI3", subtotal),
-                Map.entry("SubTotaITBIS", subtotal),
-                Map.entry("SubTotaITBIS1", subtotal),
-                Map.entry("SubTotaITBIS2", subtotal),
-                Map.entry("SubTotaITBIS3", subtotal),
-                Map.entry("SubTotalImpuestoAdicional", subtotal),
-                Map.entry("SubTotalExento", subtotal),
-                Map.entry("MontoSubTotal", subtotal),
-                Map.entry("Lineas", subtotal),
+                // Map.entry("NumeroSubTotal", subtotal),
+                // Map.entry("DescripcionSubtotal", subtotal),
+                // Map.entry("Orden", subtotal),
+                // Map.entry("SubTotalMontoGravadoTotal", subtotal),
+                // Map.entry("SubTotalMontoGravadoI1", subtotal),
+                // Map.entry("SubTotalMontoGravadoI2", subtotal),
+                // Map.entry("SubTotalMontoGravadoI3", subtotal),
+                // Map.entry("SubTotaITBIS", subtotal),
+                // Map.entry("SubTotaITBIS1", subtotal),
+                // Map.entry("SubTotaITBIS2", subtotal),
+                // Map.entry("SubTotaITBIS3", subtotal),
+                // Map.entry("SubTotalImpuestoAdicional", subtotal),
+                // Map.entry("SubTotalExento", subtotal),
+                // Map.entry("MontoSubTotal", subtotal),
+                // Map.entry("Lineas", subtotal),
 
                 // Transporte
                 Map.entry("Conductor", transporte),
@@ -275,8 +263,6 @@ public class Ecf31Builder extends AbstractEcfBuilder<ECF> {
             );
         }
 
-
-
         @Override
         public boolean canHandle(String columnName) {
             String normalized = normalizeColumnName(columnName);
@@ -287,6 +273,7 @@ public class Ecf31Builder extends AbstractEcfBuilder<ECF> {
         public void handle(String columnName, String cellValue, ECF context) throws Exception {
             String normalized = normalizeColumnName(columnName);
             Object target = fieldTargetMap.get(normalized);
+            
             Method setter = ExcelUtils.findSetter(target.getClass(), normalized);
             if (setter != null) {
                 Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
@@ -299,9 +286,38 @@ public class Ecf31Builder extends AbstractEcfBuilder<ECF> {
         private boolean isSimpleField(String columnName) {
             return !columnName.matches(".*\\[\\d+\\].*");
         }
+
+        private static String normalizeColumnName(String columnName) {
+            return columnName.replaceAll("\\[\\d+\\]", "").trim();
+        }
     }
 
-    private String normalizeColumnName(String columnName) {
-        return columnName.replaceAll("\\[\\d+\\]", "").trim();
+    /**
+     * Handler específico para teléfonos del emisor
+     */
+    private static class TelefonoEmisorHandler implements FieldHandler<ECF> {
+        private final Emisor emisor;
+
+        public TelefonoEmisorHandler(Emisor emisor) {
+            this.emisor = Objects.requireNonNull(emisor);
+        }
+
+        @Override
+        public boolean canHandle(String columnName) {
+            return columnName.matches("TelefonoEmisor\\[\\d+\\]");
+        }
+
+        @Override
+        public void handle(String columnName, String cellValue, ECF context) {
+            String telefono = cellValue.trim();
+            if (!telefono.isEmpty()) {
+                synchronized (emisor) {
+                    if (emisor.getTablaTelefonoEmisor() == null) {
+                        emisor.setTablaTelefonoEmisor(new Emisor.TablaTelefonoEmisor());
+                    }
+                    emisor.getTablaTelefonoEmisor().getTelefonoEmisor().add(telefono);
+                }
+            }
+        }
     }
 }
