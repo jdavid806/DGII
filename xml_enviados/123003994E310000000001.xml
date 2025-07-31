@@ -9,12 +9,6 @@
          <IndicadorMontoGravado>0</IndicadorMontoGravado>
          <TipoIngresos>01</TipoIngresos>
          <TipoPago>1</TipoPago>
-         <TablaFormasPago>
-            <FormaDePago>
-               <FormaPago>1</FormaPago>
-               <MontoPago>7080.00</MontoPago>
-            </FormaDePago>
-         </TablaFormasPago>
       </IdDoc>
       <Emisor>
          <RNCEmisor>123003994</RNCEmisor>
@@ -48,8 +42,6 @@
          <NumeroOrdenCompra>4500352238</NumeroOrdenCompra>
          <CodigoInternoComprador>10633440</CodigoInternoComprador>
       </Comprador>
-      <InformacionesAdicionales/>
-      <Transporte/>
       <Totales>
          <MontoGravadoTotal>6000.00</MontoGravadoTotal>
          <MontoGravadoI1>6000.00</MontoGravadoI1>
@@ -58,7 +50,6 @@
          <TotalITBIS1>1080.00</TotalITBIS1>
          <MontoTotal>7080.00</MontoTotal>
       </Totales>
-      <OtraMoneda/>
    </Encabezado>
    <DetallesItems>
       <Item>
@@ -72,7 +63,7 @@
          <MontoItem>6000.00</MontoItem>
       </Item>
    </DetallesItems>
-   <FechaHoraFirma>29-07-2025 12:05:20</FechaHoraFirma>
+   <FechaHoraFirma>31-07-2025 16:29:30</FechaHoraFirma>
    <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
       <SignedInfo>
          <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
@@ -82,14 +73,14 @@
                <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
             </Transforms>
             <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
-            <DigestValue>oZsV6gFG2TXSjN9lXk+wGPdSJauY8yR1uqxnAWYgEtE=</DigestValue>
+            <DigestValue>0soCNajUKm+sLWjCUf8NW+hNFHf+J82oyxBw7POrQL8=</DigestValue>
          </Reference>
       </SignedInfo>
-      <SignatureValue>YXrZS5zEeJttxih9YdxluMcvp/cTwCRYGIxhGfSbYY3gugvEj673ceaYarhcqAjYXaF8tWPK6FwR
-ItqQhGNWFBMaR9UAYjMPSLFhFfafMUnbvMB0hSH3fr+iY2DB5NNDYHm6+8ZPpWg79XrIw1lfzf1w
-+CBYSGWDZGL7wDBzeC0e8MZrPCN89nc3eChdAPLxThVRtpSVvn5eo/VK8spoIWoe0loA3nuRKBvj
-nfP/NfXQ14vl15Sx+C5MmCTrSrE6x3Z6NKSy/LfMPXzD0AGfLvpQaQdGA6Za5D6DTPW/HwqYU5rk
-M8JvD+cHqWefSNTnnRRq7jUxN5wH6ldQsTvHGQ==</SignatureValue>
+      <SignatureValue>K8bxawBecWRm/NOgVHRY3hJ3YoV5/sjTu6/bomK8q4ZbxWuicJ7Bca/YxepBuq77mGknf0ldH1hH
+VW/hnvJDGhrSmYJ6bB5R3K8voJ7n48foEXr2KMiKD/oKM0zWxXpPp+xmAUDN3oVL6jKPnodNJvQl
+Uqb8kuNO2ZPVBvMazw8uofewTcZznikMuL7pSMzPJ6GtSczEk3ZeW4J20rzscIwFhyZjfcuN9bw8
+TUZzox/yftPe+SvjXzi95FmgnbgzgrrGeTo9gnmZjnJuCHJj5gG1mDSGN+GPS3cc5j/TtvPmptiq
+7HoDyX8sVZcyR5RDsEdBcRALrn1Vf2cedXz2tw==</SignatureValue>
       <KeyInfo>
          <X509Data>
             <X509Certificate>MIIJlzCCB3+gAwIBAgIIHinGmrFI5JkwDQYJKoZIhvcNAQELBQAwgbgxFzAVBgNVBGEMDlZBVERP

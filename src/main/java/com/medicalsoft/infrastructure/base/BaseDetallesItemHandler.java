@@ -41,6 +41,11 @@ public abstract class BaseDetallesItemHandler<T, U, F> implements FieldHandler<T
     @Override
     public void handle(String columnName, String cellValue, T context) throws Exception {
         int idx = ExcelUtils.extractIndex(columnName); // idx es 1-based
+
+        if (cellValue == null || cellValue.trim().isEmpty() || "#e".equalsIgnoreCase(cellValue.trim())) {
+            return;
+        }
+
         ensureSize(getItems(), idx);
 
         F item = Optional.ofNullable(getItems().get(idx - 1))
@@ -50,28 +55,40 @@ public abstract class BaseDetallesItemHandler<T, U, F> implements FieldHandler<T
                     return newItem;
                 });
 
-        String cleanedColumnName = columnName.trim().replaceAll("\\[\\s*\\d+\\s*]", ""); // elimina [1] o [ 1 ]
+        String cleanedColumnName = columnName.trim().replaceAll("\\[\\s*\\d+\\s*]", ""); // elimina [1]
         String baseField = Character.toUpperCase(cleanedColumnName.charAt(0)) + cleanedColumnName.substring(1);
 
-        System.out.println("DEBUG -> columnName: [" + columnName + "], cleanedColumnName: [" + cleanedColumnName
-                + "], baseField: [" + baseField + "]");
-
+        // Manejar campo especial NumeroLinea
         if ("NumeroLinea".equalsIgnoreCase(baseField)) {
             try {
                 int numeroLinea = Integer.parseInt(cellValue.trim());
                 Method setter = ExcelUtils.findSetter(item.getClass(), "NumeroLinea");
                 if (setter != null) {
                     setter.invoke(item, Math.max(1, numeroLinea));
-                    System.out.println("DEBUG -> NumeroLinea seteado: " + Math.max(1, numeroLinea));
-                } else {
-                    System.out.println("DEBUG -> Setter no encontrado para NumeroLinea");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("DEBUG -> Error al parsear NumeroLinea: " + cellValue);
+                System.out.println("Error parseando NumeroLinea: " + e.getMessage());
             }
             return;
         }
 
+        // Manejar subestructura Retencion
+        if (baseField.equalsIgnoreCase("IndicadorAgenteRetencionoPercepcion")
+                || baseField.equalsIgnoreCase("MontoITBISRetenido")
+                || baseField.equalsIgnoreCase("MontoISRRetenido")) {
+
+            Object retencionObj = ExcelUtils.getOrCreateSubstructure(item, "retencion");
+
+            Method setterRetencion = ExcelUtils.findSetter(retencionObj.getClass(), baseField);
+            if (setterRetencion != null) {
+                Object parsed = ExcelUtils.parseValue(cellValue, setterRetencion.getParameterTypes()[0]);
+                setterRetencion.invoke(retencionObj, parsed);
+            }
+
+            return;
+        }
+
+        // Campos normales
         Method setter = ExcelUtils.findSetter(item.getClass(), baseField);
         if (setter != null) {
             Object parsed = ExcelUtils.parseValue(cellValue, setter.getParameterTypes()[0]);
@@ -84,4 +101,5 @@ public abstract class BaseDetallesItemHandler<T, U, F> implements FieldHandler<T
             list.add(null);
         }
     }
+
 }

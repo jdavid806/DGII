@@ -1,5 +1,6 @@
 package com.medicalsoft.DGII.shared.utils;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -12,6 +13,61 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 
 public class ExcelUtils {
+
+    public static Object getOrCreateSubstructure(Object parentObj, String fieldName) throws Exception {
+        Class<?> parentClass = parentObj.getClass();
+        Object substructure = null;
+
+        // Intentar usar el getter
+        Method getter = findGetter(parentClass, fieldName);
+        if (getter != null) {
+            substructure = getter.invoke(parentObj);
+        } else {
+            // Si no hay getter, acceder directamente al campo
+            Field field = parentClass.getDeclaredField(fieldName);
+            field.setAccessible(true);
+            substructure = field.get(parentObj);
+        }
+
+        // Si es null, crear instancia y asignar
+        if (substructure == null) {
+            Class<?> fieldType;
+            if (getter != null) {
+                fieldType = getter.getReturnType();
+            } else {
+                Field field = parentClass.getDeclaredField(fieldName);
+                field.setAccessible(true);
+                fieldType = field.getType();
+            }
+
+            Object newInstance = fieldType.getDeclaredConstructor().newInstance();
+
+            // Intentar usar setter
+            Method setter = findSetter(parentClass, fieldName);
+            if (setter != null) {
+                setter.invoke(parentObj, newInstance);
+            } else {
+                // Si no hay setter, asignar directamente al campo
+                Field field = parentClass.getDeclaredField(fieldName);
+                field.setAccessible(true);
+                field.set(parentObj, newInstance);
+            }
+
+            substructure = newInstance;
+        }
+
+        return substructure;
+    }
+
+    public static Method findGetter(Class<?> clazz, String fieldName) {
+    String getterName = "get" + Character.toUpperCase(fieldName.charAt(0)) + fieldName.substring(1);
+    try {
+        return clazz.getMethod(getterName);
+    } catch (NoSuchMethodException e) {
+        return null;
+    }
+}
+
 
     public static Method findSetter(Class<?> clazz, String fieldName) {
         String methodName = "set" + fieldName;
@@ -107,5 +163,7 @@ public class ExcelUtils {
         }
         return true;
     }
+
+    
 
 }

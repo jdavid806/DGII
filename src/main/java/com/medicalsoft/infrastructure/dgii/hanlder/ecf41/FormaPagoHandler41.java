@@ -1,4 +1,4 @@
-package com.medicalsoft.infrastructure.dgii.hanlder.ecf31;
+package com.medicalsoft.infrastructure.dgii.hanlder.ecf41;
 
 
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.Objects;
 
 
 import com.medicalsoft.infrastructure.base.BaseFormaPagoHandler;
-import com.medicalsoft.infrastructure.dgii.generated.ecf31.ECF;
+import com.medicalsoft.infrastructure.dgii.generated.ecf41.ECF;
 
-public class FormaPagoHandler31 extends BaseFormaPagoHandler<
+public class FormaPagoHandler41 extends BaseFormaPagoHandler<
     ECF, 
     ECF.Encabezado.IdDoc.TablaFormasPago,
     ECF.Encabezado.IdDoc.TablaFormasPago.FormaDePago> {
@@ -16,7 +16,7 @@ public class FormaPagoHandler31 extends BaseFormaPagoHandler<
     private final ECF.Encabezado.IdDoc idDoc;
     private final ECF.Encabezado.IdDoc.TablaFormasPago tablaFormasPagoTemp;
 
-    public FormaPagoHandler31(ECF.Encabezado.IdDoc idDoc) {
+    public FormaPagoHandler41(ECF.Encabezado.IdDoc idDoc) {
         this.idDoc = Objects.requireNonNull(idDoc, "IdDoc no puede ser nulo");
         this.tablaFormasPagoTemp = createNewTablaFormasPago();
     }
