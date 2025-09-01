@@ -42,6 +42,7 @@ public class EcfXmlService {
         // 1. Obtener tipo eCF desde el Excel
         String tipoEcf = obtenerTipoEcfDesdeExcel(sheet);
         if (tipoEcf == null || tipoEcf.isBlank()) {
+            workbook.close();
             throw new IllegalArgumentException("No se pudo detectar el TipoeCF en el Excel.");
         }
 

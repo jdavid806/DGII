@@ -4,7 +4,7 @@
       <Version>1.0</Version>
       <IdDoc>
          <TipoeCF>41</TipoeCF>
-         <eNCF>E410000000008</eNCF>
+         <eNCF>E410000000010</eNCF>
          <FechaVencimientoSecuencia>31-12-2025</FechaVencimientoSecuencia>
          <IndicadorMontoGravado>0</IndicadorMontoGravado>
          <TipoPago>1</TipoPago>
@@ -24,16 +24,19 @@
          <FechaEmision>01-04-2020</FechaEmision>
       </Emisor>
       <Comprador>
-         <RNCComprador>533445861</RNCComprador>
+         <RNCComprador>131880681</RNCComprador>
          <RazonSocialComprador>DOCUMENTOS ELECTRONICOS DE 11</RazonSocialComprador>
       </Comprador>
       <Totales>
-         <MontoGravadoTotal>14886.25</MontoGravadoTotal>
-         <MontoGravadoI1>14886.25</MontoGravadoI1>
+         <MontoGravadoTotal>15045.30</MontoGravadoTotal>
+         <MontoGravadoI1>10072.75</MontoGravadoI1>
+         <MontoGravadoI2>4972.55</MontoGravadoI2>
          <ITBIS1>18</ITBIS1>
-         <TotalITBIS>2679.53</TotalITBIS>
-         <TotalITBIS1>2679.53</TotalITBIS1>
-         <MontoTotal>17565.78</MontoTotal>
+         <ITBIS2>16</ITBIS2>
+         <TotalITBIS>2608.70</TotalITBIS>
+         <TotalITBIS1>1813.10</TotalITBIS1>
+         <TotalITBIS2>795.61</TotalITBIS2>
+         <MontoTotal>17654.00</MontoTotal>
       </Totales>
    </Encabezado>
    <DetallesItems>
@@ -42,8 +45,8 @@
          <IndicadorFacturacion>1</IndicadorFacturacion>
          <Retencion>
             <IndicadorAgenteRetencionoPercepcion>1</IndicadorAgenteRetencionoPercepcion>
-            <MontoITBISRetenido>961.20</MontoITBISRetenido>
-            <MontoISRRetenido>539.00</MontoISRRetenido>
+            <MontoITBISRetenido>971.60</MontoITBISRetenido>
+            <MontoISRRetenido>544.78</MontoISRRetenido>
          </Retencion>
          <NombreItem>Servicio Profesional Legislativo</NombreItem>
          <IndicadorBienoServicio>2</IndicadorBienoServicio>
@@ -51,15 +54,16 @@
          <UnidadMedida>23</UnidadMedida>
          <PrecioUnitarioItem>385.0000</PrecioUnitarioItem>
          <DescuentoMonto>385.00</DescuentoMonto>
-         <MontoItem>5390.00</MontoItem>
+         <RecargoMonto>57.75</RecargoMonto>
+         <MontoItem>5447.75</MontoItem>
       </Item>
       <Item>
          <NumeroLinea>2</NumeroLinea>
          <IndicadorFacturacion>1</IndicadorFacturacion>
          <Retencion>
             <IndicadorAgenteRetencionoPercepcion>1</IndicadorAgenteRetencionoPercepcion>
-            <MontoITBISRetenido>436.50</MontoITBISRetenido>
-            <MontoISRRetenido>247.50</MontoISRRetenido>
+            <MontoITBISRetenido>441.45</MontoITBISRetenido>
+            <MontoISRRetenido>250.25</MontoISRRetenido>
          </Retencion>
          <NombreItem>Asesoria Legal</NombreItem>
          <IndicadorBienoServicio>2</IndicadorBienoServicio>
@@ -67,15 +71,16 @@
          <UnidadMedida>43</UnidadMedida>
          <PrecioUnitarioItem>550.0000</PrecioUnitarioItem>
          <DescuentoMonto>275.00</DescuentoMonto>
-         <MontoItem>2475.00</MontoItem>
+         <RecargoMonto>27.50</RecargoMonto>
+         <MontoItem>2502.50</MontoItem>
       </Item>
       <Item>
          <NumeroLinea>3</NumeroLinea>
          <IndicadorFacturacion>1</IndicadorFacturacion>
          <Retencion>
             <IndicadorAgenteRetencionoPercepcion>1</IndicadorAgenteRetencionoPercepcion>
-            <MontoITBISRetenido>369.00</MontoITBISRetenido>
-            <MontoISRRetenido>210.00</MontoISRRetenido>
+            <MontoITBISRetenido>373.05</MontoITBISRetenido>
+            <MontoISRRetenido>212.25</MontoISRRetenido>
          </Retencion>
          <NombreItem>Gestiones Legales</NombreItem>
          <IndicadorBienoServicio>2</IndicadorBienoServicio>
@@ -83,15 +88,16 @@
          <UnidadMedida>13</UnidadMedida>
          <PrecioUnitarioItem>250.0000</PrecioUnitarioItem>
          <DescuentoMonto>150.00</DescuentoMonto>
-         <MontoItem>2100.00</MontoItem>
+         <RecargoMonto>22.50</RecargoMonto>
+         <MontoItem>2122.50</MontoItem>
       </Item>
       <Item>
          <NumeroLinea>4</NumeroLinea>
-         <IndicadorFacturacion>1</IndicadorFacturacion>
+         <IndicadorFacturacion>2</IndicadorFacturacion>
          <Retencion>
             <IndicadorAgenteRetencionoPercepcion>1</IndicadorAgenteRetencionoPercepcion>
-            <MontoITBISRetenido>720.90</MontoITBISRetenido>
-            <MontoISRRetenido>405.50</MontoISRRetenido>
+            <MontoITBISRetenido>647.61</MontoITBISRetenido>
+            <MontoISRRetenido>409.76</MontoISRRetenido>
          </Retencion>
          <NombreItem>Legalizacion de documentos</NombreItem>
          <IndicadorBienoServicio>2</IndicadorBienoServicio>
@@ -99,15 +105,16 @@
          <UnidadMedida>15</UnidadMedida>
          <PrecioUnitarioItem>185.0000</PrecioUnitarioItem>
          <DescuentoMonto>200.00</DescuentoMonto>
-         <MontoItem>4055.00</MontoItem>
+         <RecargoMonto>42.55</RecargoMonto>
+         <MontoItem>4097.55</MontoItem>
       </Item>
       <Item>
          <NumeroLinea>5</NumeroLinea>
-         <IndicadorFacturacion>1</IndicadorFacturacion>
+         <IndicadorFacturacion>2</IndicadorFacturacion>
          <Retencion>
             <IndicadorAgenteRetencionoPercepcion>1</IndicadorAgenteRetencionoPercepcion>
-            <MontoITBISRetenido>146.93</MontoITBISRetenido>
-            <MontoISRRetenido>86.63</MontoISRRetenido>
+            <MontoITBISRetenido>132.00</MontoITBISRetenido>
+            <MontoISRRetenido>87.50</MontoISRRetenido>
          </Retencion>
          <NombreItem>Servicios ambulatorio</NombreItem>
          <IndicadorBienoServicio>2</IndicadorBienoServicio>
@@ -115,10 +122,11 @@
          <UnidadMedida>23</UnidadMedida>
          <PrecioUnitarioItem>125.0000</PrecioUnitarioItem>
          <DescuentoMonto>8.75</DescuentoMonto>
-         <MontoItem>866.25</MontoItem>
+         <RecargoMonto>8.75</RecargoMonto>
+         <MontoItem>875.00</MontoItem>
       </Item>
    </DetallesItems>
-   <FechaHoraFirma>01-09-2025 21:36:32</FechaHoraFirma>
+   <FechaHoraFirma>01-09-2025 21:50:21</FechaHoraFirma>
    <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
       <SignedInfo>
          <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
@@ -128,14 +136,14 @@
                <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
             </Transforms>
             <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
-            <DigestValue>pU0lsH+g7jjjzMLmYbu0T5IMSdgNECdtRM1VWEYJ9Jw=</DigestValue>
+            <DigestValue>dxxIFxH+w6Fg5PCwcyyNwG5cN+gUsoBj3oQ80U1Pj3o=</DigestValue>
          </Reference>
       </SignedInfo>
-      <SignatureValue>g27bTZShMZ4Gopu6mkPRj4WUv3qezwuCWWYoc7RPMisBLGeHQ36IoqqXE1kM7mFrHZ01cPj6xJbI
-SQKegEW7qVIKW8OJtAYGIE52JvaAmExWLiFB44x0Xoq8xDp5vlxXBlvzJEmWL2D07b9uw6hBSeo5
-0UuAjlmNFPW2NxJVPt6uOM2mBfMm/xCczWiEWsn+boycKqyyjZbgbcINMk/Z44bxJb37akdUDyyq
-uj3iHx32tbWvd5BLI2bpMlu49ml7BzWVSWFHViQeSIxZQ4LOqr6Ehk00KJbQG3ty2AUMhkjDK2cU
-HYSkD8uRN1j/6N+ny+qfYyQTO+6kS3cZH0x+Pg==</SignatureValue>
+      <SignatureValue>IFkZ8i9hXEYc5uUyk2/QgiCwwNyrnsB8onMarZckkXgfkbrWZYgK6t3wQGhEZXl5r3n+IGIgY4kd
+8ounsaZRIgKXVqVOfnQm0gVhG3wxWP/4ZlOXohjWID18NivDDIkTJ2SrU3xwSe1e4u5wkzniI193
+ucTPU0mtT93wMJlR86s6rLjyCDP7aH82rn1VXuWumSb/xloUk+x0rznsn7TR8w0G0/kHDOR/vr6p
+iE8/Zf40VEhwOx2oC7eg5gZAKl4/VZyfFe4sJEHzUVlAKcJxE4DlzSzmz98QYxniA/jk1ZSWseb+
+guN2XDWm9pjbPN+tirfrO6rEBAiWu55X9kaJiQ==</SignatureValue>
       <KeyInfo>
          <X509Data>
             <X509Certificate>MIIJlzCCB3+gAwIBAgIIHinGmrFI5JkwDQYJKoZIhvcNAQELBQAwgbgxFzAVBgNVBGEMDlZBVERP

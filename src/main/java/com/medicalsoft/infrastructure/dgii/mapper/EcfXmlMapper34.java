@@ -104,8 +104,8 @@ public class EcfXmlMapper34 implements ExcelToEcfMapper<ECF> {
         ECF.Encabezado.InformacionesAdicionales informacionesAdicionales = null;
         ECF.Encabezado.OtraMoneda otraMoneda = null;
         ECF.Paginacion.Pagina pagina = null;
-        ECF.Subtotales.Subtotal subtotal = null;
-        ECF.Encabezado.Totales.ImpuestosAdicionales.ImpuestoAdicional impuestoAdicional = null;
+        // ECF.Subtotales.Subtotal subtotal = null;
+        // ECF.Encabezado.Totales.ImpuestosAdicionales.ImpuestoAdicional impuestoAdicional = null;
         
         ECF.InformacionReferencia informacionReferencia = new ECF.InformacionReferencia();
         Map<Integer, ECF.DetallesItems.Item> itemMap = new TreeMap<>();
@@ -508,11 +508,11 @@ public class EcfXmlMapper34 implements ExcelToEcfMapper<ECF> {
         }
 
         // Configura Subtotales solo si hay subtotales
-        if (subtotal != null && !isEmpty(subtotal)) {
-            ECF.Subtotales subtotales = new ECF.Subtotales();
-            subtotales.getSubtotal().add(subtotal);
-            ecf.setSubtotales(subtotales);
-        };
+        // if (subtotal != null && !isEmpty(subtotal)) {
+        //     ECF.Subtotales subtotales = new ECF.Subtotales();
+        //     subtotales.getSubtotal().add(subtotal);
+        //     ecf.setSubtotales(subtotales);
+        // };
 
         ecf.setInformacionReferencia(informacionReferencia);
         ecf.setFechaHoraFirma(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
