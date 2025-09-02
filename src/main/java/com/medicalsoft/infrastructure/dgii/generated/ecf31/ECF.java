@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2025.09.01 a las 04:36:18 PM COT 
+// Generado el: 2025.09.02 a las 10:50:15 AM COT 
 //
 
 
@@ -2774,160 +2774,6 @@ public class ECF {
              *   &lt;complexContent&gt;
              *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
              *       &lt;sequence&gt;
-             *         &lt;element name="SubcantidadItem" maxOccurs="5"&gt;
-             *           &lt;complexType&gt;
-             *             &lt;complexContent&gt;
-             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *                 &lt;sequence&gt;
-             *                   &lt;element name="Subcantidad" type="{}Decimal19D1or3ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
-             *                   &lt;element name="CodigoSubcantidad" type="{}UnidadMedidaType" minOccurs="0"/&gt;
-             *                 &lt;/sequence&gt;
-             *               &lt;/restriction&gt;
-             *             &lt;/complexContent&gt;
-             *           &lt;/complexType&gt;
-             *         &lt;/element&gt;
-             *       &lt;/sequence&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
-             * </pre>
-             * 
-             * 
-             */
-            @XmlAccessorType(XmlAccessType.FIELD)
-            @XmlType(name = "", propOrder = {
-                "subcantidadItem"
-            })
-            public static class TablaSubcantidad {
-
-                @XmlElement(name = "SubcantidadItem", required = true)
-                protected List<ECF.DetallesItems.Item.TablaSubcantidad.SubcantidadItem> subcantidadItem;
-
-                /**
-                 * Gets the value of the subcantidadItem property.
-                 * 
-                 * <p>
-                 * This accessor method returns a reference to the live list,
-                 * not a snapshot. Therefore any modification you make to the
-                 * returned list will be present inside the JAXB object.
-                 * This is why there is not a <CODE>set</CODE> method for the subcantidadItem property.
-                 * 
-                 * <p>
-                 * For example, to add a new item, do as follows:
-                 * <pre>
-                 *    getSubcantidadItem().add(newItem);
-                 * </pre>
-                 * 
-                 * 
-                 * <p>
-                 * Objects of the following type(s) are allowed in the list
-                 * {@link ECF.DetallesItems.Item.TablaSubcantidad.SubcantidadItem }
-                 * 
-                 * 
-                 */
-                public List<ECF.DetallesItems.Item.TablaSubcantidad.SubcantidadItem> getSubcantidadItem() {
-                    if (subcantidadItem == null) {
-                        subcantidadItem = new ArrayList<ECF.DetallesItems.Item.TablaSubcantidad.SubcantidadItem>();
-                    }
-                    return this.subcantidadItem;
-                }
-
-
-                /**
-                 * <p>Clase Java para anonymous complex type.
-                 * 
-                 * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-                 * 
-                 * <pre>
-                 * &lt;complexType&gt;
-                 *   &lt;complexContent&gt;
-                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                 *       &lt;sequence&gt;
-                 *         &lt;element name="Subcantidad" type="{}Decimal19D1or3ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
-                 *         &lt;element name="CodigoSubcantidad" type="{}UnidadMedidaType" minOccurs="0"/&gt;
-                 *       &lt;/sequence&gt;
-                 *     &lt;/restriction&gt;
-                 *   &lt;/complexContent&gt;
-                 * &lt;/complexType&gt;
-                 * </pre>
-                 * 
-                 * 
-                 */
-                @XmlAccessorType(XmlAccessType.FIELD)
-                @XmlType(name = "", propOrder = {
-                    "subcantidad",
-                    "codigoSubcantidad"
-                })
-                public static class SubcantidadItem {
-
-                    @XmlElement(name = "Subcantidad")
-                    protected BigDecimal subcantidad;
-                    @XmlElement(name = "CodigoSubcantidad")
-                    protected BigInteger codigoSubcantidad;
-
-                    /**
-                     * Obtiene el valor de la propiedad subcantidad.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link BigDecimal }
-                     *     
-                     */
-                    public BigDecimal getSubcantidad() {
-                        return subcantidad;
-                    }
-
-                    /**
-                     * Define el valor de la propiedad subcantidad.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link BigDecimal }
-                     *     
-                     */
-                    public void setSubcantidad(BigDecimal value) {
-                        this.subcantidad = value;
-                    }
-
-                    /**
-                     * Obtiene el valor de la propiedad codigoSubcantidad.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link BigInteger }
-                     *     
-                     */
-                    public BigInteger getCodigoSubcantidad() {
-                        return codigoSubcantidad;
-                    }
-
-                    /**
-                     * Define el valor de la propiedad codigoSubcantidad.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link BigInteger }
-                     *     
-                     */
-                    public void setCodigoSubcantidad(BigInteger value) {
-                        this.codigoSubcantidad = value;
-                    }
-
-                }
-
-            }
-
-
-            /**
-             * <p>Clase Java para anonymous complex type.
-             * 
-             * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-             * 
-             * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
              *         &lt;element name="SubDescuento" maxOccurs="12"&gt;
              *           &lt;complexType&gt;
              *             &lt;complexContent&gt;
@@ -3277,6 +3123,160 @@ public class ECF {
                      */
                     public void setMontoSubRecargo(BigDecimal value) {
                         this.montoSubRecargo = value;
+                    }
+
+                }
+
+            }
+
+
+            /**
+             * <p>Clase Java para anonymous complex type.
+             * 
+             * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+             * 
+             * <pre>
+             * &lt;complexType&gt;
+             *   &lt;complexContent&gt;
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+             *       &lt;sequence&gt;
+             *         &lt;element name="SubcantidadItem" maxOccurs="5"&gt;
+             *           &lt;complexType&gt;
+             *             &lt;complexContent&gt;
+             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+             *                 &lt;sequence&gt;
+             *                   &lt;element name="Subcantidad" type="{}Decimal19D1or3ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+             *                   &lt;element name="CodigoSubcantidad" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+             *                 &lt;/sequence&gt;
+             *               &lt;/restriction&gt;
+             *             &lt;/complexContent&gt;
+             *           &lt;/complexType&gt;
+             *         &lt;/element&gt;
+             *       &lt;/sequence&gt;
+             *     &lt;/restriction&gt;
+             *   &lt;/complexContent&gt;
+             * &lt;/complexType&gt;
+             * </pre>
+             * 
+             * 
+             */
+            @XmlAccessorType(XmlAccessType.FIELD)
+            @XmlType(name = "", propOrder = {
+                "subcantidadItem"
+            })
+            public static class TablaSubcantidad {
+
+                @XmlElement(name = "SubcantidadItem", required = true)
+                protected List<ECF.DetallesItems.Item.TablaSubcantidad.SubcantidadItem> subcantidadItem;
+
+                /**
+                 * Gets the value of the subcantidadItem property.
+                 * 
+                 * <p>
+                 * This accessor method returns a reference to the live list,
+                 * not a snapshot. Therefore any modification you make to the
+                 * returned list will be present inside the JAXB object.
+                 * This is why there is not a <CODE>set</CODE> method for the subcantidadItem property.
+                 * 
+                 * <p>
+                 * For example, to add a new item, do as follows:
+                 * <pre>
+                 *    getSubcantidadItem().add(newItem);
+                 * </pre>
+                 * 
+                 * 
+                 * <p>
+                 * Objects of the following type(s) are allowed in the list
+                 * {@link ECF.DetallesItems.Item.TablaSubcantidad.SubcantidadItem }
+                 * 
+                 * 
+                 */
+                public List<ECF.DetallesItems.Item.TablaSubcantidad.SubcantidadItem> getSubcantidadItem() {
+                    if (subcantidadItem == null) {
+                        subcantidadItem = new ArrayList<ECF.DetallesItems.Item.TablaSubcantidad.SubcantidadItem>();
+                    }
+                    return this.subcantidadItem;
+                }
+
+
+                /**
+                 * <p>Clase Java para anonymous complex type.
+                 * 
+                 * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+                 * 
+                 * <pre>
+                 * &lt;complexType&gt;
+                 *   &lt;complexContent&gt;
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+                 *       &lt;sequence&gt;
+                 *         &lt;element name="Subcantidad" type="{}Decimal19D1or3ValidationTypeMayorIgualCero" minOccurs="0"/&gt;
+                 *         &lt;element name="CodigoSubcantidad" type="{}UnidadMedidaType" minOccurs="0"/&gt;
+                 *       &lt;/sequence&gt;
+                 *     &lt;/restriction&gt;
+                 *   &lt;/complexContent&gt;
+                 * &lt;/complexType&gt;
+                 * </pre>
+                 * 
+                 * 
+                 */
+                @XmlAccessorType(XmlAccessType.FIELD)
+                @XmlType(name = "", propOrder = {
+                    "subcantidad",
+                    "codigoSubcantidad"
+                })
+                public static class SubcantidadItem {
+
+                    @XmlElement(name = "Subcantidad")
+                    protected BigDecimal subcantidad;
+                    @XmlElement(name = "CodigoSubcantidad")
+                    protected BigInteger codigoSubcantidad;
+
+                    /**
+                     * Obtiene el valor de la propiedad subcantidad.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public BigDecimal getSubcantidad() {
+                        return subcantidad;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad subcantidad.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link BigDecimal }
+                     *     
+                     */
+                    public void setSubcantidad(BigDecimal value) {
+                        this.subcantidad = value;
+                    }
+
+                    /**
+                     * Obtiene el valor de la propiedad codigoSubcantidad.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link BigInteger }
+                     *     
+                     */
+                    public BigInteger getCodigoSubcantidad() {
+                        return codigoSubcantidad;
+                    }
+
+                    /**
+                     * Define el valor de la propiedad codigoSubcantidad.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link BigInteger }
+                     *     
+                     */
+                    public void setCodigoSubcantidad(BigInteger value) {
+                        this.codigoSubcantidad = value;
                     }
 
                 }
