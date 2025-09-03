@@ -191,21 +191,7 @@ public class Ecf41Builder extends AbstractEcfBuilder<ECF> {
                     Map.entry("MontoPeriodo", totales),
                     Map.entry("SaldoAnterior", totales),
                     Map.entry("MontoAvancePago", totales),
-                    Map.entry("ValorPagar", totales),
-
-                    // Informaciones Adicionales
-                    // Map.entry("FechaEmbarque", informacionesAdicionales),
-                    // Map.entry("NumeroEmbarque", informacionesAdicionales),
-                    // Map.entry("NumeroContenedor", informacionesAdicionales),
-                    // Map.entry("NumeroReferencia", informacionesAdicionales),
-                    // Map.entry("PesoBruto", informacionesAdicionales),
-                    // Map.entry("PesoNeto", informacionesAdicionales),
-                    // Map.entry("UnidadPesoBruto", informacionesAdicionales),
-                    // Map.entry("UnidadPesoNeto", informacionesAdicionales),
-                    // Map.entry("CantidadBulto", informacionesAdicionales),
-                    // Map.entry("UnidadBulto", informacionesAdicionales),
-                    // Map.entry("VolumenBulto", informacionesAdicionales),
-                    // Map.entry("UnidadVolumen", informacionesAdicionales),
+                    Map.entry("ValorPagar", totales),    
 
                     // Otra moneda
                     Map.entry("TipoMoneda", otraMoneda),
@@ -222,50 +208,6 @@ public class Ecf41Builder extends AbstractEcfBuilder<ECF> {
                     Map.entry("MontoImpuestoAdicionalOtraMoneda", otraMoneda),
                     Map.entry("ImpuestosAdicionalesOtraMoneda", otraMoneda),
                     Map.entry("MontoTotalOtraMoneda", otraMoneda)
-
-            // Impuesto adicional
-            // Map.entry("TipoImpuesto", impuestoAdicional),
-            // Map.entry("TasaImpuestoAdicional", impuestoAdicional),
-            // Map.entry("MontoImpuestoSelectivoConsumoEspecifico", impuestoAdicional),
-            // Map.entry("MontoImpuestoSelectivoConsumoAdvalorem", impuestoAdicional),
-            // Map.entry("OtrosImpuestosAdicionales", impuestoAdicional),
-
-            // Página
-            // Map.entry("PaginaNo", pagina),
-            // Map.entry("NoLineaDesde", pagina),
-            // Map.entry("NoLineaHasta", pagina),
-            // Map.entry("SubtotalMontoGravadoPagina", pagina),
-            // Map.entry("SubtotalMontoGravado1Pagina", pagina),
-            // Map.entry("SubtotalMontoGravado2Pagina", pagina),
-            // Map.entry("SubtotalMontoGravado3Pagina", pagina),
-            // Map.entry("SubtotalExentoPagina", pagina),
-            // Map.entry("SubtotalItbisPagina", pagina),
-            // Map.entry("SubtotalItbis1Pagina", pagina),
-            // Map.entry("SubtotalItbis2Pagina", pagina),
-            // Map.entry("SubtotalItbis3Pagina", pagina),
-            // Map.entry("SubtotalImpuestoAdicionalPagina", pagina),
-            // Map.entry("SubtotalImpuestoAdicional", pagina),
-            // Map.entry("MontoSubtotalPagina", pagina),
-            // Map.entry("SubtotalMontoNoFacturablePagina", pagina),
-
-            // Subtotal
-            // Map.entry("NumeroSubTotal", subtotal),
-            // Map.entry("DescripcionSubtotal", subtotal),
-            // Map.entry("Orden", subtotal),
-            // Map.entry("SubTotalMontoGravadoTotal", subtotal),
-            // Map.entry("SubTotalMontoGravadoI1", subtotal),
-            // Map.entry("SubTotalMontoGravadoI2", subtotal),
-            // Map.entry("SubTotalMontoGravadoI3", subtotal),
-            // Map.entry("SubTotaITBIS", subtotal),
-            // Map.entry("SubTotaITBIS1", subtotal),
-            // Map.entry("SubTotaITBIS2", subtotal),
-            // Map.entry("SubTotaITBIS3", subtotal),
-            // Map.entry("SubTotalImpuestoAdicional", subtotal),
-            // Map.entry("SubTotalExento", subtotal),
-            // Map.entry("MontoSubTotal", subtotal),
-            // Map.entry("Lineas", subtotal),
-
-            // Transporte
             );
         }
 

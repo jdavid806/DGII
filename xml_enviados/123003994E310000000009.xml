@@ -81,7 +81,7 @@
          <MontoItem>14150.00</MontoItem>
       </Item>
    </DetallesItems>
-   <FechaHoraFirma>01-09-2025 23:10:07</FechaHoraFirma>
+   <FechaHoraFirma>02-09-2025 14:56:28</FechaHoraFirma>
    <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
       <SignedInfo>
          <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
@@ -91,14 +91,14 @@
                <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
             </Transforms>
             <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
-            <DigestValue>NOXTTiRpQMEreaoCGoYhGAgmMBT/eF+AzFXDpy1KlhE=</DigestValue>
+            <DigestValue>k8O1Nn2N2Qq5kECm+hSWdRFWx0/ZvzJthfVLOw+Y6yY=</DigestValue>
          </Reference>
       </SignedInfo>
-      <SignatureValue>HpM4vJ/QN2YW/UdQd0DeLOj9B1LrPsfpumBDh+ewNxpRTB1UAQeN9fX/ISg2uRWE9h4X3OIGgEfq
-U9AbnITqU2d/R6NggRkUC0HJagv7aVld58LxAccVJjK9foH/hmt8mHwxZQp7FVG72EtgzwkYvQOX
-0RCLxjyQXgVHv/FN4gsJ89RP/n0ikvh1cb0qtxImStCUlvln/A7WHlxdjS8rs7hR/UmDXJmwcKJO
-sy1Ged09pfNo1+T14xxx8ixMzgpK79HT2sYcHtNeqgbG58x+7Fi2Ju0kA4JfUZ00Sk4JH2ukhQzx
-hThoAtSLwEhYiDC3hXlYJKx6EOFE/RFVfvmxVA==</SignatureValue>
+      <SignatureValue>RVJGskaSogFEEIq+njfvIgOMjtjm8K9Cw9z33tR0QN2THVjVC0XyEZwz3uugqP3ASndHtbuAI77C
++GA0Ghn9sbcIoSvmNbT2P6kQ6O8x6c2XD3vOCtYXy4BOp9/i4e8c1apLCch1JFK7SQ/J8PzU5sog
+sUNUo2bZhUzxbQUn7Ui9qisJfcenCt5eCBAsDmUCAN8Um2CgZpH4y9gYMqEr1DcJ/DmzH0JQYAAW
+utu7dQP+gkY8eTRepOP5OeOTz3vDEi3XSABjaJtoVYzpQRZZJNFr586aayT9EeY4ujLf0TxTGfvK
+P/mROSEqUmFNvYdT3RbLcSzd8HgYiScEMI8a4A==</SignatureValue>
       <KeyInfo>
          <X509Data>
             <X509Certificate>MIIJlzCCB3+gAwIBAgIIHinGmrFI5JkwDQYJKoZIhvcNAQELBQAwgbgxFzAVBgNVBGEMDlZBVERP
