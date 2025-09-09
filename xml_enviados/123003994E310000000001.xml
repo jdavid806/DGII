@@ -63,7 +63,7 @@
          <MontoItem>6000.00</MontoItem>
       </Item>
    </DetallesItems>
-   <FechaHoraFirma>31-07-2025 16:29:30</FechaHoraFirma>
+   <FechaHoraFirma>03-09-2025 15:22:10</FechaHoraFirma>
    <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
       <SignedInfo>
          <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
@@ -73,14 +73,14 @@
                <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
             </Transforms>
             <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
-            <DigestValue>0soCNajUKm+sLWjCUf8NW+hNFHf+J82oyxBw7POrQL8=</DigestValue>
+            <DigestValue>YmKL76GVUqeoBbfmYh3w5z56c3oZfz/xRklS2fafwnw=</DigestValue>
          </Reference>
       </SignedInfo>
-      <SignatureValue>K8bxawBecWRm/NOgVHRY3hJ3YoV5/sjTu6/bomK8q4ZbxWuicJ7Bca/YxepBuq77mGknf0ldH1hH
-VW/hnvJDGhrSmYJ6bB5R3K8voJ7n48foEXr2KMiKD/oKM0zWxXpPp+xmAUDN3oVL6jKPnodNJvQl
-Uqb8kuNO2ZPVBvMazw8uofewTcZznikMuL7pSMzPJ6GtSczEk3ZeW4J20rzscIwFhyZjfcuN9bw8
-TUZzox/yftPe+SvjXzi95FmgnbgzgrrGeTo9gnmZjnJuCHJj5gG1mDSGN+GPS3cc5j/TtvPmptiq
-7HoDyX8sVZcyR5RDsEdBcRALrn1Vf2cedXz2tw==</SignatureValue>
+      <SignatureValue>PS8jxLWfx3/rOBEOPq0XX527Kq84qaozDR/NOY+wj+sbqJ1CiQ2QuMuydDRUPUzJp7gEmkXcpjrV
+VbE1uq0Y2wJ0qKztAPxLna7U6/ecSprUDBnl4x/V/ZpU5anSbXbMHkZ9TkYEYY4ZuXgrOV1WvSSX
+W911LDVWvLkTVQZ6lU1VV2oflw1EgWxWS2aT/1hZ3xrWyy5VI2tA7F01SyW3btrUgDJ0J6mJ73Dw
+zRzQakzfYI9VE8Xma/Fe5+zvgTmWmu38NbA7qG7kO7f1/Pnm26cpZVSYnmEshNqB77NUmsyRzbeg
+E+fE4/ukJtSUlIy1lnkJfpIS1RNsNY1rpR9UpA==</SignatureValue>
       <KeyInfo>
          <X509Data>
             <X509Certificate>MIIJlzCCB3+gAwIBAgIIHinGmrFI5JkwDQYJKoZIhvcNAQELBQAwgbgxFzAVBgNVBGEMDlZBVERP

@@ -54,6 +54,12 @@
          <UnidadMedida>23</UnidadMedida>
          <PrecioUnitarioItem>385.0000</PrecioUnitarioItem>
          <DescuentoMonto>385.00</DescuentoMonto>
+         <TablaSubDescuento>
+            <SubDescuento>
+               <TipoSubDescuento>$</TipoSubDescuento>
+               <MontoSubDescuento>385.00</MontoSubDescuento>
+            </SubDescuento>
+         </TablaSubDescuento>
          <RecargoMonto>57.75</RecargoMonto>
          <MontoItem>5447.75</MontoItem>
       </Item>
@@ -71,6 +77,13 @@
          <UnidadMedida>43</UnidadMedida>
          <PrecioUnitarioItem>550.0000</PrecioUnitarioItem>
          <DescuentoMonto>275.00</DescuentoMonto>
+         <TablaSubDescuento>
+            <SubDescuento>
+               <TipoSubDescuento>%</TipoSubDescuento>
+               <SubDescuentoPorcentaje>10.00</SubDescuentoPorcentaje>
+               <MontoSubDescuento>275.00</MontoSubDescuento>
+            </SubDescuento>
+         </TablaSubDescuento>
          <RecargoMonto>27.50</RecargoMonto>
          <MontoItem>2502.50</MontoItem>
       </Item>
@@ -88,6 +101,12 @@
          <UnidadMedida>13</UnidadMedida>
          <PrecioUnitarioItem>250.0000</PrecioUnitarioItem>
          <DescuentoMonto>150.00</DescuentoMonto>
+         <TablaSubDescuento>
+            <SubDescuento>
+               <TipoSubDescuento>$</TipoSubDescuento>
+               <MontoSubDescuento>150.00</MontoSubDescuento>
+            </SubDescuento>
+         </TablaSubDescuento>
          <RecargoMonto>22.50</RecargoMonto>
          <MontoItem>2122.50</MontoItem>
       </Item>
@@ -105,6 +124,12 @@
          <UnidadMedida>15</UnidadMedida>
          <PrecioUnitarioItem>185.0000</PrecioUnitarioItem>
          <DescuentoMonto>200.00</DescuentoMonto>
+         <TablaSubDescuento>
+            <SubDescuento>
+               <TipoSubDescuento>$</TipoSubDescuento>
+               <MontoSubDescuento>200.00</MontoSubDescuento>
+            </SubDescuento>
+         </TablaSubDescuento>
          <RecargoMonto>42.55</RecargoMonto>
          <MontoItem>4097.55</MontoItem>
       </Item>
@@ -122,11 +147,18 @@
          <UnidadMedida>23</UnidadMedida>
          <PrecioUnitarioItem>125.0000</PrecioUnitarioItem>
          <DescuentoMonto>8.75</DescuentoMonto>
+         <TablaSubDescuento>
+            <SubDescuento>
+               <TipoSubDescuento>%</TipoSubDescuento>
+               <SubDescuentoPorcentaje>1.00</SubDescuentoPorcentaje>
+               <MontoSubDescuento>8.75</MontoSubDescuento>
+            </SubDescuento>
+         </TablaSubDescuento>
          <RecargoMonto>8.75</RecargoMonto>
          <MontoItem>875.00</MontoItem>
       </Item>
    </DetallesItems>
-   <FechaHoraFirma>01-09-2025 21:50:21</FechaHoraFirma>
+   <FechaHoraFirma>03-09-2025 19:12:56</FechaHoraFirma>
    <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
       <SignedInfo>
          <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
@@ -136,14 +168,14 @@
                <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
             </Transforms>
             <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
-            <DigestValue>dxxIFxH+w6Fg5PCwcyyNwG5cN+gUsoBj3oQ80U1Pj3o=</DigestValue>
+            <DigestValue>pNCrt7aQdr/RpqsOUD9NPnDQMbK9GvZ7JsmmRyZeURY=</DigestValue>
          </Reference>
       </SignedInfo>
-      <SignatureValue>IFkZ8i9hXEYc5uUyk2/QgiCwwNyrnsB8onMarZckkXgfkbrWZYgK6t3wQGhEZXl5r3n+IGIgY4kd
-8ounsaZRIgKXVqVOfnQm0gVhG3wxWP/4ZlOXohjWID18NivDDIkTJ2SrU3xwSe1e4u5wkzniI193
-ucTPU0mtT93wMJlR86s6rLjyCDP7aH82rn1VXuWumSb/xloUk+x0rznsn7TR8w0G0/kHDOR/vr6p
-iE8/Zf40VEhwOx2oC7eg5gZAKl4/VZyfFe4sJEHzUVlAKcJxE4DlzSzmz98QYxniA/jk1ZSWseb+
-guN2XDWm9pjbPN+tirfrO6rEBAiWu55X9kaJiQ==</SignatureValue>
+      <SignatureValue>OztDn+EE/2Ct/82zVZbBLNRiLm5B6R67XKVSqL9sBmHkghU6/QDbe33SwMnvqzsaNs63+gbECj69
+5+ln1KOlpQYVE/4PbdLNQ6LeRlLr3gzXZ7NjF9msDbmDst1knDTvmo+18dPhx3wl6QMDnyAJWcCy
+6MquOJCklIbsWisIzF2CquyFwIev1aA5XKnGzCUFebnNa/EX35pYSpB8mmmSI9CcnUXOF2A2fhqO
+MeUvE2nPaaDC4kwLc8G9WFhfgljOWncZDx99T9xe32vsddYnCWSpUntEZ/cYCGD8jM1hfu2AtdI3
+Yj7r+lEiPHyO19iJgUXi+2mHsjjXouxriUNE9w==</SignatureValue>
       <KeyInfo>
          <X509Data>
             <X509Certificate>MIIJlzCCB3+gAwIBAgIIHinGmrFI5JkwDQYJKoZIhvcNAQELBQAwgbgxFzAVBgNVBGEMDlZBVERP
